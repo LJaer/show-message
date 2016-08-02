@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zk.ssm.mapper.FirstCategoryMapperCustom" >
+	
+	<!-- 一级分类列表查询 -->
+	<select id="findFirstCategoryList" resultType="cn.zk.ssm.po.FirstCategory">
+		SELECT * FROM first_category
+	</select>
+</mapper>
