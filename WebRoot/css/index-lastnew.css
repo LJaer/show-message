@@ -1,0 +1,7 @@
+*{margin:0;padding:0;}
+.lastnew{height:200px;border:solid 1px #000;margin:10px;}
+.lastnew-category-logo{width:40px;height:40px;border:solid 1px red;float:left;}
+.lastnew-title{float:left;padding-top:15px;}
+.lastnew-pic{width:150px;height:120px;border:solid 1px red;position: absolute;margin-top:60px;}
+.lastnew-context{width:40%;height:120px;border:solid 1px red;position:absolute;margin-top:60px;margin-left:170px;}
+.lastnew-othermsg{width：200px;height:20px;border:solid 1px red;position:absolute;margin-top:150px;margin-left:320px;font-size:13px;}
