@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zk.ssm.mapper.ShowPicturesMapperCustom">
+
+	<!-- 用来展示的图片 -->
+	<select id="queryShowPictures" resultType="cn.zk.ssm.po.ShowPictures">
+		SELECT * FROM show_pictures where choice = 1
+	</select>
+</mapper>

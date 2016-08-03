@@ -15,5 +15,6 @@
 		
 	<!-- 定义商品管理的service -->
 	<bean id="firstCategoryService" class="cn.zk.ssm.service.impl.FirstCategoryImpl"></bean>
+	<bean id="showPicturesService" class="cn.zk.ssm.service.impl.ShowPicturesServiceImp"></bean>
 		
 </beans>
