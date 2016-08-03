@@ -27,7 +27,7 @@
 	-->
 </head>
 <div id="index-top"><jsp:include page="/queryFirstCategoryList.action"></jsp:include></div>
-<div id="index-center">center</div>
+<div id="index-center"><%@ include file="jsp/index-center.jsp" %></div>
 <div id="index-bottom">bottom</div>
 <body>
 

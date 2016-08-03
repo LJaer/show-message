@@ -1,0 +1,7 @@
+*{margin:0;padding:0;}
+#index-center{border:1px solid red;width:80%;height:1600px;float: left;margin-left:10%;}
+#index-center-left{border:solid 1px blue;width:70%;height:100%;}
+#index-center-left-pic{margin:10px;border:solid 1px #000;height:270px;background-image:url(../pictures/showImg/1.jpg);background-repeat:no-repeat;background-size:100% 100%;}
+.index-center-left-pic-page{width:20px;height:15px;float:left;margin:5px;border:1px solid #fff;text-align:center;color:#000;}
+#index-center-left-pic-page{float:right;padding-top:240px;}
+.index-center-left-pic-page font{color:#fff;}
