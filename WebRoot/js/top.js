@@ -1,3 +1,7 @@
+$(document).ready(){
+	
+}
+
 function tick() {
 	var years, months, days, hours, minutes, seconds;
 	var intYears, intMonths, intDays, intHours, intMinutes, intSeconds;

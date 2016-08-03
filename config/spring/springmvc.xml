@@ -18,7 +18,8 @@
 
 	<!-- 静态资源解析 包括:js、css、img、。。。 -->
 	<mvc:resources location="/js/" mapping="/js/**" />
-	<mvc:resources location="/img/" mapping="/img/**" />
+	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/pictures/" mapping="/pictures/**" />
 
 	<!--注解映射器 -->
 	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/> -->
@@ -33,7 +34,7 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 配置jsp路径的前缀 -->
-		<property name="prefix" value="/jsp/" />
+		<property name="prefix" value="" />
 		<!-- 配置jsp路径的后缀 -->
 		<property name="suffix" value=".jsp" />
 	</bean>
