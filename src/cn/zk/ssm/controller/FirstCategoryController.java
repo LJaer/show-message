@@ -35,7 +35,7 @@ public class FirstCategoryController {
 		modelAndView.addObject("firstCategoryList", firstCategoryList);
 
 		// 指定视图
-		modelAndView.setViewName("/index");
+		modelAndView.setViewName("jsp/top");
 
 		return modelAndView;
 	}

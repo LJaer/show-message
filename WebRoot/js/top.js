@@ -1,7 +1,3 @@
-$(document).ready(){
-	
-}
-
 function tick() {
 	var years, months, days, hours, minutes, seconds;
 	var intYears, intMonths, intDays, intHours, intMinutes, intSeconds;
@@ -45,8 +41,6 @@ function tick() {
 	Clock.innerHTML = timeString;
 	window.setTimeout("tick();", 1000);
 }
-window.onload = tick;
-
 
 function titleOnmouseout(obj){
 	$(obj).css("background-color","");

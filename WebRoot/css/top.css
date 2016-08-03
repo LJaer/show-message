@@ -14,5 +14,5 @@ background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#000000), to(#EEEEEE));
 background: -webkit-linear-gradient(top, rgb(104,104,104), rgb(39,39,39));   /*Safari5.1 Chrome 10+*/
 background: -o-linear-gradient(top, #000000, #EEEEEE);  /*Opera 11.10+*/
 } 
-#top-title{margin:0 auto;width:1000px;}
-.top-bottom-title{float: left;font-size:20px;color:#fff;padding:10px;}
+#top-title{margin:0 auto;width:760px;}
+.top-bottom-title{float: left;font-size:15px;color:#fff;padding:10px;}
