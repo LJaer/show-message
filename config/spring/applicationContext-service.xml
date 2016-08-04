@@ -14,7 +14,9 @@
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 		
 	<!-- 定义商品管理的service -->
-	<bean id="firstCategoryService" class="cn.zk.ssm.service.impl.FirstCategoryImpl"></bean>
+	<bean id="firstCategoryService" class="cn.zk.ssm.service.impl.FirstCategoryImp"></bean>
+	<bean id="secondCategoryService" class="cn.zk.ssm.service.impl.SecondCategoryServiceImp"></bean>
 	<bean id="showPicturesService" class="cn.zk.ssm.service.impl.ShowPicturesServiceImp"></bean>
+	<bean id="articleService" class="cn.zk.ssm.service.impl.ArticleServiceImp"></bean>
 		
 </beans>

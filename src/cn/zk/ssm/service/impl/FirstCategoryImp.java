@@ -8,7 +8,7 @@ import cn.zk.ssm.mapper.FirstCategoryMapperCustom;
 import cn.zk.ssm.po.FirstCategory;
 import cn.zk.ssm.service.FirstCategoryService;
 
-public class FirstCategoryImpl implements FirstCategoryService {
+public class FirstCategoryImp implements FirstCategoryService {
 	
 	@Autowired
 	private FirstCategoryMapperCustom firstCategoryCustom;
