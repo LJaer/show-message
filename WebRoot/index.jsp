@@ -26,10 +26,13 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 </head>
-<div id="index-top"><jsp:include page="/queryFirstCategoryList.action"></jsp:include></div>
-<div id="index-center"><%@ include file="jsp/index-center.jsp" %></div>
-<div id="index-bottom">bottom</div>
 <body>
-
+<div id="index-top"><jsp:include page="/queryFirstCategoryList.action"></jsp:include></div>
+<div id="index-center"><%@ include file="jsp/index-center.jsp" %>
+<p><img src="ueditor/jsp/upload/image/20160804/1470278118744005470.jpg" title="1470278118744005470.jpg" alt="8c3e2bafa40f4bfb63cd7782034f78f0f6361887.jpg" width="373" height="355"/>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;??????????
+ &nbsp; &nbsp; &nbsp; &nbsp;</p>
+</div>
+<div id="index-bottom">bottom</div>
 </body>
 </html>
