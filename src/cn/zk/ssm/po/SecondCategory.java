@@ -7,6 +7,8 @@ public class SecondCategory {
 
     private Integer firstcategoryid;
 
+    private String img;
+
     public Integer getId() {
         return id;
     }
@@ -29,5 +31,13 @@ public class SecondCategory {
 
     public void setFirstcategoryid(Integer firstcategoryid) {
         this.firstcategoryid = firstcategoryid;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img == null ? null : img.trim();
     }
 }

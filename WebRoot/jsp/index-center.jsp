@@ -10,7 +10,8 @@
 		<jsp:include page="/queryShowPictures.action"></jsp:include>
 	</div>
 	<div id="index-center-left-lastnew">
-		<%@ include file="index-lastnew.jsp" %>
+		<jsp:include page="/queryLastArticle.action"></jsp:include>
 	</div>
+	<div></div>
 </div>
 

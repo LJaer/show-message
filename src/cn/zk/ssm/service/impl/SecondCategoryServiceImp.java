@@ -20,4 +20,10 @@ public class SecondCategoryServiceImp implements SecondCategoryService{
 		return secondCategoryMapperCustom.findSecondCategoryByFirstCagetory(id);
 	}
 
+	//根据id查询二级分类
+	@Override
+	public SecondCategory selectByPrimaryKey(Integer id) throws Exception {
+		return secondCategoryMapperCustom.selectByPrimaryKey(id);
+	}
+
 }

@@ -5,6 +5,6 @@ import cn.zk.ssm.po.SecondCategoryExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface SecondCategoryMapperCustom {
+public interface SecondCategoryMapperCustom extends SecondCategoryMapper{
     List<SecondCategory> findSecondCategoryByFirstCagetory(int id) throws Exception;
 }

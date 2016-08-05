@@ -5,6 +5,7 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="firstcategoryid" property="firstcategoryid" jdbcType="INTEGER" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, firstcategoryid
+    id, name, firstcategoryid, img
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.zk.ssm.po.SecondCategoryExample" >
     select
@@ -98,10 +99,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.zk.ssm.po.SecondCategory" >
-    insert into second_category (id, name, firstcategoryid
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{firstcategoryid,jdbcType=INTEGER}
-      )
+    insert into second_category (id, name, firstcategoryid, 
+      img)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{firstcategoryid,jdbcType=INTEGER}, 
+      #{img,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.zk.ssm.po.SecondCategory" >
     insert into second_category
@@ -115,6 +116,9 @@
       <if test="firstcategoryid != null" >
         firstcategoryid,
       </if>
+      <if test="img != null" >
+        img,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -125,6 +129,9 @@
       </if>
       <if test="firstcategoryid != null" >
         #{firstcategoryid,jdbcType=INTEGER},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -146,6 +153,9 @@
       <if test="record.firstcategoryid != null" >
         firstcategoryid = #{record.firstcategoryid,jdbcType=INTEGER},
       </if>
+      <if test="record.img != null" >
+        img = #{record.img,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -155,7 +165,8 @@
     update second_category
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
-      firstcategoryid = #{record.firstcategoryid,jdbcType=INTEGER}
+      firstcategoryid = #{record.firstcategoryid,jdbcType=INTEGER},
+      img = #{record.img,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -169,13 +180,17 @@
       <if test="firstcategoryid != null" >
         firstcategoryid = #{firstcategoryid,jdbcType=INTEGER},
       </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.zk.ssm.po.SecondCategory" >
     update second_category
     set name = #{name,jdbcType=VARCHAR},
-      firstcategoryid = #{firstcategoryid,jdbcType=INTEGER}
+      firstcategoryid = #{firstcategoryid,jdbcType=INTEGER},
+      img = #{img,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

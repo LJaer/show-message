@@ -5,6 +5,8 @@ public class FirstCategory {
 
     private String name;
 
+    private String img;
+
     public Integer getId() {
         return id;
     }
@@ -19,5 +21,13 @@ public class FirstCategory {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img == null ? null : img.trim();
     }
 }
