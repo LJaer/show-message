@@ -8,6 +8,7 @@ function insertArticleFirstCategoryDownList(){
 		'/show-message/findFirstCategoryList.action',
 		function(data){
 			var html = "";
+			html += "<option>未选择</option>";
 			for (var i = 0; i < data.length; i++) {
 				html += "<option firstcategoryid='"+data[i].id+"'>"+data[i].name+"</option>";
 			}
@@ -27,8 +28,8 @@ function insertArticleFirstCategoryChange(){
 			firstCategoryId:firstCategoryId
 		},
 		function(data){
-			//
 			var html = "";
+			html += "<option>未选择</option>";
 			for (var i = 0; i < data.length; i++) {
 				html += "<option secondcategoryid='"+data[i].id+"'>"+data[i].name+"</option>";
 			}
@@ -36,4 +37,12 @@ function insertArticleFirstCategoryChange(){
 			$(".insert-article-secondcategory").show();
 		}
 	 );
+}
+
+//当二级分类改变时，记录二级分类的id
+function recordSecondCategoryId(){
+	var obj=document.getElementById("insert-article-secondcategorylist");
+	var index=obj.selectedIndex;
+	var secondCategoryId=obj.options[index].getAttribute("secondcategoryid");
+	$("#insert-article-secondcategoryid").val(parseInt(secondCategoryId));
 }

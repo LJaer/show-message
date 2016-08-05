@@ -1,5 +1,6 @@
 package cn.zk.ssm.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,10 @@ public class ArticleController {
 	 */
 	@RequestMapping("/insertArticle")
 	public void insertArticle(Article article) throws Exception {
+		Date date = new Date();
+		article.setTime(date);
+		article.setReview(0);
+		article.setBrowse(0);
 		articleService.insertArticle(article);
 	}
 }

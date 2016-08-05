@@ -30,13 +30,16 @@
 </head>
 
 <body>
-	<form action="insertArticle.action" method="post">
+
 	
+
+	<form action="insertArticle.action" method="post">
 		<label>名称:</label> <input type="text" name="name" /><br> <label>所属分类</label><br>
 		<label>一级分类:</label>
 		<select id="insert-article-firstcategorylist" onchange="insertArticleFirstCategoryChange()"></select>
 		<label class="insert-article-secondcategory">二级分类:</label>
-		<select id="insert-article-secondcategorylist" class="insert-article-secondcategory"></select>
+		<select id="insert-article-secondcategorylist" class="insert-article-secondcategory" onchange="recordSecondCategoryId()"></select>
+		<input type="text" id="insert-article-secondcategoryid" name="secondcategoryid"></input>
 		<hr>
 		<!-- 配置文件 -->
 		<script type="text/javascript" src="ueditor/ueditor.config.js"></script>
