@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.zk.ssm.po.Article;
+import cn.zk.ssm.po.ArticleCustom;
 import cn.zk.ssm.po.ArticleStyle1;
 import cn.zk.ssm.po.ArticleStyle2;
 import cn.zk.ssm.po.FirstCategory;
@@ -71,7 +72,9 @@ public class ArticleController {
 			//根据一级id查询所有二级id
 			List<SecondCategory> secondCategoryList = new ArrayList();
 			secondCategoryList = secondCategoryService.findSecondCategoryByFirstCagetory(firstcategoryid);
-			List<Article> articleList = articleService.findArticleList(secondCategoryList,page);
+			ArticleCustom articleCustom = new ArticleCustom();
+			articleCustom.setSecondCategoryList(secondCategoryList);
+			List<Article> articleList = articleService.findArticleList(articleCustom);
 			articleStyle1List = articleToArticleStyle1(articleList);
 		}else{
 		}

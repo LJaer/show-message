@@ -13,12 +13,12 @@
 	</select>
 	
 	<!-- 查询文章列表 -->	
-	<select id="findArticleList" resultType="cn.zk.ssm.po.Article">
-		SELECT * FROM article
-		<!-- <foreach collection="secondCategoryIdList" item="secondCategoryId" open="AND (" close=")" separator="or">
-			每次遍历需要拼接的串
-			secondcategoryid=#{secondCategoryId}
-		</foreach> -->
+	<select id="findArticleList" parameterType="cn.zk.ssm.po.ArticleCustom" resultType="cn.zk.ssm.po.Article">
+		SELECT * FROM article WHERE
+		<foreach collection="secondCategoryList" item="secondCategory" open="(" close=")" separator="or">
+			<!-- 每次遍历需要拼接的串 -->
+			secondcategoryid=#{secondCategory.id}
+		</foreach>
 	</select>
 </mapper>
 

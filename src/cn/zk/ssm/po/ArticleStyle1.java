@@ -1,5 +1,7 @@
 package cn.zk.ssm.po;
 
+import java.util.List;
+
 
 /**
  * 文章样式:二级分类图标，文章名，文章图片，文章纯文本

@@ -10,6 +10,7 @@ import cn.zk.ssm.mapper.ArticleMapper;
 import cn.zk.ssm.mapper.ArticleMapperCustom;
 import cn.zk.ssm.mapper.FirstCategoryMapperCustom;
 import cn.zk.ssm.po.Article;
+import cn.zk.ssm.po.ArticleCustom;
 import cn.zk.ssm.po.ArticleStyle1;
 import cn.zk.ssm.po.ArticleStyle2;
 import cn.zk.ssm.po.FirstCategory;
@@ -67,9 +68,9 @@ public class ArticleServiceImp implements ArticleService{
 
 	//查询文章列表
 	@Override
-	public List<Article> findArticleList(List<SecondCategory> secondCategoryList,int page)
+	public List<Article> findArticleList(ArticleCustom articleCustom)
 			throws Exception {
-		return articleMapperCustom.findArticleList(secondCategoryList,page);
+		return articleMapperCustom.findArticleList(articleCustom);
 	}
 
 }
