@@ -1,0 +1,7 @@
+*{margin:0;padding:0;}
+.index-lastnew2-category{width:360px;height:290px;border:1px solid blue;float:left;margin-left:20px;margin-top:20px;}
+.index-lastnew2-category-categoryimg{width:30px;height:30px;float: left;}
+.index-lastnew2-category-categoryname{float: left;}
+.index-lastnew2-catgory-more{float:right;}
+.index-lastnew2-category-contextimg{float:left;width:110;height:90;}
+.index-lastnew2-category-point{float:left;width:15px;height:15;background:red;}

@@ -12,6 +12,8 @@
 	<div id="index-center-left-lastnew">
 		<jsp:include page="/queryLastArticle.action"></jsp:include>
 	</div>
-	<div></div>
+	<div id="index-center-left-lastnew2">
+		<jsp:include page="/queryLastArticle2.action"></jsp:include>
+	</div>
 </div>
 

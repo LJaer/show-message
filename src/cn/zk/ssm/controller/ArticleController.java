@@ -14,8 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cn.zk.ssm.po.Article;
 import cn.zk.ssm.po.ArticleStyle1;
+import cn.zk.ssm.po.ArticleStyle2;
+import cn.zk.ssm.po.FirstCategory;
 import cn.zk.ssm.po.SecondCategory;
 import cn.zk.ssm.service.ArticleService;
+import cn.zk.ssm.service.FirstCategoryService;
 import cn.zk.ssm.service.SecondCategoryService;
 import cn.zk.ssm.utils.HtmlParse;
 
@@ -32,6 +35,9 @@ public class ArticleController {
 	
 	@Autowired
 	private SecondCategoryService secondCategoryService;
+	
+	@Autowired 
+	private FirstCategoryService firstCategoryService;
 	
 	/**
 	 * 插入一条新的article
@@ -66,7 +72,9 @@ public class ArticleController {
 			}
 			//设置正文纯文本
 			String text = HtmlParse.getInstance().getHtmlText(html);
-			text = text.substring(0, 170);
+			if(text.length()>170){
+				text = text.substring(0, 170);
+			}
 			text += "...";
 			articleStyle1List.get(i).setText(text);
 			//设置二级分类图标
@@ -78,6 +86,18 @@ public class ArticleController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("articleStyle1List", articleStyle1List);
 		modelAndView.setViewName("jsp/index-lastnew");
+		return modelAndView;
+	}
+	
+	/**
+	 * 查询所有分类以及该分类下的六篇文章
+	 */
+	@RequestMapping("/queryLastArticle2")
+	public ModelAndView queryLastArticle2() throws Exception{
+		ModelAndView modelAndView = new ModelAndView();
+	 	List<ArticleStyle2> articleStyle2List = articleService.findLastArticle1List();
+	 	modelAndView.addObject("articleStyle2List", articleStyle2List);
+		modelAndView.setViewName("jsp/index-lastnew2");
 		return modelAndView;
 	}
 }

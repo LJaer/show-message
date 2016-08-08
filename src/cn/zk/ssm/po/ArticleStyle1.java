@@ -2,7 +2,7 @@ package cn.zk.ssm.po;
 
 
 /**
- * 文章样式
+ * 文章样式:二级分类图标，文章名，文章图片，文章纯文本
  * image文章所属一级分类的图片
  * text文章内容纯文本
  * secondcategoryimg:二级分类图标

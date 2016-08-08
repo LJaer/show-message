@@ -6,4 +6,9 @@
 	<select id="findLastArticleList" resultType="cn.zk.ssm.po.ArticleStyle1">
 		select * from article order by id desc LIMIT 0, 3
 	</select>
+	
+	<!-- 根据一级分类id查询该分类下前六篇 -->	
+	<select id="findFirstCategoryLastArticleList" resultType="cn.zk.ssm.po.Article">
+		SELECT * FROM article WHERE secondcategoryid= #{id}  ORDER BY TIME LIMIT 0,6
+	</select>
 </mapper>
