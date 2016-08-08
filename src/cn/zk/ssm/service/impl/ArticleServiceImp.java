@@ -13,6 +13,7 @@ import cn.zk.ssm.po.Article;
 import cn.zk.ssm.po.ArticleStyle1;
 import cn.zk.ssm.po.ArticleStyle2;
 import cn.zk.ssm.po.FirstCategory;
+import cn.zk.ssm.po.SecondCategory;
 import cn.zk.ssm.service.ArticleService;
 import cn.zk.ssm.utils.HtmlParse;
 
@@ -31,7 +32,7 @@ public class ArticleServiceImp implements ArticleService{
 
 	//查询三篇最新的文章
 	@Override
-	public List<ArticleStyle1> findLastArticleList() throws Exception {
+	public List<Article> findLastArticleList() throws Exception {
 		return articleMapperCustom.findLastArticleList();
 	}
 
@@ -64,4 +65,41 @@ public class ArticleServiceImp implements ArticleService{
 		return articleStyle2List;
 	}
 
+	//查询文章列表
+	@Override
+	public List<Article> findArticleList(List<SecondCategory> secondCategoryList,int page)
+			throws Exception {
+		return articleMapperCustom.findArticleList(secondCategoryList,page);
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

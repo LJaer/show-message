@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	//初始化导航栏
 	initNavigation();
+	tick();
 });
 
 //初始化导航栏
@@ -11,9 +12,28 @@ function initNavigation(){
 			var firstCategoryList = data;
 			var html = "";
 			for (var i = 0; i < firstCategoryList.length; i++) {
-				html += "<div id='"+firstCategoryList[i].id+"' class='top-bottom-title' onmouseout='titleOnmouseout(this)' onmouseover='titleOnmouseover(this)'>"+firstCategoryList[i].name+"</div>";
+				html += "<div firstcategoryid='"+firstCategoryList[i].id+"' onclick='goArticleList(this)' class='top-bottom-title'>"+firstCategoryList[i].name+"</div>";
 			}
 			$("#top-title-firstcategory").html(html);
+		}
+	);
+}
+
+
+//文章列表
+function goArticleList(obj){
+	$(".top-bottom-title").css("background-color","");
+	$(obj).css("background-color","red");
+	var firstcategoryid = $(obj).attr("firstcategoryid");
+	$.post(
+		'/show-message/queryArticleList.action',
+		{
+			firstcategoryid:firstcategoryid,
+			secondcategoryid:-1,
+			page:1
+		},
+		function(data){
+			$("#index-center-left").html(data);
 		}
 	);
 }
@@ -58,23 +78,15 @@ function tick() {
 		seconds = intSeconds + " ";
 	}
 	timeString = years + months + days + hours + minutes + seconds;
-	Clock.innerHTML = timeString;
+	$("#Clock").html(timeString);
 	window.setTimeout("tick();", 1000);
 }
 
-function titleOnmouseout(obj){
-	$(obj).css("background-color","");
-}
-
-function titleOnmouseover(obj){
-	$(obj).css("background-color","red");
-}
-
 function titleChoice(obj){
-	$(obj).css("background-color","red");
+	$(".top-bottom-title").css("background-color","");
+	$(obj).css("background-color",'red');
+	 window.location="/show-message/index.jsp"; 
 }
-
-
 
 
 

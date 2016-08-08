@@ -3,7 +3,7 @@
 <mapper namespace="cn.zk.ssm.mapper.ArticleMapperCustom" >
 
 	<!-- 查询三条最新的文章 -->	
-	<select id="findLastArticleList" resultType="cn.zk.ssm.po.ArticleStyle1">
+	<select id="findLastArticleList" resultType="cn.zk.ssm.po.Article">
 		select * from article order by id desc LIMIT 0, 3
 	</select>
 	
@@ -11,4 +11,14 @@
 	<select id="findFirstCategoryLastArticleList" resultType="cn.zk.ssm.po.Article">
 		SELECT * FROM article WHERE secondcategoryid= #{id}  ORDER BY TIME LIMIT 0,6
 	</select>
+	
+	<!-- 查询文章列表 -->	
+	<select id="findArticleList" resultType="cn.zk.ssm.po.Article">
+		SELECT * FROM article
+		<!-- <foreach collection="secondCategoryIdList" item="secondCategoryId" open="AND (" close=")" separator="or">
+			每次遍历需要拼接的串
+			secondcategoryid=#{secondCategoryId}
+		</foreach> -->
+	</select>
 </mapper>
+

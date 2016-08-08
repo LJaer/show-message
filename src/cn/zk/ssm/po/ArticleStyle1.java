@@ -9,10 +9,17 @@ package cn.zk.ssm.po;
  * @author LJaer
  *
  */
-public class ArticleStyle1 extends Article{
+public class ArticleStyle1{
 	private String contextimage;//正文图片
 	private String text;//正文纯文本
 	private String secondcategoryimage;//二级分类图标
+	private Article article;//article
+	public Article getArticle() {
+		return article;
+	}
+	public void setArticle(Article article) {
+		this.article = article;
+	}
 	public String getContextimage() {
 		return contextimage;
 	}
