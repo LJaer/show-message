@@ -11,10 +11,10 @@
 			src="${pageContext.request.contextPath}/${articleStyle2.firstCategory.img}" />
 		<div class="index-lastnew2-category-categoryname">${articleStyle2.firstCategory.name}</div>
 		<div class="index-lastnew2-catgory-more">更多</div>
-		<hr>
+		<br>
 		<img class="index-lastnew2-category-contextimg"
 			src="${pageContext.request.contextPath}/${articleStyle2.firstArticleImg}">
-			<div class="index-lastnew2-category-lastarticle">2016年10月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${articleStyle2.articleList[0].name}</div>
+		<div class="index-lastnew2-category-lastarticle">2016年10月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${articleStyle2.articleList[0].name}</div>
 		<div class="index-lastnew2-category-context">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${articleStyle2.firstArticleContext}</div>
 		<hr>
 		<c:forEach items="${articleStyle2.articleList}" var="article">

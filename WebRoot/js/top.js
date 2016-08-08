@@ -1,3 +1,23 @@
+$(document).ready(function(){
+	//初始化导航栏
+	initNavigation();
+});
+
+//初始化导航栏
+function initNavigation(){
+	$.post(
+		'/show-message/queryFirstCategoryList.action',
+		function(data){
+			var firstCategoryList = data;
+			var html = "";
+			for (var i = 0; i < firstCategoryList.length; i++) {
+				html += "<div id='"+firstCategoryList[i].id+"' class='top-bottom-title' onmouseout='titleOnmouseout(this)' onmouseover='titleOnmouseover(this)'>"+firstCategoryList[i].name+"</div>";
+			}
+			$("#top-title-firstcategory").html(html);
+		}
+	);
+}
+
 function tick() {
 	var years, months, days, hours, minutes, seconds;
 	var intYears, intMonths, intDays, intHours, intMinutes, intSeconds;

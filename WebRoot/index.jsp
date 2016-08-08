@@ -22,12 +22,11 @@
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
 </head>
 <body>
-<div id="index-top"><jsp:include page="/queryFirstCategoryList.action"></jsp:include></div>
+<div id="index-top"><%@ include file="jsp/top.jsp" %></div>
 <div id="index-center"><%@ include file="jsp/index-center.jsp" %></div>
 <div id="index-bottom">bottom</div>
 </body>
