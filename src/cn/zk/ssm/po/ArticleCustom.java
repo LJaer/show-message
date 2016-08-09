@@ -2,6 +2,11 @@ package cn.zk.ssm.po;
 
 import java.util.List;
 
+/**
+ * articlelist
+ * @author LJaer
+ *
+ */
 public class ArticleCustom {
 	private FirstCategory firstCategory;//一级分类
 	private List<SecondCategory> secondCategoryList;//该一级分类下的二级分类

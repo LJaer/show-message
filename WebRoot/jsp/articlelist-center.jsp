@@ -8,7 +8,11 @@
 
 <c:forEach items="${articleStyle1List}" var="articleStyle1">
 	<div class="articlelist-article">
-		<div class="articlelist-article-name">${articleStyle1.article.name}</div>
+		<a class="articlelist-article-name"
+			articleid="${articleStyle1.article.id}" onclick="choiceArticle(this)"
+			onmouseover="onmouseoverArticle(this)"
+			onmouseout="onmouseoutArticle(this)"
+			href="${pageContext.request.contextPath}/articleDetail.action?articleId=${articleStyle1.article.id}">${articleStyle1.article.name}</a>
 		<img class="articlelist-article-contextimg"
 			src="${pageContext.request.contextPath}/${articleStyle1.contextimage}"></img>
 		<div class="articlelist-article-context">${articleStyle1.text}</div>

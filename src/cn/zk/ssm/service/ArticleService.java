@@ -11,6 +11,8 @@ import cn.zk.ssm.po.SecondCategory;
 public interface ArticleService {
 	//insert一条article
 	void insertArticle(Article article) throws Exception;
+	//查询一条article
+	Article queryArticle(int id) throws Exception;
 	//查询三篇最新的文章
 	List<Article> findLastArticleList() throws Exception;
 	//查询所有分类和最近六篇文章

@@ -21,7 +21,7 @@ function showPicturesChange(obj){
 
 //定时改变展示图片
 setInterval(function(){
-	var page = $(".show-pictures-page")[CurrentShowPicturesPage];
+	var page = $(".show-pictures-page")[CurrentShowPicturesPage]; 
 	showPicturesChange(page);
 	CurrentShowPicturesPage++;
 	if(CurrentShowPicturesPage>9){

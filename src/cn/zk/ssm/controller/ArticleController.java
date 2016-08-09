@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -79,7 +82,7 @@ public class ArticleController {
 		}else{
 		}
 		modelAndView.addObject("articleStyle1List",articleStyle1List);
-		modelAndView.setViewName("jsp/articlelist-center");
+		modelAndView.setViewName("jsp/articlelist/articlelist");
 		return modelAndView;
 	}
 	
@@ -106,6 +109,20 @@ public class ArticleController {
 	 	List<ArticleStyle2> articleStyle2List = articleService.findLastArticle1List();
 	 	modelAndView.addObject("articleStyle2List", articleStyle2List);
 		modelAndView.setViewName("jsp/index-lastnew2");
+		return modelAndView;
+	}
+	
+	/**
+	 * 文章详情
+	 */
+	@RequestMapping("/articleDetail")
+	public ModelAndView articleDetail(int articleId) throws Exception{
+		ModelAndView modelAndView = new ModelAndView();
+
+		Article article = articleService.queryArticle(articleId);
+		modelAndView.addObject("article", article);
+		
+		modelAndView.setViewName("jsp/articledetail/article-detail");
 		return modelAndView;
 	}
 	

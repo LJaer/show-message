@@ -73,6 +73,11 @@ public class ArticleServiceImp implements ArticleService{
 		return articleMapperCustom.findArticleList(articleCustom);
 	}
 
+	@Override
+	public Article queryArticle(int id) throws Exception {
+		return articleMapperCustom.selectByPrimaryKey(id);
+	}
+
 }
 
 
