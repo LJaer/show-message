@@ -28,6 +28,6 @@
 <body>
 <div id="index-top"><%@ include file="jsp/top.jsp" %></div>
 <div id="index-center"><%@ include file="jsp/index-center.jsp" %></div>
-<div id="index-bottom">bottom</div>
+<div id="index-bottom"><%@ include file="jsp/bottom.jsp" %></div>
 </body>
 </html>

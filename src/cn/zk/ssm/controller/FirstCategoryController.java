@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.zk.ssm.po.Article;
 import cn.zk.ssm.po.FirstCategory;
+import cn.zk.ssm.po.SecondCategory;
+import cn.zk.ssm.service.ArticleService;
 import cn.zk.ssm.service.FirstCategoryService;
+import cn.zk.ssm.service.SecondCategoryService;
 
 /**
  * 一级分类的Controller
@@ -26,6 +30,12 @@ import cn.zk.ssm.service.FirstCategoryService;
 public class FirstCategoryController {
 	@Autowired
 	private FirstCategoryService firstCategoryService;
+	
+	@Autowired
+	private SecondCategoryService secondCategoryService;
+	
+	@Autowired
+	private ArticleService articleService;
 
 	// 一级分类列表查询,返回json
 	@RequestMapping("/queryFirstCategoryList")
@@ -41,6 +51,19 @@ public class FirstCategoryController {
 	@RequestMapping("findFirstCategoryList")
 	public @ResponseBody List<FirstCategory> findFirstCategoryList() throws Exception {
 		return firstCategoryService.findFirstCategoryList();
+	}
+	
+	/**
+	 * 根据二级分类查询一级分类
+	 */
+	@RequestMapping("/queryFirstCategoryByArticleId")
+	public @ResponseBody FirstCategory queryFirstCategoryByArticleId(int articleid) throws Exception{
+		//根据articleid查询二级分类
+		Article article = articleService.queryArticle(articleid);
+		//根据二级分类id查询二级分类
+		SecondCategory seconCategory = secondCategoryService.selectByPrimaryKey(article.getSecondcategoryid());
+		FirstCategory firstCategory = firstCategoryService.selectByPrimaryKey(seconCategory.getId());
+		return firstCategory;
 	}
 }
 

@@ -10,4 +10,5 @@ public interface SecondCategoryService {
 	
 	//查询二级分类
 	SecondCategory selectByPrimaryKey(Integer id) throws Exception;
+	
 }

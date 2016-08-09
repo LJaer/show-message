@@ -19,4 +19,8 @@ public class FirstCategoryImp implements FirstCategoryService {
 		return firstCategoryCustom.findFirstCategoryList();
 	}
 
+	@Override
+	public FirstCategory selectByPrimaryKey(Integer id) throws Exception {
+		return firstCategoryCustom.selectByPrimaryKey(id);
+	}
 }

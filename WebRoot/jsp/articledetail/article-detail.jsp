@@ -22,29 +22,32 @@
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/articledetail/articledetail.js"></script>
 
-<link rel="stylesheet" type="text/css" href="css/articledetail/articledetail.css">
+<link rel="stylesheet" type="text/css"
+	href="css/articledetail/articledetail.css">
 
 </head>
 <body>
-<div id="articledetail-top">
-<div id="top">
-	<div id="top-top">
-		今天是：<SPAN id="Clock"></SPAN>
-	</div>
-	<div id="top-center"></div>
-	<div id="top-bottom">
-		<div id="top-title">
-			<div firstcategoryid="top-bottom-firstpage" class="top-bottom-title" onclick="titleChoice(this)">首页</div>
-			<div id="top-title-firstcategory"></div>
+	<div id="articledetail-top">
+		<div id="top">
+			<div id="top-top">
+				今天是：<SPAN id="Clock"></SPAN>
+			</div>
+			<div id="top-center"></div>
+			<div id="top-bottom">
+				<div id="top-title">
+					<div firstcategoryid="top-bottom-firstpage"
+						class="top-bottom-title" onclick="titleChoice(this)">首页</div>
+					<div id="top-title-firstcategory"></div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
-</div>
-<div id="articledetail-center">
-	<div id="articledetail-center-left">
-	<c:out value="${article.name}"/>
-<c:out value="${article.html}" escapeXml="false" />
+	<div id="articledetail-center">
+		<div id="articledetail-center-left">
+			<c:out value="${article.name}" />
+			<c:out value="${article.html}" escapeXml="false" />
+		</div>
 	</div>
-</div>
+	<%@ include file="/jsp/bottom.jsp"%>
 </body>
 </html>
