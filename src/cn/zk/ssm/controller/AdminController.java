@@ -35,7 +35,8 @@ public class AdminController {
 		//通过Service接口查询用户是否存在
 		User resultUser = userService.selectByNameAndPassword(user);
 		if(resultUser!=null){
-
+			modelAndView.setViewName("jsp/admin/admin");
+			modelAndView.addObject("user", resultUser);
 		}else{
 			modelAndView.setViewName("jsp/admin/login");
 		}

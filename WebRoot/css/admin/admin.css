@@ -1,0 +1,6 @@
+*{margin:0;paddidng:0;}
+#admin-left{width:250px;height:100%;background:#5E5E5E;}
+#personInfor{height:20px;margin:0 auto;padding:10px;background:#90F7F7;}
+#username-title{float:left;}
+#username-value{float:left;}
+#signout{margin-left:10px;float:right;}
