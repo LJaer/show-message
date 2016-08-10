@@ -21,7 +21,7 @@
 	<mvc:resources location="/css/" mapping="/css/**" />
 	<mvc:resources location="/pictures/" mapping="/pictures/**" />
 	<mvc:resources location="/ueditor/" mapping="/ueditor/**" />
-	<mvc:resources location="/bootstrap/" mapping="/bootstrap/**" />
+	<mvc:resources location="/jqwidgets-4.1.2/" mapping="/jqwidgets-4.1.2/**" />
 
 	<!--注解映射器 -->
 	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/> -->

@@ -9,6 +9,7 @@
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+
 <head>
 <base href="<%=basePath%>">
 
@@ -20,17 +21,93 @@
 <meta http-equiv="description" content="This is my page">
 
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<!-- <script type="text/javascript" src="js/index.js"></script> -->
-
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/admin/admin.css">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxcore.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxtree.js"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/jqwidgets-4.1.2/styles/jqx.base.css"
+	type="text/css" />
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/admin/admin.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/admin/admin.css">
 
 </head>
 <body>
 	<div id="admin-left">
 		<div id="personInfor">
-			<div id="username-title">用户名：</div><div id="username-value">${user.name}</div>
+			<div id="username-title">用户名：</div>
+			<div id="username-value">${user.name}</div>
 			<div id="signout">登出</div>
+		</div>
+		<div style="border: none;" id='jqxTree'>
+			<ul>
+				<li id="systemmanager" item-expanded='true'><img
+					style='float: left; margin-right: 5px;'
+					src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+					item-title="true">系统管理</span>
+					<ul>
+						<li id="usermanager" item-expanded='true'><img
+							style='float: left; margin-right: 5px;'
+							src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+							item-title="true">用户管理</span>
+							<ul>
+								<li id="updateUser" item-expanded='true'><img
+									style='float: left; margin-right: 5px;'
+									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+									item-title="true">修改密码</span></li>
+							</ul></li>
+						<li id="categorymanager" item-expanded='true'><img
+							style='float: left; margin-right: 5px;'
+							src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+							item-title="true">分类管理</span>
+							<ul>
+								<li id="firstcategorymanager" item-expanded='true'><img
+									style='float: left; margin-right: 5px;'
+									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+									item-title="true">一级分类管理</span></li>
+								<li id="firstcategorymanager" item-expanded='true'><img
+									style='float: left; margin-right: 5px;'
+									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+									item-title="true">二级分类管理</span></li>
+							</ul></li>
+						<li id="articlemanager" item-expanded='true'><img
+							style='float: left; margin-right: 5px;'
+							src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+							item-title="true">文章管理</span>
+							<ul>
+								<li id="firstcategory" item-expanded='true'><img
+									style='float: left; margin-right: 5px;'
+									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+									item-title="true">一级分类</span>
+									<ul>
+										<li id="secondcategory" item-expanded='true'><img
+											style='float: left; margin-right: 5px;'
+											src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+											item-title="true">二级分类</span></li>
+										<li id="secondcategory" item-expanded='true'><img
+											style='float: left; margin-right: 5px;'
+											src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+											item-title="true">二级分类</span></li>
+										<li id="secondcategory" item-expanded='true'><img
+											style='float: left; margin-right: 5px;'
+											src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+											item-title="true">二级分类</span></li>
+									</ul></li>
+								<li id="firstcategory" item-expanded='true'><img
+									style='float: left; margin-right: 5px;'
+									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+									item-title="true">一级分类</span></li>
+								<li id="firstcategory" item-expanded='true'><img
+									style='float: left; margin-right: 5px;'
+									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+									item-title="true">一级分类</span></li>
+							</ul></li>
+					</ul></li>
+			</ul>
 		</div>
 	</div>
 </body>
+
 </html>
