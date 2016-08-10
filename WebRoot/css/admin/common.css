@@ -16,21 +16,6 @@ body {
 	min-height: 100%;
 	overflow: hidden;
 }
-/*@media (min-width: 660px) #wrap {
-	min-width: 650px;
-}
-@media (min-width: 768px) #wrap {
-	width: 100%;
-	min-width: 750px;
-}
-@media (min-width: 992px) #wrap {
-	width: 100%;
-	min-width: 970px;
-}
-@media (min-width: 1200px) #wrap {
-	width: 100%;
-	min-width: 1170px;
-}*/
 
 .leftMeun {
 	position: absolute;

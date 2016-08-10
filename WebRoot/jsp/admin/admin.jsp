@@ -41,10 +41,7 @@
 				</p>
 			</div>
 			<div id="personInfor">
-				<p id="userName">杨鹏</p>
-				<p>
-					<span>yangxp@qq.com</span>
-				</p>
+				<p id="userName">杨鹏</p><br>
 				<p>
 					<a>退出登录</a>
 				</p>
@@ -54,11 +51,6 @@
 				data-toggle="tab">
 				<img
 					src="${pageContext.request.contextPath}/pictures/admin/icon_user_grey.png">用户管理
-			</div>
-			<div class="meun-item" href="#chan" aria-controls="chan" role="tab"
-				data-toggle="tab">
-				<img
-					src="${pageContext.request.contextPath}/pictures/admin/icon_change_grey.png">修改密码
 			</div>
 		</div>
 		<!-- 右侧具体内容栏目 -->
@@ -118,44 +110,6 @@
 						<li><i class="glyphicon glyphicon-menu-right"> </i></li>
 					</ul>
 					</footer>
-
-				</div>
-				<!-- 修改密码模块 -->
-				<div role="tabpanel" class="tab-pane" id="chan">
-					<div class="check-div">原始密码为12312313</div>
-					<div
-						style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-						<form class="form-horizontal">
-							<div class="form-group">
-								<label for="sKnot" class="col-xs-4 control-label">原密码：</label>
-								<div class="col-xs-5">
-									<input type="" class="form-control input-sm duiqi" id="sKnot"
-										placeholder="" style="margin-top: 7px;">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="sKnot" class="col-xs-4 control-label">新密码：</label>
-								<div class="col-xs-5">
-									<input type="" class="form-control input-sm duiqi" id="sKnot"
-										placeholder="" style="margin-top: 7px;">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="sKnot" class="col-xs-4 control-label">重复密码：</label>
-								<div class="col-xs-5">
-									<input type="" class="form-control input-sm duiqi" id="sKnot"
-										placeholder="" style="margin-top: 7px;">
-								</div>
-							</div>
-							<div class="form-group text-right">
-								<div class="col-xs-offset-4 col-xs-5"
-									style="margin-left: 169px;">
-									<button type="reset" class="btn btn-xs btn-white">取 消</button>
-									<button type="submit" class="btn btn-xs btn-green">保存</button>
-								</div>
-							</div>
-						</form>
-					</div>
 
 				</div>
 			</div>
