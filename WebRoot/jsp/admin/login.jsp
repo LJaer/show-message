@@ -29,6 +29,32 @@
 				});
 			});
 		});
+		function checkUser(){
+			$.post(
+				'/show-message/checkUser.action',
+				{
+					name:$("#name").val(),
+					password:$("#password").val()
+				},
+				function(data){
+					if(data!=null){
+						var user = data;
+						var username = data.name;
+						setCookie("username",username);
+						window.self.location = "/show-message/admin";
+					}else{
+						alert("账号或密码错误");
+					}
+				}
+			);
+		}
+		function setCookie(name,value)
+		{
+		  var Days = 30; //此 cookie 将被保存 30 天
+		  var exp  = new Date();    //new Date("December 31, 9998");
+		  exp.setTime(exp.getTime() + Days*24*60*60*1000);
+		  document.cookie = name + "="+ escape(value) +";expires="+ exp.toGMTString();
+		}
 	</script>
 	<!--SIGN UP-->
 	<h1>klasikal Login Form</h1>
@@ -43,15 +69,15 @@
 			<img
 				src="${pageContext.request.contextPath}/pictures/login/avtar.png" />
 		</div>
-		<form action="${pageContext.request.contextPath}/login.action" method="post">
-			<input type="text" name="name" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
+		<form>
+			<input type="text" name="name" id="name" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
 			<div class="key">
-				<input type="password" value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+				<input type="password"  id="password" value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 			</div>
 			<div class="signin">
-			<input type="submit" value="Login">
 		</div>
 		</form>
+			<input type="submit" value="Login" onclick="checkUser()">
 		
 	</div>
 	<div class="copy-rights">

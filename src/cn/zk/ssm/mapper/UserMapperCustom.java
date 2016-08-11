@@ -10,4 +10,6 @@ import org.apache.ibatis.annotations.Param;
 public interface UserMapperCustom extends UserMapper{
 	//根据用户名和密码查询用户
 	User selectByNameAndPassword(User user);
+	//根据用户名查询用户
+	User selectByName(String name);
 }

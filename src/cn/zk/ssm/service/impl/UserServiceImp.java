@@ -25,4 +25,9 @@ public class UserServiceImp implements UserService{
 	public User selectByNameAndPassword(User user) throws Exception {
 		return userMapperCustom.selectByNameAndPassword(user);
 	}
+
+	@Override
+	public User selectByName(String name) throws Exception {
+		return userMapperCustom.selectByName(name);
+	}
 }

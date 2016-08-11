@@ -5,4 +5,9 @@
 	<select id="selectByNameAndPassword" parameterType="cn.zk.ssm.po.User" resultType="cn.zk.ssm.po.User">
 		SELECT * FROM USER WHERE name=#{name} AND password=#{password}
 	</select>
+	
+	<!-- 根据用户名查询用户 -->
+	<select id="selectByName" resultType="cn.zk.ssm.po.User">
+		SELECT * FROM USER WHERE name=#{name}
+	</select>
 </mapper>
