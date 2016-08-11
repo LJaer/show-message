@@ -65,6 +65,16 @@ public class FirstCategoryController {
 		FirstCategory firstCategory = firstCategoryService.selectByPrimaryKey(seconCategory.getId());
 		return firstCategory;
 	}
+	
+	/**
+	 * 新增一级分类
+	 * @return 
+	 * @throws Exception 
+	 */
+	@RequestMapping("/insertFirstCategory")
+	public @ResponseBody void queryFirstCateogry(FirstCategory firstCategory) throws Exception{
+		firstCategoryService.insertFirstCategory(firstCategory);
+	}
 }
 
 

@@ -4,19 +4,36 @@ $(document).ready(function() {
 });
 
 function initUi() {
-	var offset = $('#addFirstCategoryWindow').offset();
+	var addFirstCategoryWindow_offset = $('#addFirstCategoryWindow').offset();
 	 $('#addFirstCategoryWindow').jqxWindow({
-         position: { x: offset.left + 400, y: offset.top + 100} ,
-         showCollapseButton: false, maxHeight: 400, maxWidth: 700, minHeight: 200, minWidth: 200, height: 300, width: 500,
+         position: { x: addFirstCategoryWindow_offset.left + 400, y: addFirstCategoryWindow_offset.top + 100} ,
+         showCollapseButton: false, maxHeight: 400, maxWidth: 700, minHeight: 200, minWidth: 200, height: 100, width: 300,
          initContent: function () {
              $('#addFirstCategoryWindow').jqxWindow('focus');
          }
      });
+	 
+	 var choiceCategoryImgWindow_offset = $('#choiceCategoryImgWindow').offset();
+	 $('#choiceCategoryImgWindow').jqxWindow({
+         position: { x: choiceCategoryImgWindow_offset.left + 700, y: choiceCategoryImgWindow_offset.top + 150} ,
+         showCollapseButton: false, maxHeight: 400, maxWidth: 700, minHeight: 200, minWidth: 200, height: 100, width: 300,
+         initContent: function () {
+             $('#choiceCategoryImgWindow').jqxWindow('focus');
+         }
+     });
+	 
 	$('#jqxTree').jqxTree({
 		height : '100%'
 	});
 	$("#addFirstCategoryManager").jqxButton({width:120,height:30});
 	$("#addFirstCategoryManager").on('click',showAddFirstCategory);
+	$('#choiceFirstCategoryImg').jqxButton({width:'100%',height:20});
+	$('#choiceFirstCategoryImg').on('click',showChoiceCategoryImg);
+	$('#cancleAddFirstCategory').jqxButton({width:40,height:25});
+	$('#cancleAddFirstCategory').on('click',function(){$('#addFirstCategoryWindow').jqxWindow('close');});
+	$('#okAddFirstCategory').jqxButton({width:40,height:25});
+	$('#okAddFirstCategory').on('click',newFirstCategory);
+	
 	$('#jqxTree').on('select', function(event) {
 		hideAll();
 		var args = event.args;
@@ -35,10 +52,56 @@ function initUi() {
 	$("#editUser-table-username").val(getCookie("username"));
 }
 
+//向数据库传输newFirstCategory
+function newFirstCategory(){
+	var name = $("#addFirstCategoryName").val();
+	var imgid = $('#allreadyChoiceImg').attr("imgId");
+	if(imgid!=undefined&name!=undefined){
+		$.post(
+			'/show-message/insertFirstCategory',
+			{
+				name:name,
+				img:imgid
+			},
+			function(data){
+				$('#addFirstCategoryWindow').jqxWindow('close');
+				initFirstCategoryTable();
+			}
+		)
+	}else{
+		alert("没有选择图片或名称未填写！");
+	}
+	
+}
 
 //显示新增一级分类ui
 function showAddFirstCategory(){
 	$('#addFirstCategoryWindow').jqxWindow('open');
+}
+
+//显示选择分类图片的window
+function showChoiceCategoryImg(){
+	$('#choiceCategoryImgWindow').jqxWindow('open');
+	$.post(
+		'/show-message/selectAllCategoryImg',
+		function(data){
+			var categoryImgList = data;
+			var html = "";
+			for (var i = 0; i < categoryImgList.length; i++) {
+				html += "<img imgId='"+categoryImgList[i].id+"' src='"+categoryImgList[i].src+"' onclick='cateImgChoice(this)'/>";
+			}
+			$('#choiceCategoryTable').html(html);
+		}
+	);
+}
+
+//在分类图片里选择图片，并设置到新增一级分类的img里
+function cateImgChoice(obj){
+	var imgId = $(obj).attr("imgId");
+	var src = $(obj).attr("src");
+	$('#allreadyChoiceImg').attr('imgId',imgId);
+	$('#allreadyChoiceImg').attr('src',src);
+	$('#choiceCategoryImgWindow').jqxWindow('close');
 }
 
 

@@ -23,4 +23,10 @@ public class FirstCategoryImp implements FirstCategoryService {
 	public FirstCategory selectByPrimaryKey(Integer id) throws Exception {
 		return firstCategoryCustom.selectByPrimaryKey(id);
 	}
+
+	@Override
+	public int insertFirstCategory(FirstCategory firstCategory)
+			throws Exception {
+		return firstCategoryCustom.insert(firstCategory);
+	}
 }

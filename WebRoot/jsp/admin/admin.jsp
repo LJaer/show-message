@@ -144,6 +144,7 @@
 			<div id="firstCategoryTable"></div>
 		</div>
 		
+		<!-- 新增一级分类的窗口 -->
 		<div id="addFirstCategoryWindow">
 			<div id="addFirstCategoryWindow-header">
 				<span>
@@ -156,7 +157,7 @@
 					<tr>
 						<td>名称：</td>
 						<td>
-							<input>
+							<input id="addFirstCategoryName">
 						</td>
 					</tr>
 					<tr>
@@ -164,8 +165,33 @@
 						<td>
 							<input type="button" value="选择图片" id="choiceFirstCategoryImg">
 						</td>
+						<td>
+							<img id="allreadyChoiceImg" src=""/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="button" value="确认" id="okAddFirstCategory">
+						</td>
+						<td>
+							<input type="button" value="取消" id="cancleAddFirstCategory">
+						</td>
 					</tr>
 				</table>
+			</div>
+		</div>
+		
+		<!-- 选择图片的窗口 -->
+		<div id="choiceCategoryImgWindow">
+			<div id="choiceCategoryImgWindow-header">
+				<span>
+					<img src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png" alt="" style="margin-right: 15px" />
+					选择图片
+				</span>
+			</div>
+			<div id="choiceCategoryImgWindow-content">
+				<div id="choiceCategoryTable">
+				</div>
 			</div>
 		</div>
 		

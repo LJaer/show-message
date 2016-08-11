@@ -10,4 +10,7 @@ public interface FirstCategoryService {
 	
 	//根据一级分类id查询一级分类
 	FirstCategory selectByPrimaryKey(Integer id) throws Exception;
+	
+	//新增一级分类
+	int insertFirstCategory(FirstCategory firstCategory) throws Exception;
 }

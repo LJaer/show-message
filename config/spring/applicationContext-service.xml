@@ -19,5 +19,6 @@
 	<bean id="showPicturesService" class="cn.zk.ssm.service.impl.ShowPicturesServiceImp"></bean>
 	<bean id="articleService" class="cn.zk.ssm.service.impl.ArticleServiceImp"></bean>
 	<bean id="userService" class="cn.zk.ssm.service.impl.UserServiceImp"></bean>
+	<bean id="categoryImgService" class="cn.zk.ssm.service.impl.CategoryImgServiceImp"></bean>
 		
 </beans>
