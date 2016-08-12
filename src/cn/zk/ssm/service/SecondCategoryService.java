@@ -11,4 +11,13 @@ public interface SecondCategoryService {
 	//查询二级分类
 	SecondCategory selectByPrimaryKey(Integer id) throws Exception;
 	
+	//新增二级分类
+	int insert(SecondCategory record) throws Exception;
+	
+	//删除二级分类
+	int deleteByPrimaryKey(Integer id) throws Exception;
+	
+	//更新二级分类
+	int updateByPrimaryKey(SecondCategory record) throws Exception;
+	
 }

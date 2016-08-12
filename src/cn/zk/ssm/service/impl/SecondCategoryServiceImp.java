@@ -26,4 +26,19 @@ public class SecondCategoryServiceImp implements SecondCategoryService{
 		return secondCategoryMapperCustom.selectByPrimaryKey(id);
 	}
 
+	@Override
+	public int insert(SecondCategory record) throws Exception {
+		return secondCategoryMapperCustom.insert(record);
+	}
+
+	@Override
+	public int deleteByPrimaryKey(Integer id) throws Exception {
+		return secondCategoryMapperCustom.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public int updateByPrimaryKey(SecondCategory record) throws Exception {
+		return secondCategoryMapperCustom.updateByPrimaryKey(record);
+	}
+
 }

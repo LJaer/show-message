@@ -29,4 +29,14 @@ public class FirstCategoryImp implements FirstCategoryService {
 			throws Exception {
 		return firstCategoryCustom.insert(firstCategory);
 	}
+
+	@Override
+	public int deleteByPrimaryKey(Integer id) throws Exception {
+		return firstCategoryCustom.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public int updateByPrimaryKey(FirstCategory record) throws Exception {
+		return firstCategoryCustom.updateByPrimaryKey(record);
+	}
 }

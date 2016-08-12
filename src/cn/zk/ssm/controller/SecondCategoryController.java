@@ -30,4 +30,22 @@ public class SecondCategoryController {
 	public  @ResponseBody List<SecondCategory> findSecondCategoryListByFirstCategoryId(@RequestParam(value="firstCategoryId",required=true) Integer id) throws Exception{
 		return secondCategoryService.findSecondCategoryByFirstCagetory(id);
 	}
+	
+	//新增二级分类
+	@RequestMapping("/insertSecondCategory")
+	public @ResponseBody int insertSecondCategory(SecondCategory secondCategory) throws Exception{
+		return secondCategoryService.insert(secondCategory);
+	}
+	
+	//删除二级分类
+	@RequestMapping("/delSecondCategory")
+	public @ResponseBody int delSecondCategory(int id) throws Exception{
+		return secondCategoryService.deleteByPrimaryKey(id);
+	}
+	
+	//更新二级分类
+	@RequestMapping("/updateSecondCategory")
+	public @ResponseBody int updateSecondCategory(SecondCategory secondCategory) throws Exception{
+		return secondCategoryService.updateByPrimaryKey(secondCategory);
+	}
 }

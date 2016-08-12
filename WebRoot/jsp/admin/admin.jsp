@@ -67,11 +67,11 @@
 							src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
 							item-title="true">分类管理</span>
 							<ul>
-								<li id="firstcategorymanager" item-expanded='true'><img
+								<li id="firstcategorymanager" item-expanded='none'><img
 									style='float: left; margin-right: 5px;'
 									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
 									item-title="true">一级分类管理</span></li>
-								<li id="secondcategorymanager" item-expanded='true'><img
+								<li id="secondcategorymanager" item-expanded='none'><img
 									style='float: left; margin-right: 5px;'
 									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
 									item-title="true">二级分类管理</span></li>
@@ -180,6 +180,149 @@
 				</table>
 			</div>
 		</div>
+		
+		<!-- 修改一级分类的窗口 -->
+		<div id="editFirstCategoryWindow">
+			<div id="editFirstCategoryWindow-header">
+				<span>
+					<img src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png" alt="" style="margin-right: 15px" />
+					修改一级分类
+				</span>
+			</div>
+			<div id="editFirstCategoryWindow-content">
+				<table id="editFirstCategoryTable">
+					<tr>
+						<td>ID：</td>
+						<td>
+							<label id="editFirstCateoryId"></label>						
+						</td>
+					</tr>
+					<tr>
+						<td>名称：</td>
+						<td>
+							<input id="editFirstCategoryName">
+						</td>
+					</tr>
+					<tr>
+						<td>图片:</td>
+						<td>
+							<input type="button" value="选择图片" id="editFirstCtegoryChoiceImg" onclick="showChoiceCategoryImg()">
+						</td>
+						<td>
+							<img id="editFirstCategoryAllreadyChoiceImg" src=""/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="button" value="确认" id="okEidtFirstCategory" onclick="okEidtFirstCategory()">
+						</td>
+						<td>
+							<input type="button" value="取消" id="cancleEditFirstCategory" onclick="cancleEditFirstCategory()">
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<!-- 二级分类管理 -->
+		<div id="secondCategoryManager">
+			<div style="float:left">选择一级分类：</div>
+			<div id="secondCategoryManager-selectFirstCategory"></div>
+			<input id="addSecondCategory" type="button" value="新增二级分类">
+			<div id="secondCategoryManager-table"></div>
+		</div>
+		
+		<!-- 新增二级分类的窗口 -->
+		<div id="addSecondCategoryWindow">
+			<div id="addSecondCategoryWindow-header">
+				<span>
+					<img src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png" alt="" style="margin-right: 15px" />
+					新增二级分类
+				</span>
+			</div>
+			<div id="addSecondCategoryWindow-content">
+				<table id="addSecondCategoryTable">
+					<tr>
+						<td>上级分类:</td>
+						<td>
+							<label id="addSecondCategoryBelongFC"></label>
+						</td>
+					</tr>
+					<tr>
+						<td>名称：</td>
+						<td>
+							<input id="addSecondCategoryName">
+						</td>
+					</tr>
+					<tr>
+						<td>图片:</td>
+						<td>
+							<input type="button" value="选择图片" id="choiceSecondCategoryImg" onclick="showChoiceCategoryImg()">
+						</td>
+						<td>
+							<img id="addSecondCateogryAllreadyChoiceImg" src=""/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="button" value="确认" id="okAddSecondCategory">
+						</td>
+						<td>
+							<input type="button" value="取消" id="cancleAddSecondCategory">
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<!-- 修改二级分类的窗口 -->
+		<div id="updateSecondCategoryWindow">
+			<div id="updateSecondCategoryWindow-header">
+				<span>
+					<img src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png" alt="" style="margin-right: 15px" />
+					修改二级分类
+				</span>
+			</div>
+			<div id="updateSecondCategoryWindow-content">
+				<table id="updateSecondCategoryTable">
+					<tr>
+						<td>上级分类:</td>
+						<td>
+							<label id="updateSecondCategoryBelongFC"></label>
+						</td>
+					</tr>
+					<tr>
+						<td>名称：</td>
+						<td>
+							<input id="updateSecondCategoryName">
+						</td>
+					</tr>
+					<tr>
+						<td>ID：</td>
+						<td>
+							<label id="updateSecondCateoryId"></label>						
+						</td>
+					</tr>
+					<tr>
+						<td>图片:</td>
+						<td>
+							<input type="button" value="选择图片" id="choiceSecondCategoryImg" onclick="showChoiceCategoryImg()">
+						</td>
+						<td>
+							<img id="updateSecondCateogryAllreadyChoiceImg" src=""/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="button" value="确认" id="okUpdateSecondCategory">
+						</td>
+						<td>
+							<input type="button" value="取消" id="cancleUpdateSecondCategory">
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div> 
 		
 		<!-- 选择图片的窗口 -->
 		<div id="choiceCategoryImgWindow">

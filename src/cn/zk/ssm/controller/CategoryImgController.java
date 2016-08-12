@@ -20,4 +20,9 @@ public class CategoryImgController {
 	public @ResponseBody List<CategoryImg> selectAllCategoryImg() throws Exception{
 		return categoryImgService.selectAllCategoryImg();
 	}
+	
+	@RequestMapping("/selectCategoryImgById")
+	public @ResponseBody CategoryImg selectCategoryImgById(Integer categoryImgId) throws  Exception{
+		return categoryImgService.selectByPrimaryKey(categoryImgId);
+	}
 }

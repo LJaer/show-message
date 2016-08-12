@@ -18,4 +18,9 @@ public class CategoryImgServiceImp implements CategoryImgService{
 		return categoryImgMapperCustom.selectAllCategoryImg();
 	}
 
+	@Override
+	public CategoryImg selectByPrimaryKey(Integer id) throws Exception {
+		return categoryImgMapperCustom.selectByPrimaryKey(id);
+	}
+
 }

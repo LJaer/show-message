@@ -13,4 +13,10 @@ public interface FirstCategoryService {
 	
 	//新增一级分类
 	int insertFirstCategory(FirstCategory firstCategory) throws Exception;
+	
+	//删除一级分类
+	int deleteByPrimaryKey(Integer id) throws Exception;
+	
+	//更新一级分类
+	int updateByPrimaryKey(FirstCategory record) throws Exception;
 }

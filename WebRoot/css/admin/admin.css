@@ -1,13 +1,17 @@
 *{margin:0;paddidng:0;}
-#admin-left{width:200px;height:100%;float: left;overflow:hidden;}
+#admin-left{width:20%;height:100%;float: left;overflow:hidden;}
 #personInfor{height:20px;margin:0 auto;padding:10px;background:#90F7F7;}
 #username-title{float:left;}
 #username-value{float:left;}
 #signout{margin-left:10px;float:right;}
 #jqxTree{background:#5E5E5E;color:#fff;}
-#admin-right{width:100%;height:100%;background:#E6E6E6;}
+#admin-right{width:80%;height:100%;background:#E6E6E6;float:left;}
 #editUser{display:none;}
 #admin-right #firstCategoryManager{display:none;}
 #addFirstCategoryWindow{display:none}
 #choiceCategoryImgWindow{display:none}
+#editFirstCategoryWindow{display:none}
+#addSecondCategoryWindow{display:none}
+#updateSecondCategoryWindow{display:none}
+#admin-right #secondCategoryManager{display:none}
 #choiceFirstCategoryImg{font-size:10px;}

@@ -66,14 +66,22 @@ public class FirstCategoryController {
 		return firstCategory;
 	}
 	
-	/**
-	 * 新增一级分类
-	 * @return 
-	 * @throws Exception 
-	 */
+	//新增一级分类
 	@RequestMapping("/insertFirstCategory")
 	public @ResponseBody void queryFirstCateogry(FirstCategory firstCategory) throws Exception{
 		firstCategoryService.insertFirstCategory(firstCategory);
+	}
+	
+	//删除一级分类
+	@RequestMapping("/delFirstCategory")
+	public @ResponseBody int delFirstCategory(Integer firstCategoryId) throws Exception{
+		return firstCategoryService.deleteByPrimaryKey(firstCategoryId);
+	}
+	
+	//修改一级分类
+	@RequestMapping("/updateFirstCategory")
+	public @ResponseBody int updateFirstCategory(FirstCategory firstCategory) throws Exception{
+		return firstCategoryService.updateByPrimaryKey(firstCategory);
 	}
 }
 
