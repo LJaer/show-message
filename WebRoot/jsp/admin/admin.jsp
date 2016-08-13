@@ -315,7 +315,7 @@
 		<div id="admin-right-articlemanager">
 			<div>一级分类：</div>
 			<div>一级</div>
-			<div>二级分类：</div>
+			<div class="admin-right-articlemanager-secondcategory">二级分类：</div>
 			<div>二级</div>
 			
 		</div>
