@@ -80,34 +80,7 @@
 							style='float: left; margin-right: 5px;'
 							src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
 							item-title="true">文章管理</span>
-							<ul>
-								<li id="firstcategory" item-expanded='true'><img
-									style='float: left; margin-right: 5px;'
-									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
-									item-title="true">一级分类</span>
-									<ul>
-										<li id="secondcategory" item-expanded='true'><img
-											style='float: left; margin-right: 5px;'
-											src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
-											item-title="true">二级分类</span></li>
-										<li id="secondcategory" item-expanded='true'><img
-											style='float: left; margin-right: 5px;'
-											src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
-											item-title="true">二级分类</span></li>
-										<li id="secondcategory" item-expanded='true'><img
-											style='float: left; margin-right: 5px;'
-											src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
-											item-title="true">二级分类</span></li>
-									</ul></li>
-								<li id="firstcategory" item-expanded='true'><img
-									style='float: left; margin-right: 5px;'
-									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
-									item-title="true">一级分类</span></li>
-								<li id="firstcategory" item-expanded='true'><img
-									style='float: left; margin-right: 5px;'
-									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
-									item-title="true">一级分类</span></li>
-							</ul></li>
+						</li>
 					</ul></li>
 			</ul>
 		</div>
@@ -338,6 +311,14 @@
 			</div>
 		</div>
 		
+		<!-- 文章管理 -->
+		<div id="admin-right-articlemanager">
+			<div>一级分类：</div>
+			<div>一级</div>
+			<div>二级分类：</div>
+			<div>二级</div>
+			
+		</div>
 	</div>
 </body>
 
