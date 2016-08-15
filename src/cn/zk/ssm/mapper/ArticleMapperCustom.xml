@@ -20,5 +20,12 @@
 			secondcategoryid=#{secondCategory.id}
 		</foreach>
 	</select>
+	
+	<!-- 根据二级分类id查询文章列表 -->
+	<!-- List<Article> findArticleListBySecondCategoryId(int secondCategoryId) -->
+	<select id="findArticleListBySecondCategoryId" resultType="cn.zk.ssm.po.Article">
+		SELECT * FROM ARTICLE WHERE SECONDCATEGORYID = #{secondCategoryId}
+	</select>
+	
 </mapper>
 

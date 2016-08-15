@@ -31,8 +31,6 @@
 
 <body>
 
-	
-
 	<form action="insertArticle.action" method="post">
 		<label>名称:</label> <input type="text" name="name" /><br> <label>所属分类</label><br>
 		<label>一级分类:</label>
@@ -54,7 +52,7 @@
             这里写你的初始化内容
         </script>
 		<input type="submit" value="提交">
-		
 	</form>
+	
 </body>
 </html>

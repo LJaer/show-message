@@ -37,6 +37,14 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/admin/admin.css">
 	
+<!-- ueditor -->
+<!-- 配置文件 -->
+<script type="text/javascript" src="ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="ueditor/ueditor.all.js"></script>
+<!-- ueditor -->
+	
+
 </head>
 <body>
 	<div id="admin-left">
@@ -79,8 +87,7 @@
 						<li id="articlemanager" item-expanded='true'><img
 							style='float: left; margin-right: 5px;'
 							src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
-							item-title="true">文章管理</span>
-						</li>
+							item-title="true">文章管理</span></li>
 					</ul></li>
 			</ul>
 		</div>
@@ -116,87 +123,73 @@
 			<input type="button" value="新增一级分类" id='addFirstCategoryManager' />
 			<div id="firstCategoryTable"></div>
 		</div>
-		
+
 		<!-- 新增一级分类的窗口 -->
 		<div id="addFirstCategoryWindow">
 			<div id="addFirstCategoryWindow-header">
-				<span>
-					<img src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png" alt="" style="margin-right: 15px" />
-					新增一级分类
+				<span> <img
+					src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png"
+					alt="" style="margin-right: 15px" /> 新增一级分类
 				</span>
 			</div>
 			<div id="addFirstCategoryWindow-content">
 				<table id="addFirstCategoryTable">
 					<tr>
 						<td>名称：</td>
-						<td>
-							<input id="addFirstCategoryName">
-						</td>
+						<td><input id="addFirstCategoryName"></td>
 					</tr>
 					<tr>
 						<td>图片:</td>
-						<td>
-							<input type="button" value="选择图片" id="choiceFirstCategoryImg">
-						</td>
-						<td>
-							<img id="allreadyChoiceImg" src=""/>
-						</td>
+						<td><input type="button" value="选择图片"
+							id="choiceFirstCategoryImg"></td>
+						<td><img id="allreadyChoiceImg" src="" /></td>
 					</tr>
 					<tr>
-						<td>
-							<input type="button" value="确认" id="okAddFirstCategory">
+						<td><input type="button" value="确认" id="okAddFirstCategory">
 						</td>
-						<td>
-							<input type="button" value="取消" id="cancleAddFirstCategory">
-						</td>
+						<td><input type="button" value="取消"
+							id="cancleAddFirstCategory"></td>
 					</tr>
 				</table>
 			</div>
 		</div>
-		
+
 		<!-- 修改一级分类的窗口 -->
 		<div id="editFirstCategoryWindow">
 			<div id="editFirstCategoryWindow-header">
-				<span>
-					<img src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png" alt="" style="margin-right: 15px" />
-					修改一级分类
+				<span> <img
+					src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png"
+					alt="" style="margin-right: 15px" /> 修改一级分类
 				</span>
 			</div>
 			<div id="editFirstCategoryWindow-content">
 				<table id="editFirstCategoryTable">
 					<tr>
 						<td>ID：</td>
-						<td>
-							<label id="editFirstCateoryId"></label>						
-						</td>
+						<td><label id="editFirstCateoryId"></label></td>
 					</tr>
 					<tr>
 						<td>名称：</td>
-						<td>
-							<input id="editFirstCategoryName">
-						</td>
+						<td><input id="editFirstCategoryName"></td>
 					</tr>
 					<tr>
 						<td>图片:</td>
-						<td>
-							<input type="button" value="选择图片" id="editFirstCtegoryChoiceImg" onclick="showChoiceCategoryImg()">
+						<td><input type="button" value="选择图片"
+							id="editFirstCtegoryChoiceImg" onclick="showChoiceCategoryImg()">
 						</td>
-						<td>
-							<img id="editFirstCategoryAllreadyChoiceImg" src=""/>
-						</td>
+						<td><img id="editFirstCategoryAllreadyChoiceImg" src="" /></td>
 					</tr>
 					<tr>
-						<td>
-							<input type="button" value="确认" id="okEidtFirstCategory" onclick="okEidtFirstCategory()">
-						</td>
-						<td>
-							<input type="button" value="取消" id="cancleEditFirstCategory" onclick="cancleEditFirstCategory()">
+						<td><input type="button" value="确认" id="okEidtFirstCategory"
+							onclick="okEidtFirstCategory()"></td>
+						<td><input type="button" value="取消"
+							id="cancleEditFirstCategory" onclick="cancleEditFirstCategory()">
 						</td>
 					</tr>
 				</table>
 			</div>
 		</div>
-		
+
 		<!-- 二级分类管理 -->
 		<div id="secondCategoryManager">
 			<div style="float:left">选择一级分类：</div>
@@ -204,122 +197,147 @@
 			<input id="addSecondCategory" type="button" value="新增二级分类">
 			<div id="secondCategoryManager-table"></div>
 		</div>
-		
+
 		<!-- 新增二级分类的窗口 -->
 		<div id="addSecondCategoryWindow">
 			<div id="addSecondCategoryWindow-header">
-				<span>
-					<img src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png" alt="" style="margin-right: 15px" />
-					新增二级分类
+				<span> <img
+					src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png"
+					alt="" style="margin-right: 15px" /> 新增二级分类
 				</span>
 			</div>
 			<div id="addSecondCategoryWindow-content">
 				<table id="addSecondCategoryTable">
 					<tr>
 						<td>上级分类:</td>
-						<td>
-							<label id="addSecondCategoryBelongFC"></label>
-						</td>
+						<td><label id="addSecondCategoryBelongFC"></label></td>
 					</tr>
 					<tr>
 						<td>名称：</td>
-						<td>
-							<input id="addSecondCategoryName">
-						</td>
+						<td><input id="addSecondCategoryName"></td>
 					</tr>
 					<tr>
 						<td>图片:</td>
-						<td>
-							<input type="button" value="选择图片" id="choiceSecondCategoryImg" onclick="showChoiceCategoryImg()">
+						<td><input type="button" value="选择图片"
+							id="choiceSecondCategoryImg" onclick="showChoiceCategoryImg()">
 						</td>
-						<td>
-							<img id="addSecondCateogryAllreadyChoiceImg" src=""/>
-						</td>
+						<td><img id="addSecondCateogryAllreadyChoiceImg" src="" /></td>
 					</tr>
 					<tr>
-						<td>
-							<input type="button" value="确认" id="okAddSecondCategory">
+						<td><input type="button" value="确认" id="okAddSecondCategory">
 						</td>
-						<td>
-							<input type="button" value="取消" id="cancleAddSecondCategory">
-						</td>
+						<td><input type="button" value="取消"
+							id="cancleAddSecondCategory"></td>
 					</tr>
 				</table>
 			</div>
 		</div>
-		
+
 		<!-- 修改二级分类的窗口 -->
 		<div id="updateSecondCategoryWindow">
 			<div id="updateSecondCategoryWindow-header">
-				<span>
-					<img src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png" alt="" style="margin-right: 15px" />
-					修改二级分类
+				<span> <img
+					src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png"
+					alt="" style="margin-right: 15px" /> 修改二级分类
 				</span>
 			</div>
 			<div id="updateSecondCategoryWindow-content">
 				<table id="updateSecondCategoryTable">
 					<tr>
 						<td>上级分类:</td>
-						<td>
-							<label id="updateSecondCategoryBelongFC"></label>
-						</td>
+						<td><label id="updateSecondCategoryBelongFC"></label></td>
 					</tr>
 					<tr>
 						<td>名称：</td>
-						<td>
-							<input id="updateSecondCategoryName">
-						</td>
+						<td><input id="updateSecondCategoryName"></td>
 					</tr>
 					<tr>
 						<td>ID：</td>
-						<td>
-							<label id="updateSecondCateoryId"></label>						
-						</td>
+						<td><label id="updateSecondCateoryId"></label></td>
 					</tr>
 					<tr>
 						<td>图片:</td>
-						<td>
-							<input type="button" value="选择图片" id="choiceSecondCategoryImg" onclick="showChoiceCategoryImg()">
+						<td><input type="button" value="选择图片"
+							id="choiceSecondCategoryImg" onclick="showChoiceCategoryImg()">
 						</td>
-						<td>
-							<img id="updateSecondCateogryAllreadyChoiceImg" src=""/>
+						<td><img id="updateSecondCateogryAllreadyChoiceImg" src="" />
 						</td>
 					</tr>
 					<tr>
-						<td>
-							<input type="button" value="确认" id="okUpdateSecondCategory">
-						</td>
-						<td>
-							<input type="button" value="取消" id="cancleUpdateSecondCategory">
-						</td>
+						<td><input type="button" value="确认"
+							id="okUpdateSecondCategory"></td>
+						<td><input type="button" value="取消"
+							id="cancleUpdateSecondCategory"></td>
 					</tr>
 				</table>
 			</div>
-		</div> 
-		
+		</div>
+
 		<!-- 选择图片的窗口 -->
 		<div id="choiceCategoryImgWindow">
 			<div id="choiceCategoryImgWindow-header">
-				<span>
-					<img src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png" alt="" style="margin-right: 15px" />
-					选择图片
+				<span> <img
+					src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png"
+					alt="" style="margin-right: 15px" /> 选择图片
 				</span>
 			</div>
 			<div id="choiceCategoryImgWindow-content">
-				<div id="choiceCategoryTable">
-				</div>
+				<div id="choiceCategoryTable"></div>
 			</div>
 		</div>
-		
+
 		<!-- 文章管理 -->
 		<div id="admin-right-articlemanager">
-			<div>一级分类：</div>
-			<div>一级</div>
-			<div class="admin-right-articlemanager-secondcategory">二级分类：</div>
-			<div>二级</div>
+			<div class="floatleft">一级分类：</div>
+			<div class="floatleft">
+				<select id="articlemanager-firstcategorylist"
+					onchange="showArticleManagerSecondCategoryList()"></select>
+			</div>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class="admin-right-articlemanager-secondcategory floatleft">二级分类：</div>
+			<div class="admin-right-articlemanager-secondcategory floatleft">
+				<select id="articlemanager-secondcategorylist"
+					onchange="showArticleManagerArticleList()"></select>
+			</div>
+			<br> <br> <input type="button" value="新增文章"
+				id="articleManager-addArticle">
+			<!-- 文章列表 -->
+			<div id="articlemanager-articlelist"></div>
+			<br>
+			<br>
+			<!-- 新增文章 -->
+			<div id="addArticle" class="displayNone">
+				<label>文章标题:</label> <input type="text" name="name" id="addArticle-articleName"/><br>
+				<hr>
+				<!-- 实例化编辑器 -->
+				<script type="text/javascript">
+					var editor = UE.getEditor('addArticle-articleContent');
+				</script>
+				<!-- 加载编辑器的容器 -->
+				<script name="html" type="text/plain" id="addArticle-articleContent">
+            		这里写你的初始化内容
+       			</script>
+				<input type="button" value="提交" id="addArticle-button">
+				<input type="button" value="取消" id="cancleAddArticle">
+			</div>
+			
+			<!-- 更新文章 -->
+			<div id="updateArticle" class="displayNone">
+				<label>articleId:</label><label id="updateArticle-articleId"></label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label>文章标题:</label> <input type="text" id="updateArticle-articleName"/><br>
+				<!-- 实例化编辑器 -->
+				<script type="text/javascript">
+					var editor1 = UE.getEditor('updateArticle-articleContent');
+				</script>
+				<!-- 加载编辑器的容器 -->
+				<script name="html" type="text/plain" id="updateArticle-articleContent">
+            		这里写你的初始化内容
+       			</script>
+				<input type="button" value="提交" id="updateArticle-button">
+				<input type="button" value="取消" id="cancleUpdateArticle">
+			</div>
 			
 		</div>
-	</div>
 </body>
 
 </html>

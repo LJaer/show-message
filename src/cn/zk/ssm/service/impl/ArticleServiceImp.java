@@ -27,8 +27,8 @@ public class ArticleServiceImp implements ArticleService{
 	private FirstCategoryMapperCustom firstCategoryMapperCustom;
 	
 	@Override
-	public void insertArticle(Article article) throws Exception {
-		articleMapperCustom.insert(article);
+	public int insertArticle(Article article) throws Exception {
+		return articleMapperCustom.insert(article);
 	}
 
 	//查询三篇最新的文章
@@ -75,6 +75,27 @@ public class ArticleServiceImp implements ArticleService{
 
 	@Override
 	public Article queryArticle(int id) throws Exception {
+		return articleMapperCustom.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public List<Article> findArticleListBySecondCategoryId(int secondCategoryId)
+			throws Exception {
+		return articleMapperCustom.findArticleListBySecondCategoryId(secondCategoryId);
+	}
+
+	@Override
+	public int delArticle(int id) throws Exception {
+		return articleMapperCustom.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public int updateArticle(Article article) throws Exception {
+		return articleMapperCustom.updateByPrimaryKey(article);
+	}
+
+	@Override
+	public Article selectByPrimaryKey(Integer id) {
 		return articleMapperCustom.selectByPrimaryKey(id);
 	}
 

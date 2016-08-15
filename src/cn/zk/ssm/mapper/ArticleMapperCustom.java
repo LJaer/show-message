@@ -1,14 +1,9 @@
 package cn.zk.ssm.mapper;
 
-import cn.zk.ssm.po.Article;
-import cn.zk.ssm.po.ArticleCustom;
-import cn.zk.ssm.po.ArticleExample;
-import cn.zk.ssm.po.ArticleStyle1;
-import cn.zk.ssm.po.SecondCategory;
-
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
+import cn.zk.ssm.po.Article;
+import cn.zk.ssm.po.ArticleCustom;
 
 public interface ArticleMapperCustom extends ArticleMapper{
 	
@@ -20,4 +15,8 @@ public interface ArticleMapperCustom extends ArticleMapper{
 	
 	//查询文章列表
 	List<Article> findArticleList(ArticleCustom articleCustom) throws Exception;
+	
+	//根据二级分类id查询文章列表
+	List<Article> findArticleListBySecondCategoryId(int secondCategoryId) throws Exception;
+	
 }
