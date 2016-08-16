@@ -16,7 +16,7 @@ public interface ArticleService {
 	//删除一条article
 	int delArticle(int id) throws Exception;
 	//修改一条article
-	int updateArticle(Article article) throws Exception;
+	int updateByPrimaryKeySelective(Article article) throws Exception;
 	//查询一条article
 	Article queryArticle(int id) throws Exception;
 	//查询三篇最新的文章

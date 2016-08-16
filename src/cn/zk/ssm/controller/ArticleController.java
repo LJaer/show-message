@@ -57,10 +57,10 @@ public class ArticleController {
 	}
 	
 	//更新一条article
-	@RequestMapping("/updateArticle")
+	@RequestMapping("/updateArticleSelective")
 	@ResponseBody
-	public int updateArticle(Article article) throws Exception{
-		return articleService.updateArticle(article);
+	public int updateArticleSelective(Article article) throws Exception{
+		return articleService.updateByPrimaryKeySelective(article);
 	}
 	
 	//查询一条article

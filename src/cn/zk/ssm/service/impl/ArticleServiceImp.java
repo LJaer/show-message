@@ -90,8 +90,8 @@ public class ArticleServiceImp implements ArticleService{
 	}
 
 	@Override
-	public int updateArticle(Article article) throws Exception {
-		return articleMapperCustom.updateByPrimaryKey(article);
+	public int updateByPrimaryKeySelective(Article article) throws Exception {
+		return articleMapperCustom.updateByPrimaryKeySelective(article);
 	}
 
 	@Override

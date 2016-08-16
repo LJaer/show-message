@@ -156,6 +156,12 @@ function initUi() {
 		height : 25
 	});
 	$('#okUpdateSecondCategory').on('click', updateSecondCategory);
+	//cancleUpdateArticle
+	$('#cancleUpdateArticle').jqxButton({
+		width : 100,
+		height : 25
+	});
+	$('#cancleUpdateArticle').on('click', cancleUpdateArticle);
 	// articleManager-addArticle
 	$('#articleManager-addArticle').jqxButton({
 		width : 100,
@@ -175,7 +181,12 @@ function initUi() {
 		height : 25
 	});
 	$('#addArticle-button').on('click',addArticle);
-	
+	//updateArticle-button
+	$('#updateArticle-button').jqxButton({
+		width : 100,
+		height : 25
+	});
+	$('#updateArticle-button').on('click',updateArticle);
 
 	$('#jqxTree').on('select', function(event) {
 		hideAll();
@@ -203,13 +214,50 @@ function initUi() {
 	$("#editUser-table-username").val(getCookie("username"));
 }
 
+//updateArticle
+function updateArticle(){
+	var articleId = $("#updateArticle-articleId").html();
+	var name = $("#updateArticle-articleName").val();
+	var editor = UE.getEditor('updateArticle-articleContent');
+	var html = editor.getContent();
+	var cs;
+	$.post(
+		'/show-message/updateArticleSelective',
+		{
+			id:articleId,
+			name:name,
+			html:html
+		},
+		function(data){
+			if(data!=0){
+				alert("更新成功");
+				$("#updateArticle").hide();
+				$("#articlemanager-articlelist").show();
+				$("#articleManager-addArticle").show();
+				showArticleManagerArticleList();
+			}else{
+				alert("更新失败");
+			}
+		}
+	);
+	
+}
+
+//cancleUpdateArticle
+function cancleUpdateArticle(){
+	$("#updateArticle").hide();
+	$("#articlemanager-articlelist").show();
+	$("#articleManager-addArticle").show();
+}
+
 //addArticle
 function addArticle(){
 	var select = document.getElementById("articlemanager-secondcategorylist");
 	var index = select.selectedIndex;
 	var secondCategoryId = select.options[index].getAttribute("secondcategoryid");
 	var name = $('#addArticle-articleName').val();
-	var html = $('#addArticle-articleContent').html();
+	var editor = UE.getEditor('addArticle-articleContent');
+	var html = editor.getContent();
 	$.post(
 		'/show-message/insertArticle',
 		{
@@ -315,7 +363,6 @@ function delArticle(obj){
 	);
 }
 
-//更新文章
 function showUpdateArticle(obj){
 	$("#updateArticle").show();
 	var tr = getRowObj(obj);
@@ -330,8 +377,10 @@ function showUpdateArticle(obj){
 			if(data!=null){
 				$("#updateArticle-articleId").html(articleId);
 				$("#updateArticle-articleName").val(articleName);
-				var editor = UE.getEditor('updateArticle-articleContent');
-				editor.setContent(data.html);
+				UE.getEditor('updateArticle-articleContent').setContent(data.html);
+				//隐藏控件
+				$("#articlemanager-articlelist").hide();
+				$("#articleManager-addArticle").hide();
 			}
 		}
 	);

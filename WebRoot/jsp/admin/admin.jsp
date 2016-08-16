@@ -29,6 +29,10 @@
 	src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxbuttons.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxwindow.js"></script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="ueditor/ueditor.all.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/jqwidgets-4.1.2/styles/jqx.base.css"
 	type="text/css" />
@@ -36,14 +40,6 @@
 	src="${pageContext.request.contextPath}/js/admin/admin.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/admin/admin.css">
-	
-<!-- ueditor -->
-<!-- 配置文件 -->
-<script type="text/javascript" src="ueditor/ueditor.config.js"></script>
-<!-- 编辑器源码文件 -->
-<script type="text/javascript" src="ueditor/ueditor.all.js"></script>
-<!-- ueditor -->
-	
 
 </head>
 <body>
@@ -303,11 +299,11 @@
 				id="articleManager-addArticle">
 			<!-- 文章列表 -->
 			<div id="articlemanager-articlelist"></div>
-			<br>
-			<br>
+			<br> <br>
 			<!-- 新增文章 -->
 			<div id="addArticle" class="displayNone">
-				<label>文章标题:</label> <input type="text" name="name" id="addArticle-articleName"/><br>
+				<label>文章标题:</label> <input type="text" name="name"
+					id="addArticle-articleName" /><br>
 				<hr>
 				<!-- 实例化编辑器 -->
 				<script type="text/javascript">
@@ -317,26 +313,29 @@
 				<script name="html" type="text/plain" id="addArticle-articleContent">
             		这里写你的初始化内容
        			</script>
-				<input type="button" value="提交" id="addArticle-button">
-				<input type="button" value="取消" id="cancleAddArticle">
+				<input type="button" value="提交" id="addArticle-button"> <input
+					type="button" value="取消" id="cancleAddArticle">
 			</div>
-			
+
 			<!-- 更新文章 -->
 			<div id="updateArticle" class="displayNone">
 				<label>articleId:</label><label id="updateArticle-articleId"></label>&nbsp;&nbsp;&nbsp;&nbsp;
-				<label>文章标题:</label> <input type="text" id="updateArticle-articleName"/><br>
+				<label>文章标题:</label> <input type="text"
+					id="updateArticle-articleName" /><br>
+
 				<!-- 实例化编辑器 -->
 				<script type="text/javascript">
-					var editor1 = UE.getEditor('updateArticle-articleContent');
+					var editor_a = UE.getEditor('updateArticle-articleContent');
 				</script>
 				<!-- 加载编辑器的容器 -->
-				<script name="html" type="text/plain" id="updateArticle-articleContent">
+				<script name="html" type="text/plain"
+					id="updateArticle-articleContent">
             		这里写你的初始化内容
        			</script>
-				<input type="button" value="提交" id="updateArticle-button">
-				<input type="button" value="取消" id="cancleUpdateArticle">
+				<input type="button" value="提交" id="updateArticle-button"> <input
+					type="button" value="取消" id="cancleUpdateArticle">
 			</div>
-			
+
 		</div>
 </body>
 
