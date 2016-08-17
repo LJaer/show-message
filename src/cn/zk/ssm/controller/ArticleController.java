@@ -19,6 +19,7 @@ import cn.zk.ssm.po.SecondCategory;
 import cn.zk.ssm.service.ArticleService;
 import cn.zk.ssm.service.FirstCategoryService;
 import cn.zk.ssm.service.SecondCategoryService;
+import cn.zk.ssm.utils.PageBean;
 
 
 /**
@@ -177,12 +178,15 @@ public class ArticleController {
 	
 	//根据二级分类id查询文章了列表
 	@RequestMapping("/findArticleListBySecondCategoryId")
-	public @ResponseBody List<Article> findArticleListBySecondCategoryId(int secondCategoryId) throws Exception{
-		List<Article> list = articleService.findArticleListBySecondCategoryId(secondCategoryId);
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).getTime());
-		}
-		return articleService.findArticleListBySecondCategoryId(secondCategoryId);
+	public @ResponseBody PageBean<Article> findArticleListBySecondCategoryId(PageBean pageBean) throws Exception{
+		return articleService.findArticleListBySecondCategoryIdAndPage(pageBean);
+	}
+	
+	//根据secondid和page查询articlelist
+	@RequestMapping("/findArticleListBySecondCategoryIdAndPage")
+	@ResponseBody PageBean<Article> findArticleListBySecondCategoryIdAndPage(int secondCategoryId,int page) throws Exception{
+		//return articleService.findArticleListBySecondCategoryIdAndPage(secondCategoryId,page);
+		return null;
 	}
 }
 

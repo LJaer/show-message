@@ -7,6 +7,7 @@ import cn.zk.ssm.po.ArticleCustom;
 import cn.zk.ssm.po.ArticleStyle1;
 import cn.zk.ssm.po.ArticleStyle2;
 import cn.zk.ssm.po.SecondCategory;
+import cn.zk.ssm.utils.PageBean;
 
 public interface ArticleService {
 	//查询一条article
@@ -25,6 +26,9 @@ public interface ArticleService {
 	List<ArticleStyle2> findLastArticle1List() throws Exception;
 	//查询文章列表
 	List<Article> findArticleList(ArticleCustom articleCustom) throws Exception;
-	//根据二级分类id查询文章列表
-	List<Article> findArticleListBySecondCategoryId(int id) throws Exception;
+	//根据二级分类id查询文章个数
+	int findArticleCountBySecondCategoryId(PageBean pageBean) throws Exception;
+	//分页查询Article 
+	PageBean<Article> findArticleListBySecondCategoryIdAndPage(PageBean pageBean) throws Exception;
 }
+ 

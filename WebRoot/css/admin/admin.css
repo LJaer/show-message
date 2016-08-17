@@ -19,3 +19,12 @@
 .floatleft{float:left}
 .admin-right-articlemanager-secondcategory{display:none;}
 .displayNone{display:none;}
+
+/* pageNav*/
+a { color:#2B4A78; text-decoration:none; }
+a:hover { color:#2B4A78;text-decoration:underline; }
+a:focus, input:focus {outline-style:none; outline-width:medium; }
+/* custom css style: pageNum,cPageNum */
+.pageNum{border: 1px solid #999;padding:2px 8px;display: inline-block;}
+.cPageNum{font-weight: bold;padding:2px 5px;}
+#pageNav a:hover{text-decoration:none;background: #fff4d8; }

@@ -21,6 +21,8 @@
 <meta http-equiv="description" content="This is my page">
 
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/pagenav1.1.min.js"></script>
+
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxcore.js"></script>
 <script type="text/javascript"
@@ -299,6 +301,11 @@
 				id="articleManager-addArticle">
 			<!-- 文章列表 -->
 			<div id="articlemanager-articlelist"></div>
+
+
+			<!-- page -->
+			<div id="pageNav"></div>
+
 			<br> <br>
 			<!-- 新增文章 -->
 			<div id="addArticle" class="displayNone">

@@ -1,3 +1,5 @@
+var flag = 1;//记录是否已经初始化pagenav
+
 $(document).ready(function() {
 	initUi();
 	checkSignIn();
@@ -156,7 +158,7 @@ function initUi() {
 		height : 25
 	});
 	$('#okUpdateSecondCategory').on('click', updateSecondCategory);
-	//cancleUpdateArticle
+	// cancleUpdateArticle
 	$('#cancleUpdateArticle').jqxButton({
 		width : 100,
 		height : 25
@@ -168,25 +170,25 @@ function initUi() {
 		height : 25
 	});
 	$('#articleManager-addArticle').on('click', showAddArticle);
-	
-	//cancleAddArticle
+
+	// cancleAddArticle
 	$('#cancleAddArticle').jqxButton({
-		width:100,
-		height:25
+		width : 100,
+		height : 25
 	});
-	$('#cancleAddArticle').on('click',hideAddArticle);
-	//addArticle-button
+	$('#cancleAddArticle').on('click', hideAddArticle);
+	// addArticle-button
 	$('#addArticle-button').jqxButton({
 		width : 100,
 		height : 25
 	});
-	$('#addArticle-button').on('click',addArticle);
-	//updateArticle-button
+	$('#addArticle-button').on('click', addArticle);
+	// updateArticle-button
 	$('#updateArticle-button').jqxButton({
 		width : 100,
 		height : 25
 	});
-	$('#updateArticle-button').on('click',updateArticle);
+	$('#updateArticle-button').on('click', updateArticle);
 
 	$('#jqxTree').on('select', function(event) {
 		hideAll();
@@ -214,68 +216,80 @@ function initUi() {
 	$("#editUser-table-username").val(getCookie("username"));
 }
 
-//updateArticle
-function updateArticle(){
+// updateArticle
+function updateArticle() {
 	var articleId = $("#updateArticle-articleId").html();
 	var name = $("#updateArticle-articleName").val();
 	var editor = UE.getEditor('updateArticle-articleContent');
 	var html = editor.getContent();
 	var cs;
-	$.post(
-		'/show-message/updateArticleSelective',
-		{
-			id:articleId,
-			name:name,
-			html:html
-		},
-		function(data){
-			if(data!=0){
-				alert("更新成功");
-				$("#updateArticle").hide();
-				$("#articlemanager-articlelist").show();
-				$("#articleManager-addArticle").show();
-				showArticleManagerArticleList();
-			}else{
-				alert("更新失败");
-			}
+	$.post('/show-message/updateArticleSelective', {
+		id : articleId,
+		name : name,
+		html : html
+	}, function(data) {
+		if (data != 0) {
+			alert("更新成功");
+			$("#updateArticle").hide();
+			$("#articlemanager-articlelist").show();
+			$("#articleManager-addArticle").show();
+			showArticleManagerArticleList();
+		} else {
+			alert("更新失败");
 		}
-	);
-	
+	});
+
 }
 
-//cancleUpdateArticle
-function cancleUpdateArticle(){
+// 初始化分页功能
+function initPageNav(page,pageTotal) {
+	// pageNav
+	// optional set
+	pageNav.pre = "PRE";
+	pageNav.next = "NEXT";
+	// goto the page 3 of 33.
+	if(flag==1){
+		pageNav.go(1, pageTotal);
+		flag++;
+	}
+	 //  p:current page number.  
+	 //  pn: page sum.
+	pageNav.fn = function(page,pageTotal){
+		showArticleManagerArticleList(page);
+		//$("#test").text("Page:"+p+" of "+pn + " pages."); //for jquery
+	};
+}
+
+// cancleUpdateArticle
+function cancleUpdateArticle() {
 	$("#updateArticle").hide();
 	$("#articlemanager-articlelist").show();
 	$("#articleManager-addArticle").show();
 }
 
-//addArticle
-function addArticle(){
+// addArticle
+function addArticle() {
 	var select = document.getElementById("articlemanager-secondcategorylist");
 	var index = select.selectedIndex;
-	var secondCategoryId = select.options[index].getAttribute("secondcategoryid");
+	var secondCategoryId = select.options[index]
+			.getAttribute("secondcategoryid");
 	var name = $('#addArticle-articleName').val();
 	var editor = UE.getEditor('addArticle-articleContent');
 	var html = editor.getContent();
-	$.post(
-		'/show-message/insertArticle',
-		{
-			name:name,
-			html:html,
-			secondcategoryid:secondCategoryId
-		},
-		function(data){
-			if(data!=0){
-				alert("增加成功");
-				$("#articlemanager-articlelist").show();
-				$("#addArticle").hide();
-				showArticleManagerArticleList();
-			}else{
-				alert("增加失败");
-			}
+	$.post('/show-message/insertArticle', {
+		name : name,
+		html : html,
+		secondcategoryid : secondCategoryId
+	}, function(data) {
+		if (data != 0) {
+			alert("增加成功");
+			$("#articlemanager-articlelist").show();
+			$("#addArticle").hide();
+			showArticleManagerArticleList();
+		} else {
+			alert("增加失败");
 		}
-	);
+	});
 }
 
 // 初始化文章管理
@@ -315,75 +329,88 @@ function showArticleManagerSecondCategoryList() {
 }
 
 // 显示文章管理文章列表
-function showArticleManagerArticleList() {
+function showArticleManagerArticleList(page) {
+	if (page == undefined) {
+		page = 1;
+	}
 	var select = document.getElementById("articlemanager-secondcategorylist");
 	var index = select.selectedIndex;
-	var secondCategoryId = select.options[index]
-			.getAttribute("secondcategoryid");
-	$
-			.post(
-					'/show-message/findArticleListBySecondCategoryId',
-					{
-						secondCategoryId : secondCategoryId
+	if (index != -1) {
+		var secondCategoryId = parseInt(select.options[index]
+				.getAttribute("secondcategoryid"));
+		var secondCategoryIdList = new Array();
+		secondCategoryIdList.push(secondCategoryId);
+		$
+				.ajax({
+					type : "POST",
+					url : '/show-message/findArticleListBySecondCategoryId',
+					traditional : true,
+					data : {
+						page : page,
+						secondCategoryIdList : secondCategoryIdList
 					},
-					function(data) {
-						var articleList = data;
+					dataType : "json",
+					async : true,
+					success : function(data) {
+						var articleList = data.list;
+						var pageTotal = Math.ceil(data.totalCount / 10);
 						var html = "<table><tr><th>序号</th><th>articleid</th><th>name</th><th>time</th><th>修改</th><th>删除</th></tr>";
 						for (var i = 0; i < articleList.length; i++) {
-							html += "<tr articleid='"+articleList[i].id+"' articlename='"+articleList[i].name+"'><td>"
+							html += "<tr articleid='"
+									+ articleList[i].id
+									+ "' articlename='"
+									+ articleList[i].name
+									+ "'><td>"
 									+ (i + 1)
 									+ "</td><td>"
 									+ articleList[i].id
 									+ "</td><td>"
 									+ articleList[i].name
-									+ "</td><td>"+articleList[i].time+"</td><td onclick='showUpdateArticle(this)'>修改</td><td onclick='delArticle(this)'>删除</td></tr>";
+									+ "</td><td>"
+									+ articleList[i].time
+									+ "</td><td onclick='showUpdateArticle(this)'>修改</td><td onclick='delArticle(this)'>删除</td></tr>";
 						}
 						html += "</table>";
 						$('#articlemanager-articlelist').html(html);
-					});
+						initPageNav(page,pageTotal);
+					}
+				});
+	}
 }
 
-//删除文章
-function delArticle(obj){
+// 删除文章
+function delArticle(obj) {
 	var tr = getRowObj(obj);
 	var articleId = $(tr).attr("articleid");
-	$.post(
-		'/show-message/delArticle',
-		{
-			id:articleId
-		},
-		function(data){
-			if(data!=0){
-				alert("删除成功");
-				showArticleManagerArticleList();
-			}else{
-				alert("删除失败");
-			}
+	$.post('/show-message/delArticle', {
+		id : articleId
+	}, function(data) {
+		if (data != 0) {
+			alert("删除成功");
+			showArticleManagerArticleList();
+		} else {
+			alert("删除失败");
 		}
-	);
+	});
 }
 
-function showUpdateArticle(obj){
+function showUpdateArticle(obj) {
 	$("#updateArticle").show();
 	var tr = getRowObj(obj);
 	var articleId = $(tr).attr("articleid");
 	var articleName = $(tr).attr("articlename");
-	$.post(
-		'/show-message/selectByPrimaryKey',
-		{
-			id:articleId
-		},
-		function(data){
-			if(data!=null){
-				$("#updateArticle-articleId").html(articleId);
-				$("#updateArticle-articleName").val(articleName);
-				UE.getEditor('updateArticle-articleContent').setContent(data.html);
-				//隐藏控件
-				$("#articlemanager-articlelist").hide();
-				$("#articleManager-addArticle").hide();
-			}
+	$.post('/show-message/selectByPrimaryKey', {
+		id : articleId
+	}, function(data) {
+		if (data != null) {
+			$("#updateArticle-articleId").html(articleId);
+			$("#updateArticle-articleName").val(articleName);
+			UE.getEditor('updateArticle-articleContent').setContent(data.html);
+			// 隐藏控件
+			$("#articlemanager-articlelist").hide();
+			$("#articleManager-addArticle").hide();
 		}
-	);
+	});
 }
 
 // 更新二级分类
@@ -420,11 +447,11 @@ function showAddArticle() {
 	$("#addArticle").show();
 }
 
-//hideAddArticle
-function hideAddArticle(){
+// hideAddArticle
+function hideAddArticle() {
 	$("#articlemanager-articlelist").show();
 	$("#addArticle").hide();
-	//清空编辑的内容
+	// 清空编辑的内容
 	$("#addArticle-articleName").val("");
 	var editor = UE.getEditor('addArticle-articleContent');
 	editor.execCommand('cleardoc');

@@ -17,6 +17,7 @@ import cn.zk.ssm.po.FirstCategory;
 import cn.zk.ssm.po.SecondCategory;
 import cn.zk.ssm.service.ArticleService;
 import cn.zk.ssm.utils.HtmlParse;
+import cn.zk.ssm.utils.PageBean;
 
 public class ArticleServiceImp implements ArticleService{
 	
@@ -79,9 +80,9 @@ public class ArticleServiceImp implements ArticleService{
 	}
 
 	@Override
-	public List<Article> findArticleListBySecondCategoryId(int secondCategoryId)
+	public int findArticleCountBySecondCategoryId(PageBean pageBean)
 			throws Exception {
-		return articleMapperCustom.findArticleListBySecondCategoryId(secondCategoryId);
+		return articleMapperCustom.findArticleCountBySecondCategoryId(pageBean);
 	}
 
 	@Override
@@ -97,6 +98,30 @@ public class ArticleServiceImp implements ArticleService{
 	@Override
 	public Article selectByPrimaryKey(Integer id) {
 		return articleMapperCustom.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public PageBean<Article> findArticleListBySecondCategoryIdAndPage(PageBean pageBean) throws Exception {
+		// 设置每页显示记录数
+		int limit = 10;
+		pageBean.setLimit(limit);
+		// 设置总记录数：
+		int totalCount = articleMapperCustom.findArticleCountBySecondCategoryId(pageBean);
+		pageBean.setTotalCount(totalCount);
+		// 设置总页数
+		int totalPage = 0;
+		if (totalCount % limit == 0) {
+		totalPage = totalCount / limit;
+		} else {
+		totalPage = totalCount / limit + 1;
+		}
+		pageBean.setTotalPage(totalPage);
+		// 设置每页显示数据集合
+		int begin = (pageBean.getPage() - 1) * limit;
+		pageBean.setBegin(begin);
+		List<Article> list = articleMapperCustom.findArticleListBySecondCategoryIdAndPage(pageBean);
+		pageBean.setList(list);
+		return pageBean;
 	}
 
 }

@@ -21,11 +21,55 @@
 		</foreach>
 	</select>
 	
-	<!-- 根据二级分类id查询文章列表 -->
-	<!-- List<Article> findArticleListBySecondCategoryId(int secondCategoryId) -->
-	<select id="findArticleListBySecondCategoryId" resultType="cn.zk.ssm.po.Article">
-		SELECT * FROM ARTICLE WHERE SECONDCATEGORYID = #{secondCategoryId}
+	<!-- 根据二级分类id查询文章个数 -->
+	<!-- List<Article> findArticleCountBySecondCategoryId(int pageBean) -->
+	<select id="findArticleCountBySecondCategoryId" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM ARTICLE WHERE 
+		<foreach collection="secondCategoryIdList" item="secondCategoryId" open="(" close=")" separator="or">
+			<!-- 每次遍历需要拼接的串 -->
+			secondcategoryid=#{secondCategoryId}
+		</foreach>
+	</select>
+	
+	<!-- 根据二级分类id和page查询文章列表 -->
+	<select id="findArticleListBySecondCategoryIdAndPage" parameterType="cn.zk.ssm.utils.PageBean" resultType="cn.zk.ssm.po.Article">
+		select * from article where 
+		<foreach collection="secondCategoryIdList" item="secondCategoryId" open="(" close=")" separator="or">
+			<!-- 每次遍历需要拼接的串 -->
+			secondcategoryid=#{secondCategoryId}
+		</foreach>
+		order by id limit #{begin},#{limit}
 	</select>
 	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
