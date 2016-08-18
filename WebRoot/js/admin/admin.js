@@ -236,7 +236,7 @@ function updateArticle() {
 			pageFlag=1;
 			showArticleManagerArticleList();
 		} else {
-			alert("更新失败");
+			alert("更新失败!");
 		}
 	});
 
