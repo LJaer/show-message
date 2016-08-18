@@ -1,4 +1,4 @@
-var flag = 1;//记录是否已经初始化pagenav
+var pageFlag = 1;//记录是否已经初始化pagenav
 
 $(document).ready(function() {
 	initUi();
@@ -233,6 +233,7 @@ function updateArticle() {
 			$("#updateArticle").hide();
 			$("#articlemanager-articlelist").show();
 			$("#articleManager-addArticle").show();
+			pageFlag=1;
 			showArticleManagerArticleList();
 		} else {
 			alert("更新失败");
@@ -248,9 +249,9 @@ function initPageNav(page,pageTotal) {
 	pageNav.pre = "PRE";
 	pageNav.next = "NEXT";
 	// goto the page 3 of 33.
-	if(flag==1){
+	if(pageFlag==1){
 		pageNav.go(1, pageTotal);
-		flag++;
+		pageFlag++;
 	}
 	 //  p:current page number.  
 	 //  pn: page sum.
@@ -289,6 +290,7 @@ function addArticle() {
 		} else {
 			alert("增加失败");
 		}
+		pageFlag=1;
 	});
 }
 
@@ -388,6 +390,7 @@ function delArticle(obj) {
 		if (data != 0) {
 			alert("删除成功");
 			showArticleManagerArticleList();
+			pageFlag=1;
 		} else {
 			alert("删除失败");
 		}
