@@ -20,6 +20,7 @@
 <meta http-equiv="description" content="This is my page">
 
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/pagenav1.1.min.js"></script>
 <script type="text/javascript" src="js/articlelist/articlelist.js"></script>
 
 <link rel="stylesheet" type="text/css"
@@ -42,6 +43,9 @@
 	</div>
 	<div id="center">
 		<div id="center-left">
+			<div id="center-left-article"></div>
+			<!-- page -->
+			<div id="pageNav"></div>
 		</div>
 	</div>
 	<%@ include file="/jsp/bottom.jsp" %>

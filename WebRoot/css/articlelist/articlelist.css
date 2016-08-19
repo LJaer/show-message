@@ -26,3 +26,12 @@ background: -o-linear-gradient(top, #000000, #EEEEEE);  /*Opera 11.10+*/
 .articlelist-article-contextimg{width:140px;height:100px;margin-top:30px;margin-left:-500px;float:left;}
 .articlelist-article-context{width:550px;height:90px;float:left;margin-top:20px;margin-left:10px;}
 .articlelist-article-othermsg{width:356px;height:26px;float:right;}	
+
+/* pageNav*/
+a { color:#2B4A78; text-decoration:none; }
+a:hover { color:#2B4A78;text-decoration:underline; }
+a:focus, input:focus {outline-style:none; outline-width:medium; }
+/* custom css style: pageNum,cPageNum */
+.pageNum{border: 1px solid #999;padding:2px 8px;display: inline-block;}
+.cPageNum{font-weight: bold;padding:2px 5px;color:red;}
+#pageNav a:hover{text-decoration:none;background: #fff4d8; }
