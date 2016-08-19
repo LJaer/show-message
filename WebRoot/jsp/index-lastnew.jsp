@@ -17,7 +17,7 @@
 		<br /> <br />
 		<c:if test="${articleStyle1.contextimage!=null}">
 			<img class="lastnew-pic"
-				src="${pageContext.request.contextPath}/${articleStyle1.contextimage}"></img>
+				src="${articleStyle1.contextimage}"></img>
 		</c:if>
 		<c:if test="${articleStyle1.contextimage==null}">
 			<img class="lastnew-pic"

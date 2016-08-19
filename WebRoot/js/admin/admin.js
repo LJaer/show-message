@@ -350,7 +350,7 @@ function showArticleManagerArticleList(page) {
 		$
 				.ajax({
 					type : "POST",
-					url : '/show-message/findArticleListBySecondCategoryId',
+					url : '/show-message/findArticleListBySecondCategoryIdAndPage',
 					traditional : true,
 					data : {
 						page : page,

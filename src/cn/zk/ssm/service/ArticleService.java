@@ -30,5 +30,7 @@ public interface ArticleService {
 	int findArticleCountBySecondCategoryId(PageBean pageBean) throws Exception;
 	//分页查询Article 
 	PageBean<Article> findArticleListBySecondCategoryIdAndPage(PageBean pageBean) throws Exception;
+	//根据一级分类分页查询Article
+	PageBean<ArticleStyle1> queryArticleListByFirstCategoryIdAndPage(PageBean<ArticleStyle1> pageBean) throws Exception;
 }
  

@@ -11,7 +11,16 @@ public class PageBean<T> {
 	private int limit;// 每页显示的记录数
 	private int begin;//每页开始的记录
 	private List<T> list;// 每页数据的集合
+	private int firstCategoryId;//一级分类的id
 	private List<Integer> secondCategoryIdList;//二级分类的list
+
+	public int getFirstCategoryId() {
+		return firstCategoryId;
+	}
+
+	public void setFirstCategoryId(int firstCategoryId) {
+		this.firstCategoryId = firstCategoryId;
+	}
 
 	public List<Integer> getSecondCategoryIdList() {
 		return secondCategoryIdList;

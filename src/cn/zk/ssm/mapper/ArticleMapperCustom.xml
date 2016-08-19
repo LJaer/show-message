@@ -9,7 +9,7 @@
 	
 	<!-- 根据一级分类id查询该分类下前六篇 -->	
 	<select id="findFirstCategoryLastArticleList" resultType="cn.zk.ssm.po.Article">
-		SELECT * FROM article WHERE secondcategoryid= #{id}  ORDER BY TIME LIMIT 0,6
+		SELECT * FROM article WHERE secondcategoryid= #{id}  ORDER BY TIME DESC LIMIT 0,6
 	</select>
 	
 	<!-- 查询文章列表 -->	
@@ -38,7 +38,7 @@
 			<!-- 每次遍历需要拼接的串 -->
 			secondcategoryid=#{secondCategoryId}
 		</foreach>
-		order by id limit #{begin},#{limit}
+		order by time desc limit #{begin},#{limit}
 	</select>
 	
 </mapper>

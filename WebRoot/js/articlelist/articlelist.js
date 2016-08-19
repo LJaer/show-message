@@ -1,53 +1,102 @@
-$(document).ready(function(){
+$(document).ready(function() {
 	// 初始化导航栏
 	initNavigation();
 	tick();
+	// 初始化文章
+	initArticle();
 });
 
 // 初始化导航栏
-function initNavigation(){
+function initNavigation() {
 	var firstCategoryId = getParameter("firstcategoryid");
-	$.post(
-		'/show-message/queryFirstCategoryList.action',
-		function(data){
-			var firstCategoryList = data;
-			var html = "";
-			for (var i = 0; i < firstCategoryList.length; i++) {
-				if(firstCategoryId==firstCategoryList[i].id){
-					html += "<div firstcategoryid='"+firstCategoryList[i].id+"' onclick='goArticleList(this)' class='top-bottom-title' style='background-color:red'>"+firstCategoryList[i].name+"</div>";
-				}else{
-					html += "<div firstcategoryid='"+firstCategoryList[i].id+"' onclick='goArticleList(this)' class='top-bottom-title' >"+firstCategoryList[i].name+"</div>";
-				}
-			}
-			$("#top-title-firstcategory").html(html);
-		}
-	);
+	$
+			.post(
+					'/show-message/queryFirstCategoryList.action',
+					function(data) {
+						var firstCategoryList = data;
+						var html = "";
+						for (var i = 0; i < firstCategoryList.length; i++) {
+							if (firstCategoryId == firstCategoryList[i].id) {
+								html += "<div firstcategoryid='"
+										+ firstCategoryList[i].id
+										+ "' onclick='goArticleList(this)' class='top-bottom-title' style='background-color:red'>"
+										+ firstCategoryList[i].name + "</div>";
+							} else {
+								html += "<div firstcategoryid='"
+										+ firstCategoryList[i].id
+										+ "' onclick='goArticleList(this)' class='top-bottom-title' >"
+										+ firstCategoryList[i].name + "</div>";
+							}
+						}
+						$("#top-title-firstcategory").html(html);
+					});
 }
 
+// 初始化文章
+function initArticle() {
+	var firstCategoryId = getCookie("firstcategoryid");
+	var page = 1;
+	$
+			.post(
+					'/show-message/queryArticleListByFirstCategoryIdAndPage',
+					{
+						firstCategoryId : firstCategoryId,
+						page : page
+					},
+					function(data) {
+						var articleStyle1List = data.list;
+						var html = "";
+						for (var i = 0; i < articleStyle1List.length; i++) {
+							var articleStyle1 = articleStyle1List[i];
+							html += "<div class='articlelist-article'><a class='articlelist-article-name' articleid='"
+									+ articleStyle1.article.id
+									+ "' "
+									+ "onclick='choiceArticle(this)' onmouseover='onmouseoverArticle(this)' "
+									+ "onmouseout='onmouseoutArticle(this)' href='${pageContext.request.contextPath}/articleDetail.action?articleId="
+									+ articleStyle1.article.id
+									+ "'>"
+									+ articleStyle1.article.name
+									+ "</a> <img class='articlelist-article-contextimg' src='";
+							if(articleStyle1.contextimage==null){
+								html += "pictures/nopicture.png";
+							}else{
+								html += articleStyle1.contextimage;
+							}
+								html += "'></img>"
+									+ "<div class='articlelist-article-context'>"
+									+ articleStyle1.text
+									+ "</div><div class='articlelist-article-othermsg'>所属分类：随心而记 浏览：96次评论：0次</div></div>";
+						}
+						$("#center-left").html(html);
+					});
+}
 
 // param 为 参数的名称，获取地址栏的参数
-function getParameter(param){
+function getParameter(param) {
 	var query = window.location.search;
 	var iLen = param.length;
 	var iStart = query.indexOf(param);
-	if (iStart == -1){
+	if (iStart == -1) {
 		return "";
 	}
 	iStart += iLen + 1;
 	var iEnd = query.indexOf("&", iStart);
-	if (iEnd == -1){
+	if (iEnd == -1) {
 		return query.substring(iStart);
 	}
 	return query.substring(iStart, iEnd);
 }
 
 // 文章列表
-function goArticleList(obj){
+function goArticleList(obj) {
 	var firstcategoryid = $(obj).attr("firstcategoryid");
 	setCookie("firstcategoryid", firstcategoryid);
-	var pathName=window.document.location.pathname; 
-	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);  
-	window.location.href= projectName+'/queryArticleList.action?firstcategoryid='+firstcategoryid+'&secondcategoryid=-1&page=1';
+	var pathName = window.document.location.pathname;
+	var projectName = pathName
+			.substring(0, pathName.substr(1).indexOf('/') + 1);
+	window.location.href = projectName
+			+ '/queryArticleListByFirstCategoryIdAndPage.action?firstCategoryId='
+			+ firstcategoryid + '&secondCategoryIdList[]={1}&page=1';
 }
 
 function tick() {
@@ -94,21 +143,20 @@ function tick() {
 	window.setTimeout("tick();", 1000);
 }
 
-function titleChoice(obj){
-	$(".top-bottom-title").css("background-color","");
-	$(obj).css("background-color",'red');
-	 window.location="/show-message/index.jsp"; 
+function titleChoice(obj) {
+	$(".top-bottom-title").css("background-color", "");
+	$(obj).css("background-color", 'red');
+	window.location = "/show-message/index.jsp";
 }
-
 
 /**
  * 当鼠标移动到文章标题
  * 
  * @param obj
  */
-function onmouseoverArticle(obj){
-	$(obj).css("color","red");
-	$(obj).css("cursor",'hand');
+function onmouseoverArticle(obj) {
+	$(obj).css("color", "red");
+	$(obj).css("cursor", 'hand');
 }
 
 /**
@@ -116,8 +164,8 @@ function onmouseoverArticle(obj){
  * 
  * @param obj
  */
-function onmouseoutArticle(obj){
-	$(obj).css("color","");
+function onmouseoutArticle(obj) {
+	$(obj).css("color", "");
 }
 
 /**
@@ -125,39 +173,29 @@ function onmouseoutArticle(obj){
  * 
  * @param obj
  */
-function choiceArticle(obj){
+function choiceArticle(obj) {
 	var id = $(obj).attr("articleid");
 }
 
-
-//Cookies操作
-function setCookie(name,value)
-{
-  var Days = 30; //此 cookie 将被保存 30 天
-  var exp  = new Date();    //new Date("December 31, 9998");
-  exp.setTime(exp.getTime() + Days*24*60*60*1000);
-  document.cookie = name + "="+ escape(value) +";expires="+ exp.toGMTString();
+// Cookies操作
+function setCookie(name, value) {
+	var Days = 30; // 此 cookie 将被保存 30 天
+	var exp = new Date(); // new Date("December 31, 9998");
+	exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+	document.cookie = name + "=" + escape(value) + ";expires="
+			+ exp.toGMTString();
 }
-function getCookie(name)
-{
-  var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
-  if(arr != null) return unescape(arr[2]); return null;
+function getCookie(name) {
+	var arr = document.cookie
+			.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+	if (arr != null)
+		return unescape(arr[2]);
+	return null;
 }
-function delCookie(name)
-{
-  var exp = new Date();
-  exp.setTime(exp.getTime() - 1);
-  var cval=getCookie(name);
-  if(cval!=null) document.cookie=name +"="+cval+";expires="+exp.toGMTString();
+function delCookie(name) {
+	var exp = new Date();
+	exp.setTime(exp.getTime() - 1);
+	var cval = getCookie(name);
+	if (cval != null)
+		document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
 }
-
-
-
-
-
-
-
-
-
-
-

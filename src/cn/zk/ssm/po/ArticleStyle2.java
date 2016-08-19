@@ -14,6 +14,14 @@ public class ArticleStyle2{
 	private List<Article> articleList;//一级分类下文章
 	private String firstArticleImg;//一级分类下第一篇文章图片
 	private String firstArticleContext;//一级分类下第一篇文章纯文本
+	private String CategoryImgSrc;//分类图标路径
+	
+	public String getCategoryImgSrc() {
+		return CategoryImgSrc;
+	}
+	public void setCategoryImgSrc(String categoryImgSrc) {
+		CategoryImgSrc = categoryImgSrc;
+	}
 	public FirstCategory getFirstCategory() {
 		return firstCategory;
 	}

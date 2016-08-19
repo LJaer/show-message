@@ -24,16 +24,6 @@ function initNavigation(){
 	);
 }
 
-
-//文章列表
-function goArticleList(obj){
-	var firstcategoryid = $(obj).attr("firstcategoryid");
-	setCookie("firstcategoryid", firstcategoryid);
-	var pathName=window.document.location.pathname; 
-	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);  
-	window.location.href= projectName+'/queryArticleList.action?firstcategoryid='+firstcategoryid+'&secondcategoryid=-1&page=1';
-}
-
 function tick() {
 	var years, months, days, hours, minutes, seconds;
 	var intYears, intMonths, intDays, intHours, intMinutes, intSeconds;

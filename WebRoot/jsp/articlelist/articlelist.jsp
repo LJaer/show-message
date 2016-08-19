@@ -42,21 +42,6 @@
 	</div>
 	<div id="center">
 		<div id="center-left">
-			<c:forEach items="${articleStyle1List}" var="articleStyle1">
-				<div class="articlelist-article">
-					<a class="articlelist-article-name"
-						articleid="${articleStyle1.article.id}"
-						onclick="choiceArticle(this)"
-						onmouseover="onmouseoverArticle(this)"
-						onmouseout="onmouseoutArticle(this)"
-						href="${pageContext.request.contextPath}/articleDetail.action?articleId=${articleStyle1.article.id}">${articleStyle1.article.name}</a>
-					<img class="articlelist-article-contextimg"
-						src="${pageContext.request.contextPath}/${articleStyle1.contextimage}"></img>
-					<div class="articlelist-article-context">${articleStyle1.text}</div>
-					<div class="articlelist-article-othermsg">所属分类：随心而记 浏览：96次
-						评论：0次</div>
-				</div>
-			</c:forEach>
 		</div>
 	</div>
 	<%@ include file="/jsp/bottom.jsp" %>

@@ -1,5 +1,5 @@
 *{margin:0;padding:0;}
 #show-pictures{margin:10px;border:solid 1px #000;height:270px;background-image:url(../pictures/showImg/1.jpg);background-repeat:no-repeat;background-size:100% 100%;}
-.show-pictures-page{width:20px;height:15px;float:left;margin:5px;border:1px solid #fff;text-align:center;color:#000;}
+.show-pictures-page{width:20px;height:15px;float:left;margin:5px;text-align:center;color:#000;}
 #show-pictures-page{float:right;padding-top:240px;}
 .show-pictures-page font{color:#fff;}

@@ -28,7 +28,7 @@ function goArticleList(obj) {
 	setCookie("firstcategoryid", firstcategoryid);
 	var pathName=window.document.location.pathname; 
 	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);  
-	window.location.href= projectName+'/queryArticleList.action?firstcategoryid='+firstcategoryid+'&secondcategoryid=-1&page=1';
+	window.location.href = projectName+"/ArticleList";
 }
 
 function tick() {

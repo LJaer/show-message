@@ -85,25 +85,39 @@ public class ArticleController {
 	 * @return
 	 * @throws Exception 
 	 */
-	@RequestMapping("/queryArticleList")
-	public ModelAndView queryArticleList(int firstcategoryid,int secondcategoryid,int page) throws Exception {
-		ModelAndView modelAndView = new ModelAndView();
-		
-		List<ArticleStyle1> articleStyle1List = new ArrayList();
-		if(secondcategoryid==-1){
-			//根据一级id查询所有二级id
-			List<SecondCategory> secondCategoryList = new ArrayList();
-			secondCategoryList = secondCategoryService.findSecondCategoryByFirstCagetory(firstcategoryid);
-			ArticleCustom articleCustom = new ArticleCustom();
-			articleCustom.setSecondCategoryList(secondCategoryList);
-			List<Article> articleList = articleService.findArticleList(articleCustom);
-			articleStyle1List = articleToArticleStyle1(articleList);
-		}else{
-		}
-		modelAndView.addObject("articleStyle1List",articleStyle1List);
-		modelAndView.setViewName("jsp/articlelist/articlelist");
-		return modelAndView;
+//	@RequestMapping("/queryArticleList")
+//	public ModelAndView queryArticleList(int firstcategoryid,int secondcategoryid,int page) throws Exception {
+//		ModelAndView modelAndView = new ModelAndView();
+//		
+//		List<ArticleStyle1> articleStyle1List = new ArrayList();
+//		if(secondcategoryid==-1){
+//			//根据一级id查询所有二级id
+//			List<SecondCategory> secondCategoryList = new ArrayList();
+//			secondCategoryList = secondCategoryService.findSecondCategoryByFirstCagetory(firstcategoryid);
+//			ArticleCustom articleCustom = new ArticleCustom();
+//			articleCustom.setSecondCategoryList(secondCategoryList);
+//			List<Article> articleList = articleService.findArticleList(articleCustom);
+//			articleStyle1List = articleToArticleStyle1(articleList);
+//		}else{
+//		}
+//		modelAndView.addObject("articleStyle1List",articleStyle1List);
+//		modelAndView.setViewName("jsp/articlelist/articlelist");
+//		return modelAndView;
+//	}
+	
+//	PageBean<T>
+	
+	@RequestMapping("/ArticleList")
+	public String ArticleList(){
+		return "jsp/articlelist/articlelist";
 	}
+	
+	@RequestMapping("/queryArticleListByFirstCategoryIdAndPage")
+	@ResponseBody
+	public PageBean<ArticleStyle1> queryArticleListByFirstCategoryIdAndPage(PageBean<ArticleStyle1> pageBean) throws Exception {
+		return articleService.queryArticleListByFirstCategoryIdAndPage(pageBean);
+	}
+	
 	
 	/**
 	 * 查询最近的三篇文章
@@ -187,17 +201,12 @@ public class ArticleController {
 	}
 	
 	//根据二级分类id查询文章了列表
-	@RequestMapping("/findArticleListBySecondCategoryId")
-	public @ResponseBody PageBean<Article> findArticleListBySecondCategoryId(PageBean pageBean) throws Exception{
+	@RequestMapping("/findArticleListBySecondCategoryIdAndPage")
+	@ResponseBody
+	public PageBean<Article> findArticleListBySecondCategoryId(PageBean pageBean) throws Exception{
 		return articleService.findArticleListBySecondCategoryIdAndPage(pageBean);
 	}
 	
-	//根据secondid和page查询articlelist
-	@RequestMapping("/findArticleListBySecondCategoryIdAndPage")
-	@ResponseBody PageBean<Article> findArticleListBySecondCategoryIdAndPage(int secondCategoryId,int page) throws Exception{
-		//return articleService.findArticleListBySecondCategoryIdAndPage(secondCategoryId,page);
-		return null;
-	}
 }
 
 
