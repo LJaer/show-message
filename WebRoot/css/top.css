@@ -15,4 +15,4 @@ background: -webkit-linear-gradient(top, rgb(104,104,104), rgb(39,39,39));   /*S
 background: -o-linear-gradient(top, #000000, #EEEEEE);  /*Opera 11.10+*/
 } 
 #top-title{margin:0 auto;width:800px;}
-.top-bottom-title{float: left;font-size:15px;color:#fff;padding:12px;}
+.top-bottom-title{float: left;font-size:15px;color:#fff;padding:12px;cursor:pointer;}

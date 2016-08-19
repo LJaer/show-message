@@ -2,6 +2,9 @@
 .lastnew{height:200px;border:solid 1px #000;margin:10px;}
 .lastnew-category-logo{width:40px;height:40px;float:left;}
 .lastnew-title{float:left;padding-top:15px;}
-.lastnew-pic{width:150px;height:120px;position: absolute;margin-top:40px;margin-left:-150px;}
-.lastnew-context{width:40%;height:120px;position:absolute;margin-top:60px;margin-left:170px;}
-.lastnew-othermsg{width：200px;height:20px;position:absolute;margin-top:150px;margin-left:250px;font-size:13px;}
+.lastnew-pic{width:150px;height:120px;position: relative;top:20px;left:-30px;float:left;}
+.lastnew-context{width:700px;height:140px;position:relative;left:10px;top:20px;}
+.lastnew-othermsg{width：200px;height:20px;position:relative;font-size:13px;top:-10px;left:240px;}
+.pointerHand{cursor:pointer;}
+.floatleft{float:left;}
+.goArticleDetail{position:relative;left:400px;}

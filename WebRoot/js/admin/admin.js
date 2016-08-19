@@ -246,8 +246,8 @@ function updateArticle() {
 function initPageNav(page,pageTotal) {
 	// pageNav
 	// optional set
-	pageNav.pre = "PRE";
-	pageNav.next = "NEXT";
+	pageNav.pre = "上一页";
+	pageNav.next = "下一页";
 	// goto the page 3 of 33.
 	if(pageFlag==1){
 		pageNav.go(1, pageTotal);
@@ -296,6 +296,9 @@ function addArticle() {
 
 // 初始化文章管理
 function initArticleManage() {
+	$("#articlemanager-articlelist").html("");
+	$("#pageNav").hide();
+	$("#articlemanager-secondcategorylist").hide();
 	// 初始化一级下拉列表
 	$.post('/show-message/findFirstCategoryList', function(data) {
 		var firstCategoryList = data;
@@ -311,6 +314,7 @@ function initArticleManage() {
 // 当选择一级分类后，显示二级分类的列表
 function showArticleManagerSecondCategoryList() {
 	$(".admin-right-articlemanager-secondcategory").show();
+	$("#articlemanager-secondcategorylist").show();
 
 	var select = document.getElementById("articlemanager-firstcategorylist");
 	var index = select.selectedIndex;
@@ -327,6 +331,7 @@ function showArticleManagerSecondCategoryList() {
 					+ "'>" + secondCategoryList[i].name + "</option>";
 		}
 		$('#articlemanager-secondcategorylist').html(html);
+		flagPage = 1;
 	});
 }
 
@@ -363,7 +368,7 @@ function showArticleManagerArticleList(page) {
 									+ "' articlename='"
 									+ articleList[i].name
 									+ "'><td>"
-									+ (i + 1)
+									+ ((page-1)*10 + i+1)
 									+ "</td><td>"
 									+ articleList[i].id
 									+ "</td><td>"
@@ -375,6 +380,7 @@ function showArticleManagerArticleList(page) {
 						html += "</table>";
 						$('#articlemanager-articlelist').html(html);
 						initPageNav(page,pageTotal);
+						$("#pageNav").show();
 					}
 				});
 	}
