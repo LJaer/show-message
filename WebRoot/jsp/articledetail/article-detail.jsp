@@ -36,7 +36,7 @@
 			<div id="top-bottom">
 				<div id="top-title">
 					<div firstcategoryid="top-bottom-firstpage"
-						class="top-bottom-title" onclick="titleChoice(this)">首页</div>
+						class="top-bottom-title" onclick="titleChoice(this)" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='red'">首页</div>
 					<div id="top-title-firstcategory"></div>
 				</div>
 			</div>

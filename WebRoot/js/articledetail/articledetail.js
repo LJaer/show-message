@@ -16,12 +16,21 @@ function initNavigation(){
 				if(firstcategoryid==firstCategoryList[i].id){
 					html += "<div firstcategoryid='"+firstCategoryList[i].id+"' onclick='goArticleList(this)' class='top-bottom-title' style='background-color:red'>"+firstCategoryList[i].name+"</div>";
 				}else{
-					html += "<div firstcategoryid='"+firstCategoryList[i].id+"' onclick='goArticleList(this)' class='top-bottom-title'>"+firstCategoryList[i].name+"</div>";
+					html += "<div firstcategoryid='"+firstCategoryList[i].id+"' onclick='goArticleList(this)' class='top-bottom-title' onmouseout='this.style.backgroundColor=\"\"' onmouseover='this.style.backgroundColor=\"red\"'> "+firstCategoryList[i].name+"</div>";
 				}
 			}
 			$("#top-title-firstcategory").html(html);
 		}
 	);
+}
+
+//文章列表
+function goArticleList(obj) {
+	var firstcategoryid = $(obj).attr("firstcategoryid");
+	setCookie("firstcategoryid", firstcategoryid);
+	var pathName=window.document.location.pathname; 
+	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);  
+	window.location.href = projectName+"/ArticleList";
 }
 
 function tick() {

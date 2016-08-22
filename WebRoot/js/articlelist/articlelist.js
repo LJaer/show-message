@@ -22,12 +22,12 @@ function initNavigation() {
 							if (firstCategoryId == firstCategoryList[i].id) {
 								html += "<div firstcategoryid='"
 										+ firstCategoryList[i].id
-										+ "' onclick='goArticleList(this)' class='top-bottom-title' style='background-color:red'>"
+										+ "' onclick='goArticleList(this)' class='top-bottom-title' style='background-color:red'  onmouseover='this.style.backgroundColor=\"red\"'>"
 										+ firstCategoryList[i].name + "</div>";
 							} else {
 								html += "<div firstcategoryid='"
 										+ firstCategoryList[i].id
-										+ "' onclick='goArticleList(this)' class='top-bottom-title' >"
+										+ "' onclick='goArticleList(this)' class='top-bottom-title' onmouseout='this.style.backgroundColor=\"\"' onmouseover='this.style.backgroundColor=\"red\"' >"
 										+ firstCategoryList[i].name + "</div>";
 							}
 						}
