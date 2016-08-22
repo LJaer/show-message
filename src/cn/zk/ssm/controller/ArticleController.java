@@ -170,32 +170,34 @@ public class ArticleController {
 			ArticleStyle1 articleStyle1 = new ArticleStyle1();
 			articleStyle1.setArticle(article);
 			String html = article.getHtml();
-			Elements elements = HtmlParse.getInstance().getHtmlImg(html);
-			//设置正文图片
-			if(elements.size()>0){
-				String src = "";
-				for (int j = 0; j < 1; j++) {//这里只需要取出来一张照片即可
-					Element element = elements.get(j);
-					src = element.attr("src");
-					articleStyle1.setContextimage(src);
+			if(html!=null){
+				Elements elements = HtmlParse.getInstance().getHtmlImg(html);
+				//设置正文图片
+				if(elements.size()>0){
+					String src = "";
+					for (int j = 0; j < 1; j++) {//这里只需要取出来一张照片即可
+						Element element = elements.get(j);
+						src = element.attr("src");
+						articleStyle1.setContextimage(src);
+					}
 				}
+				//设置正文纯文本
+				String text = HtmlParse.getInstance().getHtmlText(html);
+				if(text.length()>170){
+					text = text.substring(0, 170);
+				}
+				text += "...";
+				articleStyle1.setText(text);
+				//设置二级分类图标
+				int id = article.getSecondcategoryid();
+				SecondCategory secondCategory = secondCategoryService.selectByPrimaryKey(id);
+				int imgId = secondCategory.getImg();
+				//根据ImgId查询图片路径
+				CategoryImg categoryImg = categoryImgService.selectByPrimaryKey(imgId);
+				String imgSrc = categoryImg.getSrc();
+				articleStyle1.setSecondcategoryimage(imgSrc);
+				articleStyle1List.add(articleStyle1);
 			}
-			//设置正文纯文本
-			String text = HtmlParse.getInstance().getHtmlText(html);
-			if(text.length()>170){
-				text = text.substring(0, 170);
-			}
-			text += "...";
-			articleStyle1.setText(text);
-			//设置二级分类图标
-			int id = article.getSecondcategoryid();
-			SecondCategory secondCategory = secondCategoryService.selectByPrimaryKey(id);
-			int imgId = secondCategory.getImg();
-			//根据ImgId查询图片路径
-			CategoryImg categoryImg = categoryImgService.selectByPrimaryKey(imgId);
-			String imgSrc = categoryImg.getSrc();
-			articleStyle1.setSecondcategoryimage(imgSrc);
-			articleStyle1List.add(articleStyle1);
 		}
 		return articleStyle1List;
 	}
