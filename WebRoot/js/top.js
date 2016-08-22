@@ -14,7 +14,7 @@ function initNavigation() {
 			for (var i = 0; i < firstCategoryList.length; i++) {
 				html += "<div firstcategoryid='"
 						+ firstCategoryList[i].id
-						+ "' onclick='goArticleList(this)' class='top-bottom-title' > "
+									+ "' onclick='goArticleList(this)' class='top-bottom-title' onmouseout='this.style.backgroundColor=\"\"' onmouseover='this.style.backgroundColor=\"red\"' > "
 						+ firstCategoryList[i].name + "</div>";
 			}
 			$("#top-title-firstcategory").html(html);

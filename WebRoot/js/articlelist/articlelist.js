@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 // 初始化导航栏
 function initNavigation() {
-	var firstCategoryId = getParameter("firstcategoryid");
+	var firstCategoryId = getCookie("firstcategoryid");
 	$
 			.post(
 					'/show-message/queryFirstCategoryList.action',
@@ -54,7 +54,7 @@ function initArticle(page) {
 									+ articleStyle1.article.id
 									+ "' "
 									+ "onclick='choiceArticle(this)' onmouseover='onmouseoverArticle(this)' "
-									+ "onmouseout='onmouseoutArticle(this)' href='${pageContext.request.contextPath}/articleDetail.action?articleId="
+									+ "onmouseout='onmouseoutArticle(this)' href='articleDetail.action?articleId="
 									+ articleStyle1.article.id 
 									+ "'>"
 									+ articleStyle1.article.name
@@ -74,32 +74,13 @@ function initArticle(page) {
 					});
 }
 
-// param 为 参数的名称，获取地址栏的参数
-function getParameter(param) {
-	var query = window.location.search;
-	var iLen = param.length;
-	var iStart = query.indexOf(param);
-	if (iStart == -1) {
-		return "";
-	}
-	iStart += iLen + 1;
-	var iEnd = query.indexOf("&", iStart);
-	if (iEnd == -1) {
-		return query.substring(iStart);
-	}
-	return query.substring(iStart, iEnd);
-}
-
 // 文章列表
 function goArticleList(obj) {
+	pageFlag = 1;
 	var firstcategoryid = $(obj).attr("firstcategoryid");
 	setCookie("firstcategoryid", firstcategoryid);
-	var pathName = window.document.location.pathname;
-	var projectName = pathName
-			.substring(0, pathName.substr(1).indexOf('/') + 1);
-	window.location.href = projectName
-			+ '/queryArticleListByFirstCategoryIdAndPage.action?firstCategoryId='
-			+ firstcategoryid + '&secondCategoryIdList[]={1}&page=1';
+	initArticle(1);
+	initNavigation();
 }
 
 function tick() {

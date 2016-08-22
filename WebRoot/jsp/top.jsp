@@ -12,7 +12,7 @@
 	<div id="top-bottom">
 		<div id="top-title">
 			<div firstcategoryid="top-bottom-firstpage" class="top-bottom-title" onclick="titleChoice(this)" style="background-color:red">首页</div>
-			<div id="top-title-firstcategory"></div>
+			<div id="top-title-firstcategory"></div>	
 		</div>
 	</div>
 </div>
