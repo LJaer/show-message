@@ -16,4 +16,7 @@
 		<jsp:include page="/queryLastArticle2.action"></jsp:include>
 	</div>
 </div>
+<div id="index-center-right">
+	
+</div>
 

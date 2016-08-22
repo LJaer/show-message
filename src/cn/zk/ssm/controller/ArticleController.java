@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.zk.ssm.po.Article;
-import cn.zk.ssm.po.ArticleCustom;
 import cn.zk.ssm.po.ArticleStyle1;
 import cn.zk.ssm.po.ArticleStyle2;
 import cn.zk.ssm.po.CategoryImg;
@@ -77,35 +76,6 @@ public class ArticleController {
 	public Article selectByPrimaryKey(int id) throws Exception{
 		return articleService.selectByPrimaryKey(id);
 	}
-	
-	/**
-	 * 查询文章列表根据一级id和二级id
-	 * @param firstcategoryid 一级分类的id，当id=-1时，表示没有传入一级分类
-	 * @param secondcategoryid 二级分类的id 当id=-1时，表示没有传入二级分类
-	 * @return
-	 * @throws Exception 
-	 */
-//	@RequestMapping("/queryArticleList")
-//	public ModelAndView queryArticleList(int firstcategoryid,int secondcategoryid,int page) throws Exception {
-//		ModelAndView modelAndView = new ModelAndView();
-//		
-//		List<ArticleStyle1> articleStyle1List = new ArrayList();
-//		if(secondcategoryid==-1){
-//			//根据一级id查询所有二级id
-//			List<SecondCategory> secondCategoryList = new ArrayList();
-//			secondCategoryList = secondCategoryService.findSecondCategoryByFirstCagetory(firstcategoryid);
-//			ArticleCustom articleCustom = new ArticleCustom();
-//			articleCustom.setSecondCategoryList(secondCategoryList);
-//			List<Article> articleList = articleService.findArticleList(articleCustom);
-//			articleStyle1List = articleToArticleStyle1(articleList);
-//		}else{
-//		}
-//		modelAndView.addObject("articleStyle1List",articleStyle1List);
-//		modelAndView.setViewName("jsp/articlelist/articlelist");
-//		return modelAndView;
-//	}
-	
-//	PageBean<T>
 	
 	@RequestMapping("/ArticleList")
 	public String ArticleList(){
@@ -184,7 +154,7 @@ public class ArticleController {
 				//设置正文纯文本
 				String text = HtmlParse.getInstance().getHtmlText(html);
 				if(text.length()>170){
-					text = text.substring(0, 170);
+					text = text.substring(0, 150);
 				}
 				text += "...";
 				articleStyle1.setText(text);
