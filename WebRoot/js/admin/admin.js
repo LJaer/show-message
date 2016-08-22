@@ -177,9 +177,15 @@ function initUi() {
 		height : 25
 	});
 	$('#cancleAddArticle').on('click', hideAddArticle);
+	//signout
+	$('#signout').jqxButton({
+		width : 50,
+		height : 20
+	});
+	$('#signout').on('click', signout);
 	// addArticle-button
 	$('#addArticle-button').jqxButton({
-		width : 100,
+		width : 50,
 		height : 25
 	});
 	$('#addArticle-button').on('click', addArticle);
@@ -240,6 +246,12 @@ function updateArticle() {
 		}
 	});
 
+}
+
+//signout
+function signout(){
+	delCookie("username");
+	window.self.location = "/show-message/login";
 }
 
 // 初始化分页功能
@@ -616,7 +628,6 @@ function newSecondCategory() {
 
 // 向数据库传输newFirstCategory
 function newFirstCategory() {
-	x
 	var name = $("#addFirstCategoryName").val();
 	var imgid = $('#allreadyChoiceImg').attr("imgId");
 	if (imgid != undefined & name != undefined) {
@@ -753,7 +764,7 @@ function deleteFirstCategory(obj) {
 
 function checkSignIn() {
 	var username = getCookie("username");
-	if (username == null) {
+	if (username == undefined) {
 		window.self.location = "/show-message/login";
 	} else {
 		$("#username-value").html(username);

@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +38,7 @@
 					password:$("#password").val()
 				},
 				function(data){
-					if(data!=null){
+					if(data!=""){
 						var user = data;
 						var username = data.name;
 						setCookie("username",username);
