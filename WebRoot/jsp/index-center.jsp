@@ -17,6 +17,6 @@
 	</div>
 </div>
 <div id="index-center-right">
-	
+	<jsp:include page="/jsp/index-center-right.jsp"></jsp:include>
 </div>
 

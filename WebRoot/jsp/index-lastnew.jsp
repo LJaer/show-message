@@ -3,11 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/index-lastnew.css">
-<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/js/show-pictures.js"></script> --%>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/index-lastnew.js"></script>
 
+<div id="lastnews">
 
 <c:forEach items="${articleStyle1List}" var="articleStyle1">
-	<div class="lastnew">
+	<div class="lastnew" >
 		<img class="lastnew-category-logo"
 			src="${articleStyle1.secondcategoryimage}"></img> <label
 			class="lastnew-title pointerHand"
@@ -29,12 +30,14 @@
 			<fmt:formatDate value="${articleStyle1.article.time}"
 				pattern="yyyy-MM-dd HH:mm:ss" />
 			&nbsp;&nbsp;浏览：${articleStyle1.article.browse}次&nbsp;&nbsp;评论：${articleStyle1.article.review}&nbsp;&nbsp;
-			<div articleid="${articleStyle1.article.id}"
+			<input type="button" articleid="${articleStyle1.article.id}"
 				class="pointerHand floatleft goArticleDetail" onmouseover="this.style.color='red';"
-				onmouseout="this.style.color='';" onclick="goArticleDetail(this)">阅读全文</div>
+				onmouseout="this.style.color='';" onclick="goArticleDetail(this)" value="阅读全文"></input>
 		</div>
 	</div>
 </c:forEach>
+
+</div>
 
 
 

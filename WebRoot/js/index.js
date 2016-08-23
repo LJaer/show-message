@@ -6,6 +6,7 @@ $(document).ready(function(){
 function appInit(){
 	tick();//日期初始化
 	delCookie("firstcategoryid","");
+	$(".goArticleDetail").jqxButton({ width: 60, height: 25 });
 }
 
 //转向articledetail页面
