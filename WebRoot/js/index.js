@@ -4,7 +4,6 @@ $(document).ready(function(){
 
 //应用初始化
 function appInit(){
-	tick();//日期初始化
 	delCookie("firstcategoryid","");
 	$(".goArticleDetail").jqxButton({ width: 60, height: 25 });
 }

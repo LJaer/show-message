@@ -17,7 +17,7 @@
 			onmouseover="this.style.color='red'" onmouseout="this.style.color=''"
 			onclick="goArticleList(this)"
 			firstcategoryid="${articleStyle2.firstCategory.id}">更多</div>
-		<br> <br>
+		<HR style="FILTER: alpha(opacity=90,finishopacity=0,style=1);" width="95%" color=#ccc SIZE=1>
 		<c:if test="${articleStyle2.firstArticleImg==null}">
 			<img class="index-lastnew2-category-contextimg"
 				src="${pageContext.request.contextPath}/pictures/nopicture.png">
@@ -31,19 +31,33 @@
 			onclick="goArticleDetail(this)"
 			articleid="${articleStyle2.articleList[0].id}">${articleStyle2.articleList[0].name}</div>
 		<div class="index-lastnew2-category-context">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${articleStyle2.firstArticleContext}</div>
-		<hr>
+		<br>
 		<c:forEach items="${articleStyle2.articleList}" var="article"
 			varStatus="status">
 			<c:if test="${status.index!=0}">
 				<div class="index-lastnew2-catgory-article">
-					<div class="index-lastnew2-category-point"></div>
+					<c:if test="${status.index==1}">
+						<div class="index-lastnew2-category-point pointcolor1"></div>
+					</c:if>
+					<c:if test="${status.index==2}">
+						<div class="index-lastnew2-category-point pointcolor2"></div>
+					</c:if>
+					<c:if test="${status.index==3}">
+						<div class="index-lastnew2-category-point pointcolor3"></div>
+					</c:if>
+					<c:if test="${status.index==4}">
+						<div class="index-lastnew2-category-point pointcolor4"></div>
+					</c:if>
+					<c:if test="${status.index==5}">
+						<div class="index-lastnew2-category-point pointcolor5"></div>
+					</c:if>
 					<div class="index-lastnew2-category-articlename pointerHand"
 						onmouseover="this.style.color='red'"
 						onmouseout="this.style.color=''"
 						onmouseover="this.style.color='red'"
 						onmouseout="this.style.color=''" onclick="goArticleDetail(this)"
 						articleid="${article.id}">${article.name}&nbsp;&nbsp;&nbsp;&nbsp;08/05</div>
-					<hr>
+					<HR style="FILTER: alpha(opacity=90,finishopacity=0,style=1);" width="95%" color=#ccc SIZE=1>
 				</div>
 			</c:if>
 		</c:forEach>

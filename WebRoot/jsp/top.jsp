@@ -5,10 +5,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/top.js"></script>
 
 <div id="top">
-	<div id="top-top">
-		今天是：<SPAN id="Clock"></SPAN>
-	</div>
-	<div id="top-center"></div>
 	<div id="top-bottom">
 		<div id="top-title">
 			<div firstcategoryid="top-bottom-firstpage" class="top-bottom-title" onclick="titleChoice(this)" style="background-color:red">首页</div>

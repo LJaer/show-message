@@ -1,4 +1,4 @@
-*{margin:0;padding:0;}
+#show-pictures-border{border:1px solid #ccc;margin:0.5em auto 1em;max-width:730px;min-width:544px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;}
 #show-pictures{margin:10px;height:270px;background-image:url(../pictures/showImg/1.jpg);background-repeat:no-repeat;background-size:100% 100%;}
 .show-pictures-page{width:20px;height:15px;float:left;margin:5px;text-align:center;color:#000;}
 #show-pictures-page{float:right;padding-top:240px;}
