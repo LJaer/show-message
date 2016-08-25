@@ -57,7 +57,7 @@
 						onmouseover="this.style.color='red'"
 						onmouseout="this.style.color=''" onclick="goArticleDetail(this)"
 						articleid="${article.id}">${article.name}&nbsp;&nbsp;&nbsp;&nbsp;08/05</div>
-					<HR style="FILTER: alpha(opacity=90,finishopacity=0,style=1);" width="95%" color=#ccc SIZE=1>
+					<HR style="FILTER: alpha(opacity=90,finishopacity=0,style=1);margin-top:9px;" width="95%" color=#ccc SIZE=1>
 				</div>
 			</c:if>
 		</c:forEach>

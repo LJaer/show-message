@@ -2,3 +2,4 @@
 #personalTitle{margin:0 auto;width:65px;height:25px;}
 #csdn_img,#sina_img,#github_img{background-repeat: no-repeat;width:30px;height:30px;}
 #personal_table{width:100px;margin:0 auto;}
+#uyan{padding:5px;margin-top:10px;border:0.5px solid #ccc;max-width:280px; min-width:230px;-moz-border-radius:20px;-webkit-border-radius:20px;border-radius:10px;}

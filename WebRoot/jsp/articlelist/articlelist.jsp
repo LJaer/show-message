@@ -52,5 +52,8 @@
 		</div>
 	</div>
 	<%@ include file="/jsp/bottom.jsp"%>
+	<div>
+		<%@ include file="/jsp/share/jiathis.jsp" %>
+	</div>
 </body>
 </html>

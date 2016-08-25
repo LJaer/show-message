@@ -42,11 +42,8 @@
 	<div id="index-top"><%@ include file="jsp/top.jsp"%></div>
 	<div id="index-center"><%@ include file="jsp/index-center.jsp"%></div>
 	<div id="index-bottom"><%@ include file="jsp/bottom.jsp"%></div>
-
-	<!-- JiaThis Button BEGIN -->
-	<script type="text/javascript"
-		src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r1.gif"
-		charset="utf-8"></script>
-	<!-- JiaThis Button END -->
+	<div>
+		<%@ include file="jsp/share/jiathis.jsp" %>
+	</div>
 </body>
 </html>
