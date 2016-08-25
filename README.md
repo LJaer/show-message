@@ -10,4 +10,9 @@ spring+springmvc+mybatis
 
 **jdk** : jdk7
 
+##2、功能
+###2.1 有言分享
+###2.2 有言评论
+
+
 

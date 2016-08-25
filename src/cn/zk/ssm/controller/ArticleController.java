@@ -51,7 +51,6 @@ public class ArticleController {
 	public int insertArticle(Article article) throws Exception {
 		Date date = new Date();
 		article.setTime(date);
-		article.setReview(0);
 		article.setBrowse(0);
 		return articleService.insertArticle(article);
 	}
@@ -124,6 +123,11 @@ public class ArticleController {
 
 		Article article = articleService.queryArticle(articleId);
 		modelAndView.addObject("article", article);
+		
+		//每次访问文章，访问量加1
+		int browse = article.getBrowse();
+		article.setBrowse(browse+1);
+		articleService.updateByPrimaryKeySelective(article);
 		
 		modelAndView.setViewName("jsp/articledetail/article-detail");
 		return modelAndView;

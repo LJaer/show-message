@@ -66,7 +66,7 @@ function initArticle(page) {
 								html += "'></img>"
 									+ "<div class='articlelist-article-context'>"
 									+ articleStyle1.text
-									+ "</div><div class='articlelist-article-othermsg'>所属分类：随心而记 浏览：96次评论：0次</div></div>";
+									+ "</div><div class='articlelist-article-othermsg'>所属分类：随心而记 浏览：96次</div></div>";
 						}
 						$("#center-left-article").html(html);
 						initPageNav(data.page,data.totalPage);

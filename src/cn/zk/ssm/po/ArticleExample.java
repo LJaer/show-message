@@ -414,66 +414,6 @@ public class ArticleExample {
             addCriterion("browse not between", value1, value2, "browse");
             return (Criteria) this;
         }
-
-        public Criteria andReviewIsNull() {
-            addCriterion("review is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewIsNotNull() {
-            addCriterion("review is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewEqualTo(Integer value) {
-            addCriterion("review =", value, "review");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewNotEqualTo(Integer value) {
-            addCriterion("review <>", value, "review");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewGreaterThan(Integer value) {
-            addCriterion("review >", value, "review");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewGreaterThanOrEqualTo(Integer value) {
-            addCriterion("review >=", value, "review");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewLessThan(Integer value) {
-            addCriterion("review <", value, "review");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewLessThanOrEqualTo(Integer value) {
-            addCriterion("review <=", value, "review");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewIn(List<Integer> values) {
-            addCriterion("review in", values, "review");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewNotIn(List<Integer> values) {
-            addCriterion("review not in", values, "review");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewBetween(Integer value1, Integer value2) {
-            addCriterion("review between", value1, value2, "review");
-            return (Criteria) this;
-        }
-
-        public Criteria andReviewNotBetween(Integer value1, Integer value2) {
-            addCriterion("review not between", value1, value2, "review");
-            return (Criteria) this;
-        }
     }
 
     public static class Criteria extends GeneratedCriteria {

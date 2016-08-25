@@ -2,10 +2,6 @@ package cn.zk.ssm.po;
 
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 public class Article {
     private Integer id;
 
@@ -16,8 +12,6 @@ public class Article {
     private Date time;
 
     private Integer browse;
-
-    private Integer review;
 
     private String html;
 
@@ -45,8 +39,6 @@ public class Article {
         this.name = name == null ? null : name.trim();
     }
 
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getTime() {
         return time;
     }
@@ -61,14 +53,6 @@ public class Article {
 
     public void setBrowse(Integer browse) {
         this.browse = browse;
-    }
-
-    public Integer getReview() {
-        return review;
-    }
-
-    public void setReview(Integer review) {
-        this.review = review;
     }
 
     public String getHtml() {

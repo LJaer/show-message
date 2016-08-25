@@ -7,7 +7,6 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
     <result column="browse" property="browse" jdbcType="INTEGER" />
-    <result column="review" property="review" jdbcType="INTEGER" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="cn.zk.ssm.po.Article" extends="BaseResultMap" >
     <result column="html" property="html" jdbcType="LONGVARCHAR" />
@@ -71,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, secondcategoryid, name, time, browse, review
+    id, secondcategoryid, name, time, browse
   </sql>
   <sql id="Blob_Column_List" >
     html
@@ -126,11 +125,11 @@
   </delete>
   <insert id="insert" parameterType="cn.zk.ssm.po.Article" >
     insert into article (id, secondcategoryid, name, 
-      time, browse, review, 
-      html)
+      time, browse, html
+      )
     values (#{id,jdbcType=INTEGER}, #{secondcategoryid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{time,jdbcType=TIMESTAMP}, #{browse,jdbcType=INTEGER}, #{review,jdbcType=INTEGER}, 
-      #{html,jdbcType=LONGVARCHAR})
+      #{time,jdbcType=TIMESTAMP}, #{browse,jdbcType=INTEGER}, #{html,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.zk.ssm.po.Article" >
     insert into article
@@ -149,9 +148,6 @@
       </if>
       <if test="browse != null" >
         browse,
-      </if>
-      <if test="review != null" >
-        review,
       </if>
       <if test="html != null" >
         html,
@@ -172,9 +168,6 @@
       </if>
       <if test="browse != null" >
         #{browse,jdbcType=INTEGER},
-      </if>
-      <if test="review != null" >
-        #{review,jdbcType=INTEGER},
       </if>
       <if test="html != null" >
         #{html,jdbcType=LONGVARCHAR},
@@ -205,9 +198,6 @@
       <if test="record.browse != null" >
         browse = #{record.browse,jdbcType=INTEGER},
       </if>
-      <if test="record.review != null" >
-        review = #{record.review,jdbcType=INTEGER},
-      </if>
       <if test="record.html != null" >
         html = #{record.html,jdbcType=LONGVARCHAR},
       </if>
@@ -223,7 +213,6 @@
       name = #{record.name,jdbcType=VARCHAR},
       time = #{record.time,jdbcType=TIMESTAMP},
       browse = #{record.browse,jdbcType=INTEGER},
-      review = #{record.review,jdbcType=INTEGER},
       html = #{record.html,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -235,8 +224,7 @@
       secondcategoryid = #{record.secondcategoryid,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       time = #{record.time,jdbcType=TIMESTAMP},
-      browse = #{record.browse,jdbcType=INTEGER},
-      review = #{record.review,jdbcType=INTEGER}
+      browse = #{record.browse,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -256,9 +244,6 @@
       <if test="browse != null" >
         browse = #{browse,jdbcType=INTEGER},
       </if>
-      <if test="review != null" >
-        review = #{review,jdbcType=INTEGER},
-      </if>
       <if test="html != null" >
         html = #{html,jdbcType=LONGVARCHAR},
       </if>
@@ -271,7 +256,6 @@
       name = #{name,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP},
       browse = #{browse,jdbcType=INTEGER},
-      review = #{review,jdbcType=INTEGER},
       html = #{html,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -280,8 +264,7 @@
     set secondcategoryid = #{secondcategoryid,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP},
-      browse = #{browse,jdbcType=INTEGER},
-      review = #{review,jdbcType=INTEGER}
+      browse = #{browse,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

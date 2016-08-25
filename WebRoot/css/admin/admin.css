@@ -28,3 +28,4 @@ a:focus, input:focus {outline-style:none; outline-width:medium; }
 .pageNum{border: 1px solid #999;padding:2px 8px;display: inline-block;}
 .cPageNum{font-weight: bold;padding:2px 5px;color:red;}
 #pageNav a:hover{text-decoration:none;background: #fff4d8; }
+#addArticle-articleContent{max-height: 700px;overflow:scroll;}

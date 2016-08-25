@@ -278,6 +278,7 @@ function cancleUpdateArticle() {
 	$("#updateArticle").hide();
 	$("#articlemanager-articlelist").show();
 	$("#articleManager-addArticle").show();
+	$("#pageNav").show();
 }
 
 // addArticle
@@ -417,6 +418,7 @@ function delArticle(obj) {
 
 function showUpdateArticle(obj) {
 	$("#updateArticle").show();
+	$("#pageNav").hide();
 	var tr = getRowObj(obj);
 	var articleId = $(tr).attr("articleid");
 	var articleName = $(tr).attr("articlename");
@@ -466,12 +468,15 @@ function updateSecondCategory() {
 function showAddArticle() {
 	$("#articlemanager-articlelist").hide();
 	$("#addArticle").show();
+	$("#pageNav").hide();
+	
 }
 
 // hideAddArticle
 function hideAddArticle() {
 	$("#articlemanager-articlelist").show();
 	$("#addArticle").hide();
+	$("#pageNav").show();
 	// 清空编辑的内容
 	$("#addArticle-articleName").val("");
 	var editor = UE.getEditor('addArticle-articleContent');

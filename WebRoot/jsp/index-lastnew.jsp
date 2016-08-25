@@ -29,7 +29,7 @@
 			发表日期：
 			<fmt:formatDate value="${articleStyle1.article.time}"
 				pattern="yyyy-MM-dd HH:mm:ss" />
-			&nbsp;&nbsp;浏览：${articleStyle1.article.browse}次&nbsp;&nbsp;评论：${articleStyle1.article.review}&nbsp;&nbsp;
+			&nbsp;&nbsp;浏览：${articleStyle1.article.browse}次&nbsp;&nbsp;
 			<input type="button" articleid="${articleStyle1.article.id}"
 				class="pointerHand floatleft goArticleDetail" onmouseover="this.style.color='red';"
 				onmouseout="this.style.color='';" onclick="goArticleDetail(this)" value="阅读全文"></input>
