@@ -27,9 +27,12 @@
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxcore.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxscrollbar.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxbuttons.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxpanel.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxscrollbar.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxbuttons.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxpanel.js"></script>
 
 
 <link rel="stylesheet" type="text/css" href="css/index.css">
@@ -39,9 +42,11 @@
 	<div id="index-top"><%@ include file="jsp/top.jsp"%></div>
 	<div id="index-center"><%@ include file="jsp/index-center.jsp"%></div>
 	<div id="index-bottom"><%@ include file="jsp/bottom.jsp"%></div>
-	
+
 	<!-- JiaThis Button BEGIN -->
-<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r1.gif" charset="utf-8"></script>
-<!-- JiaThis Button END -->
+	<script type="text/javascript"
+		src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r1.gif"
+		charset="utf-8"></script>
+	<!-- JiaThis Button END -->
 </body>
 </html>

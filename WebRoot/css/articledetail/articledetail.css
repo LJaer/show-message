@@ -1,11 +1,10 @@
 *{padding:0;margin:0;}
-#articledetail-center{width:1020px;border:1px solid red;margin:0 auto;}
-#articledetail-center-left{width:650px;padding-top:20px;padding:20px;border:1px solid #000;}
-
+body{font-family:"宋体";}
+#articledetail-center{width:1020px;margin:0 auto;min-height: 1000px;}
+#articledetail-center-left{margin-top:10px;margin-bottom:10px;padding:20px;border:1px solid #ccc;max-width:650px;min-width:544px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;float:left;}
+#articledetail-center-right{float:left;margin-top:10px;margin-left:10px;}
 
 #index-top{width:100%;}
-#top-top{width:100%;height:25px;background-color:#D5D5D5;padding-left:40px;padding-top:10px;font-size: 13px;}
-#top-center{width:100%;height:120px;background-image:url(../../pictures/top-center.jpg);background-repeat:no-repeat;background-size:100% 120px;}
 #top-bottom{ 
 width:100%; 
 height:40px; 

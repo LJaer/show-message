@@ -29,14 +29,12 @@
 </head>
 <body>
 	<div id="top">
-		<div id="top-top">
-			今天是：<SPAN id="Clock"></SPAN>
-		</div>
-		<div id="top-center"></div>
 		<div id="top-bottom">
 			<div id="top-title">
 				<div firstcategoryid="top-bottom-firstpage" class="top-bottom-title"
-					onclick="titleChoice(this)" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='red';this.style.cursor='hand';">首页</div>
+					onclick="titleChoice(this)"
+					onmouseout="this.style.backgroundColor=''"
+					onmouseover="this.style.backgroundColor='red';this.style.cursor='hand';">首页</div>
 				<div id="top-title-firstcategory"></div>
 			</div>
 		</div>
@@ -45,9 +43,14 @@
 		<div id="center-left">
 			<div id="center-left-article"></div>
 			<!-- page -->
-			<div id="pageNav"></div>
+			<div id="pageNavBorder">
+				<div id="pageNav"></div>
+			</div>
+		</div>
+		<div id="center-right">
+			<jsp:include page="/jsp/index-center-right.jsp"></jsp:include>
 		</div>
 	</div>
-	<%@ include file="/jsp/bottom.jsp" %>
+	<%@ include file="/jsp/bottom.jsp"%>
 </body>
 </html>

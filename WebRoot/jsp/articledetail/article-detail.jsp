@@ -29,10 +29,6 @@
 <body>
 	<div id="articledetail-top">
 		<div id="top">
-			<div id="top-top">
-				今天是：<SPAN id="Clock"></SPAN>
-			</div>
-			<div id="top-center"></div>
 			<div id="top-bottom">
 				<div id="top-title">
 					<div firstcategoryid="top-bottom-firstpage"
@@ -46,6 +42,9 @@
 		<div id="articledetail-center-left">
 			<c:out value="${article.name}" />
 			<c:out value="${article.html}" escapeXml="false" />
+		</div>
+		<div id="articledetail-center-right">
+			<jsp:include page="/jsp/index-center-right.jsp"></jsp:include>
 		</div>
 	</div>
 	<%@ include file="/jsp/bottom.jsp"%>
