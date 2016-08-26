@@ -1,4 +1,4 @@
-var pageFlag = 1;//记录是否已经初始化pagenav
+var pageFlag = 1;// 记录是否已经初始化pagenav
 
 $(document).ready(function() {
 	initUi();
@@ -100,6 +100,25 @@ function initUi() {
 		}
 	});
 
+	// addCategoryImgWindow
+	var addCategoryImgWindow_offset = $('#addCategoryImgWindow').offset();
+	$('#addCategoryImgWindow').jqxWindow({
+		position : {
+			x : addCategoryImgWindow_offset.left + 300,
+			y : addCategoryImgWindow_offset.top + 150
+		},
+		showCollapseButton : false,
+		maxHeight : 400,
+		maxWidth : 700,
+		minHeight : 200,
+		minWidth : 200,
+		height : 100,
+		width : 300,
+		initContent : function() {
+			$('#addCategoryImgWindow').jqxWindow('focus');
+		}
+	});
+
 	$('#jqxTree').jqxTree({
 		height : '100%'
 	});
@@ -177,7 +196,7 @@ function initUi() {
 		height : 25
 	});
 	$('#cancleAddArticle').on('click', hideAddArticle);
-	//signout
+	// signout
 	$('#signout').jqxButton({
 		width : 50,
 		height : 20
@@ -195,6 +214,11 @@ function initUi() {
 		height : 25
 	});
 	$('#updateArticle-button').on('click', updateArticle);
+	$('#addCategoryImg').jqxButton({
+		width : 100,
+		height : 25
+	});
+	$('#addCategoryImg').on('click', addCategoryImg);
 
 	$('#jqxTree').on('select', function(event) {
 		hideAll();
@@ -216,10 +240,41 @@ function initUi() {
 			$("#admin-right-articlemanager").show();
 			initArticleManage();
 			break;
-
+		case ("categoryImgmanager"):
+			$("#categoryImgManage").show();
+			initCategoryImgManager();
+			break;
 		}
 	});
 	$("#editUser-table-username").val(getCookie("username"));
+}
+
+// addCategoryImg
+function addCategoryImg() {
+	$('#addCategoryImgWindow').jqxWindow('open');
+}
+
+// 上传分类图片
+function uploadFileAddCategoryImg() {
+	var fileObj = document.getElementById("upload-file-categoryImg").files[0]; // 获取文件对象
+	var FileController = "/show-message/insertCategoryImg"; // 接收上传文件的后台地址
+
+	if (fileObj) {
+		// FormData 对象
+		var form = new FormData();
+		form.append("file", fileObj);// 文件对象
+
+		// XMLHttpRequest 对象
+		var xhr = new XMLHttpRequest();
+		xhr.open("post", FileController, true);
+		xhr.onload = function() {
+			alert(xhr.responseText);
+		};
+		xhr.send(form);
+
+	} else {
+		alert("未选择文件");
+	}
 }
 
 // updateArticle
@@ -239,7 +294,7 @@ function updateArticle() {
 			$("#updateArticle").hide();
 			$("#articlemanager-articlelist").show();
 			$("#articleManager-addArticle").show();
-			pageFlag=1;
+			pageFlag = 1;
 			showArticleManagerArticleList();
 		} else {
 			alert("更新失败!");
@@ -248,28 +303,28 @@ function updateArticle() {
 
 }
 
-//signout
-function signout(){
+// signout
+function signout() {
 	delCookie("username");
 	window.self.location = "/show-message/login";
 }
 
 // 初始化分页功能
-function initPageNav(page,pageTotal) {
+function initPageNav(page, pageTotal) {
 	// pageNav
 	// optional set
 	pageNav.pre = "上一页";
 	pageNav.next = "下一页";
 	// goto the page 3 of 33.
-	if(pageFlag==1){
+	if (pageFlag == 1) {
 		pageNav.go(1, pageTotal);
 		pageFlag++;
 	}
-	 //  p:current page number.  
-	 //  pn: page sum.
-	pageNav.fn = function(page,pageTotal){
+	// p:current page number.
+	// pn: page sum.
+	pageNav.fn = function(page, pageTotal) {
 		showArticleManagerArticleList(page);
-		//$("#test").text("Page:"+p+" of "+pn + " pages."); //for jquery
+		// $("#test").text("Page:"+p+" of "+pn + " pages."); //for jquery
 	};
 }
 
@@ -303,7 +358,7 @@ function addArticle() {
 		} else {
 			alert("增加失败");
 		}
-		pageFlag=1;
+		pageFlag = 1;
 	});
 }
 
@@ -322,6 +377,28 @@ function initArticleManage() {
 		}
 		$("#articlemanager-firstcategorylist").html(html);
 	});
+}
+
+// 初始化图标管理
+function initCategoryImgManager() {
+	$
+			.post(
+					'/show-message/selectAllCategoryImg',
+					function(data) {
+						// categoryImgManage_table
+						var categoryImgList = data;
+						var html = "<table id='categoryImgManage_table_in'><tr><th>序号</th><th>imgId</th><th>name</th><th>图像</th></tr>";
+						for (var i = 0; i < categoryImgList.length; i++) {
+							html += "<tr><td>" + (i + 1) + "</td><td>"
+									+ categoryImgList[i].id + "</td><td>"
+									+ categoryImgList[i].name
+									+ "</td><td><img class='categoryIcon' src='" + getRealPath()
+									+ "/pictures/categoryimg/" + categoryImgList[i].name
+									+ "'></td></tr>";
+						}
+						html += "</table>";
+						$("#categoryImgManage_table").html(html);
+					});
 }
 
 // 当选择一级分类后，显示二级分类的列表
@@ -381,7 +458,7 @@ function showArticleManagerArticleList(page) {
 									+ "' articlename='"
 									+ articleList[i].name
 									+ "'><td>"
-									+ ((page-1)*10 + i+1)
+									+ ((page - 1) * 10 + i + 1)
 									+ "</td><td>"
 									+ articleList[i].id
 									+ "</td><td>"
@@ -392,7 +469,7 @@ function showArticleManagerArticleList(page) {
 						}
 						html += "</table>";
 						$('#articlemanager-articlelist').html(html);
-						initPageNav(page,pageTotal);
+						initPageNav(page, pageTotal);
 						$("#pageNav").show();
 					}
 				});
@@ -409,7 +486,7 @@ function delArticle(obj) {
 		if (data != 0) {
 			alert("删除成功");
 			showArticleManagerArticleList();
-			pageFlag=1;
+			pageFlag = 1;
 		} else {
 			alert("删除失败");
 		}
@@ -469,7 +546,7 @@ function showAddArticle() {
 	$("#articlemanager-articlelist").hide();
 	$("#addArticle").show();
 	$("#pageNav").hide();
-	
+
 }
 
 // hideAddArticle
@@ -661,8 +738,8 @@ function showChoiceCategoryImg() {
 		var categoryImgList = data;
 		var html = "";
 		for (var i = 0; i < categoryImgList.length; i++) {
-			html += "<img imgId='" + categoryImgList[i].id + "' src='"
-					+ categoryImgList[i].src
+			html += "<img class='categoryIcon' imgId='" + categoryImgList[i].id + "' src='pictures/categoryimg/"
+					+ categoryImgList[i].name
 					+ "' onclick='cateImgChoice(this)'/>";
 		}
 		$('#choiceCategoryTable').html(html);
@@ -807,6 +884,24 @@ function hideAll() {
 	$("#admin-right #firstCategoryManager").hide();
 	$("#admin-right #secondCategoryManager").hide();
 	$("#admin-right-articlemanager").hide();
+	$("#categoryImgManage").hide();
+}
+
+// 获取绝对路径
+function getRealPath() {
+	// 获取当前网址，如： http://localhost:8083/myproj/view/my.jsp
+	var curWwwPath = window.document.location.href;
+	// 获取主机地址之后的目录，如： myproj/view/my.jsp
+	var pathName = window.document.location.pathname;
+	var pos = curWwwPath.indexOf(pathName);
+	// 获取主机地址，如： http://localhost:8083
+	var localhostPaht = curWwwPath.substring(0, pos);
+	// 获取带"/"的项目名，如：/myproj
+	var projectName = pathName
+			.substring(0, pathName.substr(1).indexOf('/') + 1);
+	// 得到了 http://localhost:8083/myproj
+	var realPath = localhostPaht + projectName;
+	return (realPath);
 }
 
 // Cookies操作

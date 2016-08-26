@@ -164,73 +164,73 @@ public class CategoryImgExample {
             return (Criteria) this;
         }
 
-        public Criteria andSrcIsNull() {
-            addCriterion("src is null");
+        public Criteria andNameIsNull() {
+            addCriterion("name is null");
             return (Criteria) this;
         }
 
-        public Criteria andSrcIsNotNull() {
-            addCriterion("src is not null");
+        public Criteria andNameIsNotNull() {
+            addCriterion("name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSrcEqualTo(String value) {
-            addCriterion("src =", value, "src");
+        public Criteria andNameEqualTo(String value) {
+            addCriterion("name =", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcNotEqualTo(String value) {
-            addCriterion("src <>", value, "src");
+        public Criteria andNameNotEqualTo(String value) {
+            addCriterion("name <>", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcGreaterThan(String value) {
-            addCriterion("src >", value, "src");
+        public Criteria andNameGreaterThan(String value) {
+            addCriterion("name >", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcGreaterThanOrEqualTo(String value) {
-            addCriterion("src >=", value, "src");
+        public Criteria andNameGreaterThanOrEqualTo(String value) {
+            addCriterion("name >=", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcLessThan(String value) {
-            addCriterion("src <", value, "src");
+        public Criteria andNameLessThan(String value) {
+            addCriterion("name <", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcLessThanOrEqualTo(String value) {
-            addCriterion("src <=", value, "src");
+        public Criteria andNameLessThanOrEqualTo(String value) {
+            addCriterion("name <=", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcLike(String value) {
-            addCriterion("src like", value, "src");
+        public Criteria andNameLike(String value) {
+            addCriterion("name like", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcNotLike(String value) {
-            addCriterion("src not like", value, "src");
+        public Criteria andNameNotLike(String value) {
+            addCriterion("name not like", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcIn(List<String> values) {
-            addCriterion("src in", values, "src");
+        public Criteria andNameIn(List<String> values) {
+            addCriterion("name in", values, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcNotIn(List<String> values) {
-            addCriterion("src not in", values, "src");
+        public Criteria andNameNotIn(List<String> values) {
+            addCriterion("name not in", values, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcBetween(String value1, String value2) {
-            addCriterion("src between", value1, value2, "src");
+        public Criteria andNameBetween(String value1, String value2) {
+            addCriterion("name between", value1, value2, "name");
             return (Criteria) this;
         }
 
-        public Criteria andSrcNotBetween(String value1, String value2) {
-            addCriterion("src not between", value1, value2, "src");
+        public Criteria andNameNotBetween(String value1, String value2) {
+            addCriterion("name not between", value1, value2, "name");
             return (Criteria) this;
         }
     }

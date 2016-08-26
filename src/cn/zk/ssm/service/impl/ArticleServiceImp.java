@@ -62,7 +62,7 @@ public class ArticleServiceImp implements ArticleService {
 			int categoryId = firstCategoryList.get(i).getImg();
 			CategoryImg categoryImg = categoryImgService
 					.selectByPrimaryKey(categoryId);
-			articleStyle2.setCategoryImgSrc(categoryImg.getSrc());
+			articleStyle2.setCategoryImgSrc(categoryImg.getName());
 
 			// 根据一级分类id查询该分类下最新的六篇文章
 			List<Article> articleList = articleMapperCustom
@@ -224,7 +224,7 @@ public class ArticleServiceImp implements ArticleService {
 			// 根据ImgId查询图片路径
 			CategoryImg categoryImg = categoryImgService
 					.selectByPrimaryKey(imgId);
-			String imgSrc = categoryImg.getSrc();
+			String imgSrc = categoryImg.getName();
 			articleStyle1.setSecondcategoryimage(imgSrc);
 			articleStyle1List.add(articleStyle1);
 		}

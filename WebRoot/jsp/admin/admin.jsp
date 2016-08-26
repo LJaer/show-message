@@ -55,7 +55,7 @@
 			<ul>
 				<li id="systemmanager" item-expanded='true'><img
 					style='float: left; margin-right: 5px;'
-					src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+					src='http://www.jqwidgets.com/jquery-widgets-demo/images/favorites.png' /><span
 					item-title="true">系统管理</span>
 					<ul>
 						<li id="usermanager" item-expanded='true'><img
@@ -65,7 +65,7 @@
 							<ul>
 								<li id="updateUser" item-expanded='true'><img
 									style='float: left; margin-right: 5px;'
-									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+									src='http://www.jqwidgets.com/jquery-widgets-demo/images/settings.png' /><span
 									item-title="true">修改密码</span></li>
 							</ul></li>
 						<li id="categorymanager" item-expanded='true'><img
@@ -75,12 +75,16 @@
 							<ul>
 								<li id="firstcategorymanager" item-expanded='none'><img
 									style='float: left; margin-right: 5px;'
-									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+									src='http://www.jqwidgets.com/jquery-widgets-demo/images/settings.png' /><span
 									item-title="true">一级分类管理</span></li>
 								<li id="secondcategorymanager" item-expanded='none'><img
 									style='float: left; margin-right: 5px;'
-									src='http://www.jqwidgets.com/jquery-widgets-demo/images/folder.png' /><span
+									src='http://www.jqwidgets.com/jquery-widgets-demo/images/settings.png' /><span
 									item-title="true">二级分类管理</span></li>
+								<li id="categoryImgmanager" item-expanded='none'><img
+									style='float: left; margin-right: 5px;'
+									src='http://www.jqwidgets.com/jquery-widgets-demo/images/settings.png' /><span
+									item-title="true">图标管理</span></li>
 							</ul></li>
 						<li id="articlemanager" item-expanded='true'><img
 							style='float: left; margin-right: 5px;'
@@ -175,7 +179,7 @@
 						<td><input type="button" value="选择图片"
 							id="editFirstCtegoryChoiceImg" onclick="showChoiceCategoryImg()">
 						</td>
-						<td><img id="editFirstCategoryAllreadyChoiceImg" src="" /></td>
+						<td><img class='categoryIcon' id="editFirstCategoryAllreadyChoiceImg" src="" /></td>
 					</tr>
 					<tr>
 						<td><input type="button" value="确认" id="okEidtFirstCategory"
@@ -268,6 +272,28 @@
 							id="cancleUpdateSecondCategory"></td>
 					</tr>
 				</table>
+			</div>
+		</div>
+
+		<!-- 分类图标管理 -->
+		<div id="categoryImgManage" class="displayNone">
+			<input id="addCategoryImg" type="button" value="添加图标" />
+			<div>已有图标列表</div>
+			<div id="categoryImgManage_table"></div>
+
+			<!-- 新增分类图标窗口 -->
+			<div id="addCategoryImgWindow">
+				<div id="addCategoryImgWindow-header">
+					<span><img
+						src="http://www.jqwidgets.com/jquery-widgets-demo/images/movie.png"
+						alt="" style="margin-right: 15px;" />新增分类图标</span>
+				</div>
+				<div id="addCategoryImgWindow-content">
+					<div>输入文件：</div>
+					<input type="file" value="选择文件" id="upload-file-categoryImg"> <br>
+					<a id="start-upload" href="javascript:void(0);"
+						onclick="uploadFileAddCategoryImg();">开始上传</a>
+				</div>
 			</div>
 		</div>
 

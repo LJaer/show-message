@@ -168,7 +168,7 @@ public class ArticleController {
 				int imgId = secondCategory.getImg();
 				//根据ImgId查询图片路径
 				CategoryImg categoryImg = categoryImgService.selectByPrimaryKey(imgId);
-				String imgSrc = categoryImg.getSrc();
+				String imgSrc = categoryImg.getName();
 				articleStyle1.setSecondcategoryimage(imgSrc);
 				articleStyle1List.add(articleStyle1);
 			}

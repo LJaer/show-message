@@ -3,7 +3,7 @@
 <mapper namespace="cn.zk.ssm.mapper.CategoryImgMapper" >
   <resultMap id="BaseResultMap" type="cn.zk.ssm.po.CategoryImg" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="src" property="src" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -64,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, src
+    id, name
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.zk.ssm.po.CategoryImgExample" >
     select
@@ -97,8 +97,8 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.zk.ssm.po.CategoryImg" >
-    insert into category_img (id, src)
-    values (#{id,jdbcType=INTEGER}, #{src,jdbcType=VARCHAR})
+    insert into category_img (id, name)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.zk.ssm.po.CategoryImg" >
     insert into category_img
@@ -106,16 +106,16 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="src != null" >
-        src,
+      <if test="name != null" >
+        name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="src != null" >
-        #{src,jdbcType=VARCHAR},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -131,8 +131,8 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.src != null" >
-        src = #{record.src,jdbcType=VARCHAR},
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -142,7 +142,7 @@
   <update id="updateByExample" parameterType="map" >
     update category_img
     set id = #{record.id,jdbcType=INTEGER},
-      src = #{record.src,jdbcType=VARCHAR}
+      name = #{record.name,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -150,15 +150,15 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.zk.ssm.po.CategoryImg" >
     update category_img
     <set >
-      <if test="src != null" >
-        src = #{src,jdbcType=VARCHAR},
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.zk.ssm.po.CategoryImg" >
     update category_img
-    set src = #{src,jdbcType=VARCHAR}
+    set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

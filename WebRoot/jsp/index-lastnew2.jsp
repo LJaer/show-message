@@ -8,7 +8,7 @@
 <c:forEach items="${articleStyle2List}" var="articleStyle2">
 	<div class="index-lastnew2-category">
 		<img class="index-lastnew2-category-categoryimg"
-			src="${pageContext.request.contextPath}/${articleStyle2.categoryImgSrc}" />
+			src="${pageContext.request.contextPath}/pictures/categoryimg/${articleStyle2.categoryImgSrc}" />
 		<div class="index-lastnew2-category-categoryname pointerHand"
 			onmouseover="this.style.color='red'" onmouseout="this.style.color=''"
 			firstcategoryid="${articleStyle2.firstCategory.id}"

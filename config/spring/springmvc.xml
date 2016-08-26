@@ -53,7 +53,7 @@
 		<!-- 配置jsp路径的后缀 -->
 		<property name="suffix" value=".jsp" />
 	</bean>
-
+	
 </beans>
 
 

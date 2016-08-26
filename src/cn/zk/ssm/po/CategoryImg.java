@@ -3,7 +3,7 @@ package cn.zk.ssm.po;
 public class CategoryImg {
     private Integer id;
 
-    private String src;
+    private String name;
 
     public Integer getId() {
         return id;
@@ -13,11 +13,11 @@ public class CategoryImg {
         this.id = id;
     }
 
-    public String getSrc() {
-        return src;
+    public String getName() {
+        return name;
     }
 
-    public void setSrc(String src) {
-        this.src = src == null ? null : src.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 }

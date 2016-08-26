@@ -13,12 +13,14 @@
 #editFirstCategoryWindow{display:none}
 #addSecondCategoryWindow{display:none}
 #updateSecondCategoryWindow{display:none}
+#addCategoryImgWindow{display:none}
 #admin-right #secondCategoryManager{display:none}
 #admin-right-articlemanager{display:none}
 #choiceFirstCategoryImg{font-size:10px;}
 .floatleft{float:left}
 .admin-right-articlemanager-secondcategory{display:none;}
 .displayNone{display:none;}
+.categoryIcon{width:20px;height:20px;}
 
 /* pageNav*/
 a { color:#2B4A78; text-decoration:none; }

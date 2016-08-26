@@ -10,7 +10,7 @@
 <c:forEach items="${articleStyle1List}" var="articleStyle1">
 	<div class="lastnew" >
 		<img class="lastnew-category-logo"
-			src="${articleStyle1.secondcategoryimage}"></img> <label
+			src="pictures/categoryimg/${articleStyle1.secondcategoryimage}"></img> <label
 			class="lastnew-title pointerHand"
 			articleid="${articleStyle1.article.id}"
 			onclick="goArticleDetail(this)" onmouseover="this.style.color='red';"

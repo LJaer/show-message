@@ -11,4 +11,7 @@ public interface CategoryImgService {
 	
 	//根据id查找CategoryImg
     CategoryImg selectByPrimaryKey(Integer id) throws Exception;
+    
+    //新增一条CategoryImg
+    int insert(CategoryImg record) throws Exception;
 }

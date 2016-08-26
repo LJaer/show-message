@@ -23,4 +23,9 @@ public class CategoryImgServiceImp implements CategoryImgService{
 		return categoryImgMapperCustom.selectByPrimaryKey(id);
 	}
 
+	@Override
+	public int insert(CategoryImg record) throws Exception {
+		return categoryImgMapperCustom.insert(record);
+	}
+
 }
