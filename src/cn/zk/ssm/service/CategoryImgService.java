@@ -14,4 +14,8 @@ public interface CategoryImgService {
     
     //新增一条CategoryImg
     int insert(CategoryImg record) throws Exception;
+    
+    //删除一条CategoryImg
+    int deleteByPrimaryKey(Integer id) throws Exception;
+    
 }

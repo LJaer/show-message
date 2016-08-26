@@ -269,9 +269,10 @@ function uploadFileAddCategoryImg() {
 		xhr.open("post", FileController, true);
 		xhr.onload = function() {
 			alert(xhr.responseText);
+			initCategoryImgManager();
 		};
 		xhr.send(form);
-
+		
 	} else {
 		alert("未选择文件");
 	}
@@ -387,18 +388,32 @@ function initCategoryImgManager() {
 					function(data) {
 						// categoryImgManage_table
 						var categoryImgList = data;
-						var html = "<table id='categoryImgManage_table_in'><tr><th>序号</th><th>imgId</th><th>name</th><th>图像</th></tr>";
+						var html = "<table id='categoryImgManage_table_in'><tr><th>序号</th><th>imgId</th><th>name</th><th>图像</th><th>删除</th></tr>";
 						for (var i = 0; i < categoryImgList.length; i++) {
 							html += "<tr><td>" + (i + 1) + "</td><td>"
 									+ categoryImgList[i].id + "</td><td>"
 									+ categoryImgList[i].name
 									+ "</td><td><img class='categoryIcon' src='" + getRealPath()
 									+ "/pictures/categoryimg/" + categoryImgList[i].name
-									+ "'></td></tr>";
+									+ "'></td><td onclick='delCategoryImg("+categoryImgList[i].id+")'>删除</td></tr>";
 						}
 						html += "</table>";
 						$("#categoryImgManage_table").html(html);
 					});
+}
+
+//删除分类图片
+function delCategoryImg(id){
+	$.post(
+		'/show-message/delCategoryImg',
+		{
+			id:id
+		},
+		function(data){
+			alert("删除成功："+data+"条");
+			initCategoryImgManager();
+		}
+	);
 }
 
 // 当选择一级分类后，显示二级分类的列表

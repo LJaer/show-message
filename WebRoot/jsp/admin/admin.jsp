@@ -368,10 +368,8 @@
 				<input type="button" value="提交" id="updateArticle-button"> <input
 					type="button" value="取消" id="cancleUpdateArticle">
 			</div>
-
 		</div>
 </body>
-
 </html>
 
 
