@@ -21,6 +21,8 @@
 .admin-right-articlemanager-secondcategory{display:none;}
 .displayNone{display:none;}
 .categoryIcon{width:20px;height:20px;}
+.imgManager-picture{width:100px;height:50px;}
+#imgmanager-table{max-height:600px;max-width:600px;overflow:auto;}
 
 /* pageNav*/
 a { color:#2B4A78; text-decoration:none; }
@@ -31,3 +33,6 @@ a:focus, input:focus {outline-style:none; outline-width:medium; }
 .cPageNum{font-weight: bold;padding:2px 5px;color:red;}
 #pageNav a:hover{text-decoration:none;background: #fff4d8; }
 #addArticle-articleContent{max-height: 700px;overflow:scroll;}
+
+
+

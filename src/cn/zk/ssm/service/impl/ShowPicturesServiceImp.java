@@ -19,4 +19,30 @@ public class ShowPicturesServiceImp implements ShowPicturesService {
 		return showPicturesMapperCustom.queryShowPictures();
 	}
 
+	@Override
+	public List<ShowPictures> queryAllPictures() throws Exception {
+		//用来查询所有图片
+		return showPicturesMapperCustom.queryAllPictures();
+	}
+
+	@Override
+	public int insert(ShowPictures record) throws Exception {
+		return showPicturesMapperCustom.insert(record);
+	}
+
+	@Override
+	public int deleteByPrimaryKey(Integer id) throws Exception {
+		return showPicturesMapperCustom.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public ShowPictures selectByPrimaryKey(Integer id) throws Exception {
+		return showPicturesMapperCustom.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public int changeChoice(ShowPictures showPictures) throws Exception {
+		return showPicturesMapperCustom.changeChoice(showPictures);
+	}
+
 }

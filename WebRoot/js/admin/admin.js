@@ -118,6 +118,25 @@ function initUi() {
 			$('#addCategoryImgWindow').jqxWindow('focus');
 		}
 	});
+	
+	//showAddPictureWindow
+	var showAddPictureWindow_offset = $('#showAddPictureWindow').offset();
+	$('#showAddPictureWindow').jqxWindow({
+		position : {
+			x : showAddPictureWindow_offset.left + 300,
+			y : showAddPictureWindow_offset.top + 150
+		},
+		showCollapseButton : false,
+		maxHeight : 200,
+		maxWidth : 300,
+		minHeight : 200,
+		minWidth : 200,
+		height : 100,
+		width : 300,
+		initContent : function() {
+			$('#showAddPictureWindow').jqxWindow('focus');
+		}
+	});
 
 	$('#jqxTree').jqxTree({
 		height : '100%'
@@ -219,6 +238,11 @@ function initUi() {
 		height : 25
 	});
 	$('#addCategoryImg').on('click', addCategoryImg);
+	$('#addShowPicture').jqxButton({
+		width : 100,
+		height : 25
+	});
+	$('#addShowPicture').on('click', showAddPictureWindow);
 
 	$('#jqxTree').on('select', function(event) {
 		hideAll();
@@ -244,9 +268,109 @@ function initUi() {
 			$("#categoryImgManage").show();
 			initCategoryImgManager();
 			break;
+		case ("showimgmanager"):
+			$("#imgmanager").show();
+			initImgManager();
+			break;
 		}
 	});
 	$("#editUser-table-username").val(getCookie("username"));
+}
+
+//上传展示图片
+function uploadFileAddShowPicture(){
+	var fileObj = document.getElementById("upload-file-showpictures").files[0]; // 获取文件对象
+	var FileController = "/show-message/insertShowPicture"; // 接收上传文件的后台地址
+
+	if (fileObj) {
+		// FormData 对象
+		var form = new FormData();
+		form.append("file", fileObj);// 文件对象
+
+		// XMLHttpRequest 对象
+		var xhr = new XMLHttpRequest();
+		xhr.open("post", FileController, true);
+		xhr.onload = function() {
+			alert(xhr.responseText);
+			initImgManager();
+		};
+		xhr.send(form);
+	} else {
+		alert("未选择文件");
+	}
+}
+
+//显示新增图片窗口
+function showAddPictureWindow(){
+	$("#showAddPictureWindow").show();
+}
+
+//初始化图片管理
+function initImgManager(){
+	$.post(
+		'/show-message/queryAllPictures',
+		function(data){
+			var imgList = data;
+			var html = "<table id='imgmanager-table-in'><tr><th>序号</th><th>id</th><th>name</th><th>是否选择</th><th>图片</th><th>修改状态</th><th>删除</th></tr>";
+			for (var i = 0; i < imgList.length; i++) {
+				var img = imgList[i];
+				html += "<tr><td>"+(i+1)+"</td><td>"+img.id+"</td><td>"+img.name+"</td><td>";
+				if(img.choice==1){
+					html += "已选择";
+				}else{
+					html += "未选择";
+				}
+				html += "</td><td><img class='imgManager-picture' src='/show-message/pictures/showImg/"+img.name+"'></td><td onclick='changeShowPictureChoice("+img.id+","+img.choice+")'>修改状态</td><td onclick='delShowPicture("+img.id+")'>删除</td></tr>";
+			}
+			html += "</table>";
+			$("#imgmanager-table").html(html);
+		}
+	);
+}
+
+//改变展示图片选择状态
+function changeShowPictureChoice(id,choice){
+	switch(choice){
+	case null:
+		choice = 1;
+		break;
+	case 1:
+		choice = 0;
+		break;
+	case 0:
+		choice = 1;
+		break;
+	}
+	$.post(
+		'/show-message/changeChoice',
+		{
+			id:id,
+			choice:choice
+		},
+		function(data){
+			if(data>0){
+				initImgManager();
+				alert(" 更新成功"+data+"条");
+			}
+			
+		}
+	);
+}
+
+//删除展示图片
+function delShowPicture(id){
+	$.post(
+		'/show-message/delPicture',
+		{
+			id:id
+		},
+		function(data){
+			alert("删除成功："+data+"条");
+			if(data>0){
+				initImgManager();
+			}
+		}
+	);
 }
 
 // addCategoryImg
@@ -900,6 +1024,7 @@ function hideAll() {
 	$("#admin-right #secondCategoryManager").hide();
 	$("#admin-right-articlemanager").hide();
 	$("#categoryImgManage").hide();
+	$("#imgmanager").hide();
 }
 
 // 获取绝对路径

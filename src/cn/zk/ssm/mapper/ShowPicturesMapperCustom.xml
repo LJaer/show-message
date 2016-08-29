@@ -6,4 +6,15 @@
 	<select id="queryShowPictures" resultType="cn.zk.ssm.po.ShowPictures">
 		SELECT * FROM show_pictures where choice = 1
 	</select>
+	
+	<!-- 查询所有图片 -->
+	<select id="queryAllPictures" resultType="cn.zk.ssm.po.ShowPictures">
+		SELECT * FROM show_pictures
+	</select>
+	
+	<!-- 修改图片选择状态 -->
+	<update id="changeChoice" parameterType="cn.zk.ssm.po.ShowPictures">
+		UPDATE show_pictures set choice = #{choice} where id = #{id} 	
+	</update>
+	
 </mapper>
