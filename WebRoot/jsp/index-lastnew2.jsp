@@ -14,9 +14,11 @@
 			firstcategoryid="${articleStyle2.firstCategory.id}"
 			onclick="goArticleList(this)">${articleStyle2.firstCategory.name}</div>
 		<div class="index-lastnew2-catgory-more pointerHand"
-			onmouseover="this.style.color='red'" onmouseout="this.style.color=''"
 			onclick="goArticleList(this)"
-			firstcategoryid="${articleStyle2.firstCategory.id}">更多</div>
+			firstcategoryid="${articleStyle2.firstCategory.id}">
+			<span class="index-lastnew2-category-more-text">more</span>
+			<span class="index-lastnew2-category-more-circle">></span>	
+		</div>
 		<HR style="FILTER: alpha(opacity=90,finishopacity=0,style=1);margin-left:5px;"
 			width="95%" color=#ccc SIZE=1>
 		<c:if test="${articleStyle2.firstArticleImg==null}">
