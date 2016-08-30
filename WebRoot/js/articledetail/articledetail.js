@@ -47,4 +47,3 @@ function titleChoice(obj){
 
 
 
-

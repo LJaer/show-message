@@ -10,6 +10,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/pictures/logo/favicon.ico" type="image/x-icon" />
 <base href="<%=basePath%>">
 
 <title>文章详情</title>
