@@ -24,6 +24,7 @@
 	type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/share/sharemethod.js"></script>
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/jqwidgets-4.1.2/jqxcore.js"></script>

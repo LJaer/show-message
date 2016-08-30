@@ -22,6 +22,7 @@
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/pagenav1.1.min.js"></script>
 <script type="text/javascript" src="js/articlelist/articlelist.js"></script>
+<script type="text/javascript" src="js/share/sharemethod.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="css/articlelist/articlelist.css">

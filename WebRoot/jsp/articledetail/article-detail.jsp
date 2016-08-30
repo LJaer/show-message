@@ -21,6 +21,7 @@
 
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/articledetail/articledetail.js"></script>
+<script type="text/javascript" src="js/share/sharemethod.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="css/articledetail/articledetail.css">

@@ -127,8 +127,7 @@ public class ArticleServiceImp implements ArticleService {
 		int limit = 10;
 		pageBean.setLimit(limit);
 		// 设置总记录数：
-		int totalCount = articleMapperCustom
-				.findArticleCountBySecondCategoryId(pageBean);
+		int totalCount = articleMapperCustom.findArticleCountBySecondCategoryId(pageBean);
 		pageBean.setTotalCount(totalCount);
 		// 设置总页数
 		int totalPage = 0;
@@ -141,8 +140,7 @@ public class ArticleServiceImp implements ArticleService {
 		// 设置每页显示数据集合
 		int begin = (pageBean.getPage() - 1) * limit;
 		pageBean.setBegin(begin);
-		List<Article> list = articleMapperCustom
-				.findArticleListBySecondCategoryIdAndPage(pageBean);
+		List<Article> list = articleMapperCustom.findArticleListBySecondCategoryIdAndPage(pageBean);
 		pageBean.setList(list);
 		return pageBean;
 	}
@@ -164,8 +162,7 @@ public class ArticleServiceImp implements ArticleService {
 		}
 		pageBean.setSecondCategoryIdList(secondCategoryIdList);
 		// 设置总记录数：
-		int totalCount = articleMapperCustom
-				.findArticleCountBySecondCategoryId(pageBean);
+		int totalCount = articleMapperCustom.findArticleCountBySecondCategoryId(pageBean);
 		pageBean.setTotalCount(totalCount);
 		// 设置总页数
 		int totalPage = 0;
@@ -179,8 +176,7 @@ public class ArticleServiceImp implements ArticleService {
 		int begin = (pageBean.getPage() - 1) * limit;
 		pageBean.setBegin(begin);
 
-		List<Article> list = articleMapperCustom
-				.findArticleListBySecondCategoryIdAndPage(pageBean);
+		List<Article> list = articleMapperCustom.findArticleListBySecondCategoryIdAndPage(pageBean);
 
 		pageBean.setList(articleToArticleStyle1(list));
 		return pageBean;

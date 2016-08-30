@@ -22,8 +22,7 @@
 	</select>
 	
 	<!-- 根据二级分类id查询文章个数 -->
-	<!-- List<Article> findArticleCountBySecondCategoryId(int pageBean) -->
-	<select id="findArticleCountBySecondCategoryId" resultType="java.lang.Integer">
+	<select id="findArticleCountBySecondCategoryId" parameterType="cn.zk.ssm.utils.PageBean" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM ARTICLE WHERE 
 		<foreach collection="secondCategoryIdList" item="secondCategoryId" open="(" close=")" separator="or">
 			<!-- 每次遍历需要拼接的串 -->
