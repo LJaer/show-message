@@ -24,7 +24,7 @@
 			<img class="lastnew-pic"
 				src="${pageContext.request.contextPath}/pictures/nopicture.png"></img>
 		</c:if>
-		<div class="lastnew-context">${articleStyle1.text}</div>
+		<div class="lastnew-context">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${articleStyle1.text}</div>
 		<div class="lastnew-othermsg">
 			发表日期：
 			<fmt:formatDate value="${articleStyle1.article.time}"

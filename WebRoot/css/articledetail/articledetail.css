@@ -4,18 +4,3 @@ body{font-family:"宋体";}
 #articledetail-center-left{margin-top:10px;margin-bottom:10px;padding:20px;border:1px solid #ccc;max-width:650px;min-width:544px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;float:left;}
 #articledetail-center-right{float:left;margin-top:10px;margin-left:10px;}
 
-#index-top{width:100%;}
-#top-bottom{ 
-width:100%; 
-height:40px; 
-padding-left:auto;padding-right:auto; 
-FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#b8c4cb,endColorStr=red); /*IE 6 7 8*/ 
-background: -ms-linear-gradient(top, #000000,  #EEEEEE);        /* IE 10 */
-background:-moz-linear-gradient(top,#000000,#EEEEEE);/*火狐*/ 
-background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#000000), to(#EEEEEE));/*谷歌*/ 
-background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#000000), to(#EEEEEE));      /* Safari 4-5, Chrome 1-9*/
-background: -webkit-linear-gradient(top, rgb(104,104,104), rgb(39,39,39));   /*Safari5.1 Chrome 10+*/
-background: -o-linear-gradient(top, #000000, #EEEEEE);  /*Opera 11.10+*/
-} 
-#top-title{margin:0 auto;width:800px;}
-.top-bottom-title{float: left;font-size:15px;color:#fff;padding:12px;}

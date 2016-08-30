@@ -17,7 +17,8 @@
 			onmouseover="this.style.color='red'" onmouseout="this.style.color=''"
 			onclick="goArticleList(this)"
 			firstcategoryid="${articleStyle2.firstCategory.id}">更多</div>
-		<HR style="FILTER: alpha(opacity=90,finishopacity=0,style=1);" width="95%" color=#ccc SIZE=1>
+		<HR style="FILTER: alpha(opacity=90,finishopacity=0,style=1);margin-left:5px;"
+			width="95%" color=#ccc SIZE=1>
 		<c:if test="${articleStyle2.firstArticleImg==null}">
 			<img class="index-lastnew2-category-contextimg"
 				src="${pageContext.request.contextPath}/pictures/nopicture.png">
@@ -31,7 +32,6 @@
 			onclick="goArticleDetail(this)"
 			articleid="${articleStyle2.articleList[0].id}">${articleStyle2.articleList[0].name}</div>
 		<div class="index-lastnew2-category-context">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${articleStyle2.firstArticleContext}</div>
-		<br>
 		<c:forEach items="${articleStyle2.articleList}" var="article"
 			varStatus="status">
 			<c:if test="${status.index!=0}">
@@ -56,8 +56,22 @@
 						onmouseout="this.style.color=''"
 						onmouseover="this.style.color='red'"
 						onmouseout="this.style.color=''" onclick="goArticleDetail(this)"
-						articleid="${article.id}">${article.name}&nbsp;&nbsp;&nbsp;&nbsp;08/05</div>
-					<HR style="FILTER: alpha(opacity=90,finishopacity=0,style=1);margin-top:9px;" width="95%" color=#ccc SIZE=1>
+						articleid="${article.id}">
+						<c:choose>
+							<c:when test="${article.name.length()>15}">
+								${article.name=article.name.substring(0,15)}
+							</c:when>
+							<c:otherwise>
+								${article.name}
+							</c:otherwise>
+						</c:choose>
+						<span class="index-lastnew2-category-articletime"> <fmt:formatDate
+								value="${article.time}" pattern="MM/dd" />
+						</span>
+					</div>
+					<HR
+						style="FILTER: alpha(opacity=90,finishopacity=0,style=1);margin-top:9px;margin-left:5px;"
+						width="95%" color=#ccc SIZE=1>
 				</div>
 			</c:if>
 		</c:forEach>

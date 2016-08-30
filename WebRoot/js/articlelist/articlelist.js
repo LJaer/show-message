@@ -2,37 +2,9 @@ var pageFlag = 1;//记录是否已经初始化pagenav
 
 
 $(document).ready(function() {
-	// 初始化导航栏
-	initNavigation();
 	// 初始化文章
 	initArticle(1);
 });
-
-// 初始化导航栏
-function initNavigation() {
-	var firstCategoryId = getCookie("firstcategoryid");
-	$
-			.post(
-					'/show-message/queryFirstCategoryList.action',
-					function(data) {
-						var firstCategoryList = data;
-						var html = "";
-						for (var i = 0; i < firstCategoryList.length; i++) {
-							if (firstCategoryId == firstCategoryList[i].id) {
-								html += "<div firstcategoryid='"
-										+ firstCategoryList[i].id
-										+ "' onclick='goArticleList(this)' class='top-bottom-title' style='background-color:red'  onmouseover='this.style.backgroundColor=\"red\";this.style.cursor=\"hand\"'>"
-										+ firstCategoryList[i].name + "</div>";
-							} else {
-								html += "<div firstcategoryid='"
-										+ firstCategoryList[i].id
-										+ "' onclick='goArticleList(this)' class='top-bottom-title' onmouseout='this.style.backgroundColor=\"\"' onmouseover='this.style.backgroundColor=\"red\";this.style.cursor=\"hand\"' >"
-										+ firstCategoryList[i].name + "</div>";
-							}
-						}
-						$("#top-title-firstcategory").html(html);
-					});
-}
 
 // 初始化文章
 function initArticle(page) {
@@ -71,23 +43,6 @@ function initArticle(page) {
 						$("#center-left-article").html(html);
 						initPageNav(data.page,data.totalPage);
 					});
-}
-
-// 文章列表
-function goArticleList(obj) {
-	pageFlag = 1;
-	var firstcategoryid = $(obj).attr("firstcategoryid");
-	setCookie("firstcategoryid", firstcategoryid);
-	initArticle(1);
-	initNavigation();
-}
-
-
-function titleChoice(obj) {
-	$(".top-bottom-title").css("background-color", "");
-	$(obj).css("background-color", 'red');
-	var realPath = getRealPath();
-	window.location = realPath+"/index.jsp";
 }
 
 //初始化分页功能

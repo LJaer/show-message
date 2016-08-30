@@ -29,17 +29,7 @@
 
 </head>
 <body>
-	<div id="articledetail-top">
-		<div id="top">
-			<div id="top-bottom">
-				<div id="top-title">
-					<div firstcategoryid="top-bottom-firstpage"
-						class="top-bottom-title" onclick="titleChoice(this)" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='red';this.style.cursor='hand';">首页</div>
-					<div id="top-title-firstcategory"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<%@ include file="/jsp/top.jsp"%>
 	<div id="articledetail-center">
 		<div id="articledetail-center-left">
 			<c:out value="${article.name}" />
