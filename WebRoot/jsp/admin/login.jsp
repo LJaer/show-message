@@ -19,7 +19,7 @@
 	type='text/css'>
 <!--//webfonts-->
 <script
-	src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 	<script>
